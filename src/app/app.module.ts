@@ -12,13 +12,10 @@ import { InnovationComponent } from './innovation/innovation.component';
     AppComponent,
     HeaderComponent,
     HeroComponent,
-    InnovationComponent
+    InnovationComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
