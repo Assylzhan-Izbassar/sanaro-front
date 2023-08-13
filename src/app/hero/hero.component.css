@@ -1,55 +1,92 @@
+/* WELCOME SECTION */
 .welcome {
-    background-color: var(--secondary-bg-color);
+  background-color: var(--secondary-bg-color);
+  position: relative;
+  z-index: 1;
 }
 
 .welcome__inner {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -36px;
 }
 
 .welcome__content {
-    flex: 1 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome__content-inner {
-    max-width: 636.35px;
+  max-width: 636.35px;
 }
 
 .welcome__header {
-    font-weight: 700;
-    font-size: 56px;
-    line-height: 60px;
-    letter-spacing: -1px;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1px;
 }
 
 .welcome__subheader {
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 400;
-    margin-top: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  margin-top: 24px;
 }
 
 .welcome__action {
-    display: flex;
-    align-items: center;
-    margin-top: 68px;
+  display: flex;
+  align-items: center;
+  margin-top: 68px;
 }
 
 .welcome__btn {
-    flex: 1 0 260.63px;
+  flex: 1 0 260.63px;
 }
 
 .welcome__proof {
-    font-size: 14px;
-    font-family: 400;
-    line-height: 20px;
-    margin-left: 20px;
+  font-size: 14px;
+  font-family: 400;
+  line-height: 20px;
+  margin-left: 20px;
 }
 
 .welcome__img {
-    flex: 0 1 615.8px;
-    object-fit: fill;
+  flex: 0 1 615.8px;
+}
+
+.welcome__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PARTNERS SECTION */
+.partners {
+  max-width: 1369.98px;
+  background-color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.partners_border {
+  margin: 0 auto;
+  border-radius: 47px;
+}
+
+.partners__inner {
+  display: flex;
+  align-items: center;
+  padding: 103px 122px;
+  margin-top: -36px;
+}
+
+.partners__item {
+  margin-left: 40px;
+}
+
+.partners__item:first-child {
+  margin-left: 0px;
 }
