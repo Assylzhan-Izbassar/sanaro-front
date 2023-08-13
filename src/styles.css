@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --white: #FFFFFF;
+    --main-bg-color: #FDF8FA;
+    --secondary-bg-color: #FFE7F0;
+    --btn-bg-color: #ff0060;
+    --primary-txt-color: #000000;
+    --secondary-txt-color: #090909;
+    --subheading-txt-color: rgba(0, 0, 0, 0.62);
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    /* maybe no */
+    margin: 0px;
+    /*  */
+    background-color: var(--main-bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+a,
+a:visited,
+a:hover {
+  color: var(--primary-txt-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-txt-color);
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+.btn {
+    color: var(--white);
+    background-color: var(--btn-bg-color);
+    border-width: 0px;
+    border-radius: 68.485px;
+    padding: 17px 58px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.36px;
+    cursor: pointer;
+}
+
+.btn_sb {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    cursor: pointer;
+}
+
+.btn:hover, .btn_sb:hover {
+    background-color: var(--secondary-bg-color);
+    color: var(--btn-bg-color);
+    border: 2px solid var(--btn-bg-color);
+    padding: 15px 56px;
+}

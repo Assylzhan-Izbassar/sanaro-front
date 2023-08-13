@@ -1,0 +1,27 @@
+.header {
+    max-height: 68.31px;
+}
+
+.header__inner {
+    height: 100%;
+    padding: 17px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__list {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+}
+
+.header__item {
+    margin-left: 25px;
+}
+
+.header__item:first-child {
+    margin-left: 0px;
+}
