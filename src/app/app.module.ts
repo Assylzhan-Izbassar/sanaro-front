@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 import { InnovationComponent } from './innovation/innovation.component';
+import { FeaturesComponent } from './features/features.component';
+import { SetsComponent } from './sets/sets.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { InnovationComponent } from './innovation/innovation.component';
     HeaderComponent,
     HeroComponent,
     InnovationComponent,
+    FeaturesComponent,
+    SetsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

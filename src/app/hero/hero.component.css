@@ -79,7 +79,7 @@
 .partners__inner {
   display: flex;
   align-items: center;
-  padding: 103px 122px;
+  padding: 103px 0px;
   margin-top: -36px;
 }
 

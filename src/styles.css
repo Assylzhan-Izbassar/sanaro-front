@@ -15,6 +15,7 @@ body {
   margin: 0px;
   /*  */
   background-color: var(--main-bg-color);
+  color: var(--primary-txt-color);
 }
 
 h1,
@@ -48,9 +49,17 @@ li {
   list-style: none;
 }
 
+.container,
+.container_inner {
+  margin: 0 auto;
+}
+
 .container {
   max-width: 1110px;
-  margin: 0 auto;
+}
+
+.container_inner {
+  max-width: 1018px;
 }
 
 .btn {
