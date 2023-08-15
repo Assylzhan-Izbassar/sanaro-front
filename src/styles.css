@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 /* GENERAL STYLE SHEET */
 :root {
   --white: #ffffff;
@@ -7,6 +9,7 @@
   --primary-txt-color: #000000;
   --secondary-txt-color: #090909;
   --subheading-txt-color: rgba(0, 0, 0, 0.62);
+  --line-bg-color: rgba(0, 0, 0, 0.3);
 }
 
 body {

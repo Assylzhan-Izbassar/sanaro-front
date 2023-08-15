@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { AuthService } from './services/auth.service';
+import { DialogService } from './services/dialog.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +13,8 @@ import { HeroComponent } from './hero/hero.component';
 import { InnovationComponent } from './innovation/innovation.component';
 import { FeaturesComponent } from './features/features.component';
 import { SetsComponent } from './sets/sets.component';
+import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
+import { QuestionnaireDialogComponent } from './questionnaire-dialog/questionnaire-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +24,16 @@ import { SetsComponent } from './sets/sets.component';
     InnovationComponent,
     FeaturesComponent,
     SetsComponent,
+    AuthDialogComponent,
+    QuestionnaireDialogComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+  ],
+  providers: [AuthService, DialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
