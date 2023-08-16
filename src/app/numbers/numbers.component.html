@@ -1,0 +1,19 @@
+<!-- NUMBERS SECTION -->
+<div class="numbers">
+  <div class="container">
+    <div class="numbers__inner">
+      <!-- NUMBERS LIST -->
+      <div class="numbers__list">
+        <!-- LIST ITEM -->
+        <div *ngFor="let socialNumber of socialNumbers" class="numbers__item">
+          <div class="numbers__num">
+            <h1>{{ socialNumber.getNumber() }}</h1>
+          </div>
+          <div class="numbers__desc">
+            <p>{{ socialNumber.getDesc() }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

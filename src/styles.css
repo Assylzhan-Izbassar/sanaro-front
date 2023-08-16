@@ -1,5 +1,3 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-
 /* GENERAL STYLE SHEET */
 :root {
   --white: #ffffff;
@@ -14,9 +12,7 @@
 
 body {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  /* maybe no */
   margin: 0px;
-  /*  */
   background-color: var(--main-bg-color);
   color: var(--primary-txt-color);
 }

@@ -1,0 +1,29 @@
+/* NUMBERS SECTION */
+.numbers__inner {
+  margin-top: 80px;
+}
+
+.numbers__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.numbers__item {
+  max-width: 238px;
+}
+
+.numbers__item:last-child {
+  max-width: 180px;
+}
+
+.numbers__num {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.numbers__desc {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 30px;
+}

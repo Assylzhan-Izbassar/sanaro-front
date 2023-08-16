@@ -1,0 +1,21 @@
+<!-- TESTIMONIALS SECTION -->
+<div class="testimonials">
+    <div class="container">
+        <div class="testimonials__inner">
+            <!-- TESTIMONIALS LIST -->
+            <div class="testimonials__list">
+                <div *ngFor="let testimonial of testimonials" class="testimonials__item">
+                    <div class="testimonials__text">
+                        <p>{{testimonial.getText()}}</p>
+                    </div>
+                    <div class="testimonials__avatar">
+                        <img src="{{testimonial.getAvatarPath()}}" alt="user-avatar">
+                    </div>
+                    <div class="testimonials__username">
+                        <h4>{{testimonial.getUsername()}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

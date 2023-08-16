@@ -15,6 +15,8 @@ import { FeaturesComponent } from './features/features.component';
 import { SetsComponent } from './sets/sets.component';
 import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { QuestionnaireDialogComponent } from './questionnaire-dialog/questionnaire-dialog.component';
+import { NumbersComponent } from './numbers/numbers.component';
+import { TestimonialsComponent } from './testimonials/testimonials.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { QuestionnaireDialogComponent } from './questionnaire-dialog/questionnai
     SetsComponent,
     AuthDialogComponent,
     QuestionnaireDialogComponent,
+    NumbersComponent,
+    TestimonialsComponent,
   ],
   imports: [
     BrowserModule,
