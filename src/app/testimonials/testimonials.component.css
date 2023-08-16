@@ -23,10 +23,11 @@
   max-width: 285.13px;
   font-size: 18px;
   line-height: 28px;
+  margin-bottom: 58px;
+  flex: 1 1;
 }
 
 .testimonials__avatar {
-  margin-top: 58px;
   max-width: 60px;
   max-height: 60px;
 }
