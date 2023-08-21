@@ -24,6 +24,7 @@
   font-weight: 500;
   letter-spacing: -0.5px;
   line-height: 24px;
+  color: var(--primary-txt-color);
 }
 
 .auth__subtitle {
@@ -32,6 +33,7 @@
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.1px;
+  color: var(--subheading-txt-color);
 }
 
 /* AUTH INPUTS */

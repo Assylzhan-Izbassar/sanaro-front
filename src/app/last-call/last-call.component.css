@@ -1,0 +1,69 @@
+.call {
+  background-color: var(--secondary-bg-color);
+}
+
+.call__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0px;
+  margin-top: 80px;
+}
+
+.call__header {
+  text-align: center;
+}
+
+.call__title {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.call__subtitle {
+  margin-top: 20px;
+  color: var(--subheading-txt-color);
+}
+
+.call__body {
+  margin-top: 40px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.call__item {
+  width: 100%;
+  margin-top: 26px;
+}
+
+.call__item:first-child {
+  margin-top: 0px;
+}
+
+.call__item input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 0px;
+}
+
+.call__item input,
+.call__item input::placeholder {
+  font-size: 17px;
+  font-family: "Inter";
+  font-weight: 500;
+  letter-spacing: -1.5%;
+  line-height: 17px;
+  color: var(--primary-txt-color);
+}
+
+.call__item input:focus {
+  border: 2px solid var(--btn-bg-color);
+  outline: none !important;
+  padding: 16px 18px;
+}
+
+.call__action {
+  margin-top: 40px;
+}

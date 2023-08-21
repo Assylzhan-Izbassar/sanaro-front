@@ -17,6 +17,8 @@ import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { QuestionnaireDialogComponent } from './questionnaire-dialog/questionnaire-dialog.component';
 import { NumbersComponent } from './numbers/numbers.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { HandleObjComponent } from './handle-obj/handle-obj.component';
+import { LastCallComponent } from './last-call/last-call.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
     QuestionnaireDialogComponent,
     NumbersComponent,
     TestimonialsComponent,
+    HandleObjComponent,
+    LastCallComponent,
   ],
   imports: [
     BrowserModule,
