@@ -1,5 +1,12 @@
 .header {
   max-height: 68.31px;
+  background-color: var(--white);
+}
+
+.header_pos {
+  position: sticky;
+  top: 0px;
+  z-index: 10;
 }
 
 .header__inner {

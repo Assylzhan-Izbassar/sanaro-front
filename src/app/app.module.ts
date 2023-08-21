@@ -19,6 +19,7 @@ import { NumbersComponent } from './numbers/numbers.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { HandleObjComponent } from './handle-obj/handle-obj.component';
 import { LastCallComponent } from './last-call/last-call.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LastCallComponent } from './last-call/last-call.component';
     TestimonialsComponent,
     HandleObjComponent,
     LastCallComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

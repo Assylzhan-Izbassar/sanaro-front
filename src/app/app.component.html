@@ -1,14 +1,23 @@
 <!-- CONTENT OF THE LANDING PAGE -->
 <div class="content">
-  <app-header></app-header>
-  <app-hero></app-hero>
-  <app-innovation></app-innovation>
-  <app-features></app-features>
-  <app-sets></app-sets>
-  <app-numbers></app-numbers>
-  <app-testimonials></app-testimonials>
-  <!-- <app-handle-obj></app-handle-obj> -->
-  <app-last-call></app-last-call>
+  <div class="content__inner">
+    <!-- MAIN CONTENT -->
+    <div class="content__body">
+      <app-header></app-header>
+      <app-hero></app-hero>
+      <app-innovation></app-innovation>
+      <app-features></app-features>
+      <app-sets></app-sets>
+      <app-numbers></app-numbers>
+      <app-testimonials></app-testimonials>
+      <app-handle-obj></app-handle-obj>
+      <app-last-call></app-last-call>
+    </div>
+    <!-- FOOTER OF THE LANDING PAGE -->
+    <div class="content__footer">
+      <app-footer></app-footer>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

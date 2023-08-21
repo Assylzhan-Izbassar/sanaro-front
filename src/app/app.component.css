@@ -2,6 +2,22 @@
   margin: 0 auto;
   max-width: 1440px;
 }
+
+.content__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content__body {
+  flex: 1 1;
+}
+
+.content__footer {
+  flex: 0 1;
+}
+
+
 /* :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
