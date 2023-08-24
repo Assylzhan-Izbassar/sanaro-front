@@ -1,39 +1,36 @@
 // social-numbers.model.ts
 
 export class SocialNumber {
-  private id: number;
-  private number: string;
-  private desc: string;
-
+  private _id: number;
+  private _number: string;
+  private _desc: string;
   private static count: number = 0;
 
   constructor(number: string, desc: string) {
-    this.id = SocialNumber.count;
-    this.number = number;
-    this.desc = desc;
+    this._id = SocialNumber.count;
+    this._number = number;
+    this._desc = desc;
     SocialNumber.count++;
   }
 
   //   getter for id
-  getId(): number {
-    return this.id;
+  public get id(): number {
+    return this._id;
   }
 
-  // setter and getter for the number
-  setNumber(number: string) {
-    this.number = number;
+  // getter and setter for number
+  public get number(): string {
+    return this._number;
+  }
+  public set number(value: string) {
+    this._number = value;
   }
 
-  getNumber(): string {
-    return this.number;
+  // getter and setter for desc
+  public get desc(): string {
+    return this._desc;
   }
-
-  // setter and getter for the desc
-  setDesc(desc: string) {
-    this.desc = desc;
-  }
-
-  getDesc(): string {
-    return this.desc;
+  public set desc(value: string) {
+    this._desc = value;
   }
 }

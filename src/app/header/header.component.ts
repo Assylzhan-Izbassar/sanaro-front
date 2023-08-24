@@ -19,7 +19,6 @@ export class HeaderComponent {
         this.header?.classList.remove('sticky');
       }
     }
-    console.log(this.sticky);
   }
 }
 

@@ -1,12 +1,25 @@
 <div class="handle">
     <div class="container">
-        <div class="handle__inner">
+        <div class="handle__inner handle__inner_top">
             <div class="handle__title">
                 <h2>Часто задаваемые вопросы</h2>
             </div>
+            <!-- HANDLE QUESTIONS -->
             <div class="handle__list">
-                <div class="handle__item">
-
+                <div *ngFor="let objection of objections; let idxOfElem=index;" class="handle__item">
+                    <!-- HANDLE QUESTION -->
+                    <div class="handle__question question" (click)="questionDropdown(idxOfElem)">
+                        <div class="question__text">
+                            <p>{{objection.question}}</p>
+                        </div>
+                        <div class="question__icon">
+                            <img src="../../assets/core/arrow.svg" alt="arrow">
+                        </div>
+                    </div>
+                    <!-- HANDLE ANSWER -->
+                    <div class="handle__answer">
+                        <p>{{objection.answer}}</p>
+                    </div>
                 </div>
             </div>
         </div>

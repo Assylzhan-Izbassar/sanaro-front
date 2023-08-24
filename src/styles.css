@@ -8,6 +8,7 @@
   --secondary-txt-color: #090909;
   --subheading-txt-color: rgba(0, 0, 0, 0.62);
   --line-bg-color: rgba(0, 0, 0, 0.3);
+  --stroke-color: #e8e4e6;
 }
 
 body {

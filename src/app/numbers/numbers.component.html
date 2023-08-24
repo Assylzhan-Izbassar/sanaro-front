@@ -7,10 +7,10 @@
         <!-- LIST ITEM -->
         <div *ngFor="let socialNumber of socialNumbers" class="numbers__item">
           <div class="numbers__num">
-            <h1>{{ socialNumber.getNumber() }}</h1>
+            <h1>{{ socialNumber.number }}</h1>
           </div>
           <div class="numbers__desc">
-            <p>{{ socialNumber.getDesc() }}</p>
+            <p>{{ socialNumber.desc }}</p>
           </div>
         </div>
       </div>
