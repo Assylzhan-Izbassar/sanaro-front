@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import { AuthDialogComponent } from '../../auth-dialog/auth-dialog.component';
 
 @Injectable({
   providedIn: 'root',

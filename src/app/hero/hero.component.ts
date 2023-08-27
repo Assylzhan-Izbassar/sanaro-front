@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DialogService } from '../services/dialog.service';
+import { DialogService } from '../services/dialog/dialog.service';
 
 @Component({
   selector: 'app-hero',

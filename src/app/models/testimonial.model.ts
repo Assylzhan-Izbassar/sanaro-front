@@ -1,24 +1,42 @@
 // testimonial.model.ts
 
+export interface TestimonialData {
+  id?: number;
+  content: string;
+  user_description: string;
+  user_avatar: string;
+}
+
 export class Testimonial {
-  private _id: number;
+  private _id?: number;
   private _text: string;
   private _username: string;
   private _avatarPath: string;
 
   private static count = 0;
 
-  constructor(text: string, username: string, avatarPath: string) {
-    this._id = Testimonial.count;
-    this._text = text;
-    this._username = username;
-    this._avatarPath = avatarPath;
-    Testimonial.count++;
+  constructor(data: TestimonialData) {
+    if (!data.id) {
+      this._id = Testimonial.count;
+      Testimonial.count++;
+    } else {
+      this._id = data.id;
+    }
+    this._text = data.content;
+    this._username = data.user_description;
+    if (!data.user_avatar) {
+      this._avatarPath = `../../assets/testimonials/default-img.svg`;
+    } else {
+      this._avatarPath = data.user_avatar;
+    }
   }
 
-  // getter for id
+  // getter and setter for id
   public get id(): number {
-    return this._id;
+    return this._id ? this._id : -1;
+  }
+  public set id(value: number) {
+    this._id = value;
   }
 
   // getter and setter for text

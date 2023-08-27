@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AuthService } from './services/auth.service';
-import { DialogService } from './services/dialog.service';
+import { AuthService } from './services/auth/auth.service';
+import { DialogService } from './services/dialog/dialog.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   providers: [AuthService, DialogService],
   bootstrap: [AppComponent],
