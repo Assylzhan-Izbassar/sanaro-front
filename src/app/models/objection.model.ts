@@ -4,6 +4,7 @@ export class Objection {
   private _id: number;
   private _question: string;
   private _answer: string;
+  private _answerVisible: boolean = false;
   private static count: number = 0;
 
   constructor(question: string, answer: string) {
@@ -32,5 +33,13 @@ export class Objection {
   }
   public set answer(value: string) {
     this._answer = value;
+  }
+
+  // getter and setter for answerVisible
+  public get answerVisible(): boolean {
+    return this._answerVisible;
+  }
+  public set answerVisible(value: boolean) {
+    this._answerVisible = value;
   }
 }
