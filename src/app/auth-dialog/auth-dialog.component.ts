@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
+import { DialogService } from '../services/dialog/dialog.service';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -7,5 +9,40 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AuthDialogComponent {
+  private _username: string = '';
+  private _password: string = '';
 
+  // getter and setter for _username
+  public get username(): string {
+    return this._username;
+  }
+  public set username(value: string) {
+    this._username = value;
+  }
+
+  // getter and setter for _password
+  public get password(): string {
+    return this._password;
+  }
+  public set password(value: string) {
+    this._password = value;
+  }
+
+  constructor(
+    private authService: AuthService,
+    private dialogService: DialogService
+  ) {}
+
+  login(): void {
+    this.authService.login(this.username, this.password).subscribe(
+      (response) => {
+        console.log(response.access);
+        this.authService.saveToken(response.access);
+        this.dialogService.closeDialog();
+      },
+      (error) => {
+        console.log('Login error:', error);
+      }
+    );
+  }
 }

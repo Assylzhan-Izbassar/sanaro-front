@@ -89,21 +89,23 @@
 }
 
 /* AUTH ACTION */
-.auth__action {
-  margin-top: 24px;
-}
-
 .auth__btn {
   width: 100%;
+  margin-top: 24px;
 }
 
 .auth__btn button {
   width: 100%;
 }
 
+.auth__action {
+  /* margin-top: 24px; */
+  margin-top: 12px;
+}
+
 .auth__remember {
   text-align: right;
-  margin-top: 12px;
+  /* margin-top: 12px; */
 }
 
 /* DECORE OF THE STRAIGHT LINE */

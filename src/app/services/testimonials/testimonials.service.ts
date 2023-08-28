@@ -16,6 +16,16 @@ export class TestimonialsService {
   private _apiUrl: string = environment.apiUrl;
   private _url: string = `${this.apiUrl}/content_management/testimonials/`
 
+  // getter for apiUrl
+  public get apiUrl(): string {
+    return this._apiUrl;
+  }
+
+  // getter for url
+  public get url(): string {
+    return this._url;
+  }
+
   constructor(private http: HttpClient) {}
 
   // GET request
@@ -26,16 +36,6 @@ export class TestimonialsService {
       }),
       catchError(this.handleError)
     );
-  }
-
-  // getter for apiUrl
-  public get apiUrl(): string {
-    return this._apiUrl;
-  }
-
-  // getter for url
-  public get url(): string {
-    return this._url;
   }
 
   private handleError(error: HttpErrorResponse) {
