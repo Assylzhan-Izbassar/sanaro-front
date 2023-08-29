@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { DialogService } from '../services/dialog/dialog.service';
 

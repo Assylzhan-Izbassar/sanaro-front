@@ -1,53 +1,27 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse,
-} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Testimonial, TestimonialData } from 'src/app/models/testimonial.model';
+import { BaseService } from '../core/base.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TestimonialsService {
-  private _apiUrl: string = environment.apiUrl;
-  private _url: string = `${this.apiUrl}/content_management/testimonials/`
+export class TestimonialsService extends BaseService {
 
-  // getter for apiUrl
-  public get apiUrl(): string {
-    return this._apiUrl;
-  }
-
+  private _url: string = `${this.apiUrl}/content_management/testimonials/`;
   // getter for url
   public get url(): string {
     return this._url;
   }
 
-  constructor(private http: HttpClient) {}
-
   // GET request
   getTestimonials(): Observable<Testimonial[]> {
     return this.http.get<TestimonialData[]>(this.url).pipe(
       map((response: any[]) => {
-        return response.map(item => new Testimonial(item));
+        return response.map((item) => new Testimonial(item));
       }),
-      catchError(this.handleError)
+      catchError(super.handleError),
     );
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'An error occurred';
-
-    if (error.error instanceof ErrorEvent) {
-      // Client-side error
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      errorMessage = `Error code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
   }
 }

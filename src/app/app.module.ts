@@ -39,6 +39,7 @@ import { FooterComponent } from './footer/footer.component';
     HandleObjComponent,
     LastCallComponent,
     FooterComponent,
+    QuestionnaireDialogComponent,
   ],
   imports: [
     BrowserModule,

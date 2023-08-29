@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthDialogComponent } from '../../auth-dialog/auth-dialog.component';
+import { QuestionnaireDialogComponent } from 'src/app/questionnaire-dialog/questionnaire-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -19,15 +20,25 @@ export class DialogService {
   constructor(private dialog: MatDialog) {}
 
   openDialog(data: any): void {
-    this.dialogRef = this.dialog.open(AuthDialogComponent, {
-      panelClass: 'custom-modalbox',
-      width: '50vw',
-      data: data,
-    });
 
-    this.dialogRef.afterClosed().subscribe(() => {
-      // Handle any action after the dialog is closed
-    });
+    if(localStorage.getItem('jwtToken')) {
+      this.dialogRef = this.dialog.open(QuestionnaireDialogComponent, {
+        width: '50vw',
+        data: data,
+      })
+    } else {
+      this.dialogRef = this.dialog.open(AuthDialogComponent, {
+        panelClass: 'custom-modalbox',
+        width: '50vw',
+        data: data,
+      });
+    }
+
+    if(this.dialogRef) {
+      this.dialogRef.afterClosed().subscribe(() => {
+        // Handle any action after the dialog is closed
+      });
+    }
   }
 
   closeDialog(): void {
