@@ -1,23 +1,33 @@
 <div class="questionnaire">
-  <div class="questionnaire__inner">
-    <div
-      class="questionnaire__check"
-      *ngIf="questions.length > 0; then question; else none"
-    ></div>
+  <div class="questionnaire-container">
+    <div class="questionnaire__inner">
+      <div
+        class="questionnaire__check"
+        *ngIf="questions.length > 0; then question; else none"
+      ></div>
 
-    <ng-template #question class="questionnaire__content">
-      <div class="question">
-        <h2>{{ questions[currentQuestionIndex].question_text }}</h2>
-      </div>
-      <div class="answer" *ngFor="let answer of currentAnswers">
-        <div class="answer__item">
-            <p>{{answer.answer_text}}</p>
+      <ng-template #question class="questionnaire__content">
+        <div class="question">
+          <h2 class="question__text">
+            {{ questions[currentQuestionIndex].question_text }}
+          </h2>
         </div>
-      </div>
-    </ng-template>
+        <div class="answer answer_top">
+          <div class="answer__item" *ngFor="let answer of currentAnswers">
+            <input type="radio" />
+            <div class="answer__text">
+              <div>{{ answer.answer_text }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="questionnaire__button">
+            <button class="btn btn_pos" (click)="onAnswerSelected()">Продолжить</button>
+        </div>
+      </ng-template>
 
-    <ng-template #none class="questionnaire__none">
-      <h1>Упс! Вопросы к сожалению не подгрузились!</h1>
-    </ng-template>
+      <ng-template #none class="questionnaire__content">
+        <h1>Упс! Вопросы к сожалению не подгрузились!</h1>
+      </ng-template>
+    </div>
   </div>
 </div>

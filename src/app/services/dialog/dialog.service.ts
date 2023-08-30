@@ -23,6 +23,7 @@ export class DialogService {
 
     if(localStorage.getItem('jwtToken')) {
       this.dialogRef = this.dialog.open(QuestionnaireDialogComponent, {
+        panelClass: 'custom-modalbox',
         width: '50vw',
         data: data,
       })

@@ -1,0 +1,61 @@
+/* QUESTIONNAIRE DIALOG */
+.questionnaire {
+    color: var(--btn-bg-color);
+}
+
+.questionnaire-container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.questionnaire__inner {
+  margin: 52px 0px;
+}
+
+.questionnaire__content {
+}
+/* QUESTION */
+.question {
+}
+
+.question__text {
+  font-size: 24px;
+}
+
+/* ANSWER */
+.answer {
+  max-width: 968px;
+}
+
+.answer_top {
+    margin-top: 27px;
+}
+
+.answer__item {
+  display: flex;
+  padding: 20px 23px;
+  background-color: var(--secondary-bg-color);
+  margin-top: 16px;
+  border-radius: 20.5px;
+}
+
+.answer__item:first-child {
+  margin-top: 0px;
+}
+
+.answer__text {
+  font-size: 19px;
+  margin-left: 8px;
+}
+
+.question__text,
+.answer__text {
+  font-family: "Inter";
+  font-weight: 500;
+  letter-spacing: -1.5%;
+}
+
+.btn_pos {
+    width: 100%;
+    margin-top: 30px;
+}
