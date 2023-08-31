@@ -13,8 +13,8 @@
           </h2>
         </div>
         <div class="answer answer_top">
-          <div class="answer__item" *ngFor="let answer of currentAnswers">
-            <input type="radio" />
+          <div class="answer__item" *ngFor="let answer of currentAnswers" (click)="onSelectOption(answer.id!)">
+            <input type="radio" class="answer__input" [(ngModel)]="selectedOption" [value]="answer.id"/>
             <div class="answer__text">
               <div>{{ answer.answer_text }}</div>
             </div>

@@ -20,7 +20,7 @@ export class TestimonialsComponent implements OnInit {
     this.service.getTestimonials().subscribe(
       (data) => {
         this.testimonials = data;
-        console.log('Testimonials is fetched');
+        // console.log('Testimonials is fetched');
       },
       (error) => {
         console.error('Error fetching testimonials: ', error);

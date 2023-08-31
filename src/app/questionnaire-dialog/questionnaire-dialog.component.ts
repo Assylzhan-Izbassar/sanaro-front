@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ElementRef } from '@angular/core';
 import { Question } from '../models/question.model';
 import { QuestionsService } from '../services/questions/questions.service';
 import { AnswersService } from '../services/answers/answers.service';
@@ -28,10 +28,14 @@ export class QuestionnaireDialogComponent implements OnInit {
   // slideState = 'in'
   questions: Question[] = [];
   currentAnswers: Answer[] = [];
+  selectedOption: number = -1;
+  continueBtn?: HTMLElement;
+  isContBtnShow: boolean = false;
 
   constructor(
     private questionService: QuestionsService,
     private answerService: AnswersService,
+    private elementRef: ElementRef,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -43,6 +47,27 @@ export class QuestionnaireDialogComponent implements OnInit {
     this.currentQuestionIndex++;
     this.currentQuestionIndex %= this.questions.length;
     this.fetchAnswer();
+    this.showContBtn(false);
+  }
+
+  onSelectOption(option: number): void {
+    this.selectedOption = option;
+    if (!this.continueBtn) {
+      this.continueBtn = this.elementRef.nativeElement.querySelector('.questionnaire__button')!;
+    }
+    this.showContBtn(true);
+  }
+
+  private showContBtn(value: boolean) {
+    if (this.continueBtn) {
+      if (value) {
+        this.continueBtn.style.display = 'block';
+        this.isContBtnShow = true;
+      } else {
+        this.continueBtn.style.display = 'none';
+        this.isContBtnShow = false;
+      }
+    }
   }
 
   private fetchQuestions(): void {
