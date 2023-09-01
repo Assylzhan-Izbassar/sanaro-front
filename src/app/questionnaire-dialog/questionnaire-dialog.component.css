@@ -4,12 +4,12 @@
 }
 
 .questionnaire-container {
-  max-width: 90%;
+  max-width: var(--dialog-max-width);
   margin: 0 auto;
 }
 
 .questionnaire__inner {
-  margin: 52px 0px;
+  margin: var(--dialog-top-bottom) 0px;
 }
 
 /* QUESTION */

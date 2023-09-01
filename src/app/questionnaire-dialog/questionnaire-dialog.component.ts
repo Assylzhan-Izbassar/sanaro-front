@@ -16,6 +16,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Question } from '../models/question.model';
 import jwtDecode from 'jwt-decode';
 import { v4 as uuidv4 } from 'uuid';
+import { QuestionnaireResponseData } from '../models/questionnaire-response.model';
 
 @Component({
   selector: 'app-questionnaire-dialog',
@@ -47,14 +48,18 @@ import { v4 as uuidv4 } from 'uuid';
   ],
 })
 export class QuestionnaireDialogComponent implements OnInit {
+  uuid = uuidv4();
+  token = this.authService.getToken();
+  decodedToken: any = jwtDecode(this.token!);
+  user_id: number = this.decodedToken.user_id;
   currQuesIdx: number = 0;
+  selectedOption: number = -1;
+  isContBtnShow: boolean = false;
   slideState: 'in' | 'middle' | 'out' = 'in';
+  continueBtn?: HTMLElement;
   questions: Question[] = [];
   currentAnswers: Answer[] = [];
-  responses: number[] = [];
-  selectedOption: number = -1;
-  continueBtn?: HTMLElement;
-  isContBtnShow: boolean = false;
+  responses: QuestionnaireResponseData[] = [];
 
   constructor(
     private authService: AuthService,
@@ -68,6 +73,11 @@ export class QuestionnaireDialogComponent implements OnInit {
 
   ngOnInit() {
     this.fetchQuestions();
+
+    if(!this.questions.length) {
+      this.dialogService.closeDialog();
+      this.dialogService.openNotifyDialog(true);
+    }
   }
 
   /**
@@ -87,33 +97,33 @@ export class QuestionnaireDialogComponent implements OnInit {
   /**
    * Handles the question after value is selected.
    */
-  onAnswerSelected(): void {
+  async onAnswerSelected(): Promise<void> {
     let currAnsIdx = this.selectedOption;
-    this.responses.push(currAnsIdx);
-
-    // Trigger the animation
-    this.slideState = 'out';
+    this.responses.push({
+      questionnaire_uuid: this.uuid,
+      response: currAnsIdx,
+      user: this.user_id,
+    });
 
     if (this.currQuesIdx === this.questions.length - 1) {
       // Getting user_id from jwt token
       if (this.authService.getToken()) {
-        let token = this.authService.getToken();
-        const decodedToken: any = jwtDecode(token!);
+        // Creating question response list
+        let result = this.quesResponseService.createQuestionnaireResponses(
+          this.responses
+        );
 
-        const user_id: number = decodedToken.user_id;
-        const newUuid = uuidv4();
-
-        // Creating for each item question response
-        this.responses.forEach((item) => {
-          this.quesResponseService.postQuestionnaireResponse({
-            questionnaire_uuid: newUuid,
-            response: item,
-            user: user_id,
-          });
-        });
-        this.dialogService.closeDialog();
+        if (await result) {
+          this.dialogService.closeDialog();
+          this.dialogService.openNotifyDialog(true);
+        } else {
+          this.dialogService.closeDialog();
+          this.dialogService.openNotifyDialog(false);
+        }
       }
     } else {
+      // Trigger the animation
+      this.slideState = 'out';
       this.currQuesIdx++;
       this.fetchAnswer(true);
     }

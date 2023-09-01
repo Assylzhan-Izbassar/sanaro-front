@@ -1,0 +1,41 @@
+/* NOTIFY SECTION */
+.notify-container {
+  max-width: var(--dialog-max-width);
+  margin: 0 auto;
+}
+
+.notify__inner {
+  margin: var(--dialog-top-bottom) 0px;
+}
+
+.notify__header {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notify__img {
+  max-width: 250px;
+  flex: 1 0 250px;
+}
+
+.notify__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.notify__text {
+  font-size: 34px;
+  font-family: "Inter";
+  margin-top: 33px;
+  letter-spacing: -1.5%;
+  text-align: center;
+}
+
+.notify__btn {
+  margin-top: 60px;
+  text-align: center;
+}

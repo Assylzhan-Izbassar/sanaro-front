@@ -1,0 +1,21 @@
+<!-- NOTIFY SECTION -->
+<div class="notify">
+  <div class="notify-container">
+    <div class="notify__inner">
+      <div class="notify__header">
+        <!-- NOTIFY IMAGE -->
+        <div class="notify__img">
+          <img src="{{ data.imgPath }}" alt="{{data.isError ? 'cross': 'check'}}" />
+        </div>
+        <!-- NOTIFY TEXT -->
+        <div class="notify__text">
+          <p>{{ data.message }}</p>
+        </div>
+      </div>
+      <!-- NOTIFY BUTTON -->
+      <div class="notify__btn">
+        <button class="btn" (click)="closeDialog()">Вернуться на главную</button>
+      </div>
+    </div>
+  </div>
+</div>

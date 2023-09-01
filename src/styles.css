@@ -9,6 +9,8 @@
   --subheading-txt-color: rgba(0, 0, 0, 0.62);
   --line-bg-color: rgba(0, 0, 0, 0.3);
   --stroke-color: #e8e4e6;
+  --dialog-max-width: 90%;
+  --dialog-top-bottom: 52px;
 }
 
 body {

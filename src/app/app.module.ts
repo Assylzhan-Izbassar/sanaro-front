@@ -23,6 +23,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { HandleObjComponent } from './handle-obj/handle-obj.component';
 import { LastCallComponent } from './last-call/last-call.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FooterComponent } from './footer/footer.component';
     LastCallComponent,
     FooterComponent,
     QuestionnaireDialogComponent,
+    NotifyDialogComponent,
   ],
   imports: [
     BrowserModule,

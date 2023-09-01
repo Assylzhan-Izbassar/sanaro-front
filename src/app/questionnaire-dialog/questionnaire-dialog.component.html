@@ -2,46 +2,36 @@
 <div class="questionnaire" [@slideInOut]="slideState">
   <div class="questionnaire-container">
     <div class="questionnaire__inner">
-      <div
-        class="questionnaire__check"
-        *ngIf="questions.length > 0; then question; else none"
-      ></div>
-      <!-- QUESTIONNAIRE CONTENT SECTION -->
-      <ng-template #question class="questionnaire__content">
-        <!-- QUESTION SECTION -->
-        <div class="question">
-          <h2 class="question__text">
-            {{ questions[currQuesIdx].question_text }}
-          </h2>
-        </div>
-        <!-- ANSWERS SECTION -->
-        <div class="answer answer_top">
-          <div
-            class="answer__item"
-            *ngFor="let answer of currentAnswers"
-            (click)="onSelectOption(answer.id!)"
-          >
-            <input
-              type="radio"
-              class="answer__input"
-              [(ngModel)]="selectedOption"
-              [value]="answer.id"
-            />
-            <div class="answer__text">
-              <div>{{ answer.answer_text }}</div>
-            </div>
+      <div class="questionnaire__check"></div>
+      <!-- QUESTION SECTION -->
+      <div class="question">
+        <h2 class="question__text">
+          {{ questions[currQuesIdx].question_text }}
+        </h2>
+      </div>
+      <!-- ANSWERS SECTION -->
+      <div class="answer answer_top">
+        <div
+          class="answer__item"
+          *ngFor="let answer of currentAnswers"
+          (click)="onSelectOption(answer.id!)"
+        >
+          <input
+            type="radio"
+            class="answer__input"
+            [(ngModel)]="selectedOption"
+            [value]="answer.id"
+          />
+          <div class="answer__text">
+            <div>{{ answer.answer_text }}</div>
           </div>
         </div>
-        <div class="questionnaire__button">
-          <button class="btn btn_pos" (click)="onAnswerSelected()">
-            Продолжить
-          </button>
-        </div>
-      </ng-template>
-      <!-- ERROR HANDLING SECTION -->
-      <ng-template #none class="questionnaire__content">
-        <h1>Упс! Вопросы к сожалению не подгрузились!</h1>
-      </ng-template>
+      </div>
+      <div class="questionnaire__button">
+        <button class="btn btn_pos" (click)="onAnswerSelected()">
+          Продолжить
+        </button>
+      </div>
     </div>
   </div>
 </div>
