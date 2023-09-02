@@ -11,12 +11,12 @@ import { QuestionsService } from '../services/questions/questions.service';
 import { AnswersService } from '../services/answers/answers.service';
 import { AuthService } from '../services/auth/auth.service';
 import { QuestionnaireResponseService } from '../services/questionnaire-response/questionnaire-response.service';
+import { QuestionnaireResponseData } from '../models/questionnaire-response.model';
+import { Question } from '../models/question.model';
 import { Answer } from '../models/answer.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Question } from '../models/question.model';
-import jwtDecode from 'jwt-decode';
 import { v4 as uuidv4 } from 'uuid';
-import { QuestionnaireResponseData } from '../models/questionnaire-response.model';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-questionnaire-dialog',
@@ -52,6 +52,7 @@ export class QuestionnaireDialogComponent implements OnInit {
   token = this.authService.getToken();
   decodedToken: any = jwtDecode(this.token!);
   user_id: number = this.decodedToken.user_id;
+
   currQuesIdx: number = 0;
   selectedOption: number = -1;
   isContBtnShow: boolean = false;
@@ -74,7 +75,7 @@ export class QuestionnaireDialogComponent implements OnInit {
   ngOnInit() {
     this.fetchQuestions();
 
-    if(!this.questions.length) {
+    if (!this.questions.length) {
       this.dialogService.closeDialog();
       this.dialogService.openNotifyDialog(true);
     }

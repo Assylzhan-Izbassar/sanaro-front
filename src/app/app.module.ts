@@ -4,7 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-import { AuthInterceptor } from './services/auth/auth.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthService } from './services/auth/auth.service';
 import { DialogService } from './services/dialog/dialog.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import { HandleObjComponent } from './handle-obj/handle-obj.component';
 import { LastCallComponent } from './last-call/last-call.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
   providers: [
     AuthService,
     DialogService,
+    CookieService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

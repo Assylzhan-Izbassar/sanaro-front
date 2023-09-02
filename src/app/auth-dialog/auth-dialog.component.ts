@@ -35,9 +35,7 @@ export class AuthDialogComponent {
 
   login(): void {
     this.authService.login(this.username, this.password).subscribe(
-      (response) => {
-        console.log(response.access);
-        this.authService.saveToken(response.access);
+      () => {
         this.dialogService.closeDialog();
       },
       (error) => {

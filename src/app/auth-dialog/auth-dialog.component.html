@@ -1,3 +1,4 @@
+<!-- AUTH SECTION -->
 <div class="auth">
   <div class="auth-container">
     <div class="auth__inner">
@@ -18,27 +19,41 @@
         <div class="auth__inputs">
           <div class="auth__item">
             <label for="username" class="auth__label">Имя пользователя</label>
-            <input type="text" class="auth__input" [(ngModel)]="username" name="username" placeholder="user@example.com" />
+            <input
+              type="text"
+              class="auth__input"
+              [(ngModel)]="username"
+              name="username"
+              placeholder="user@example.com"
+            />
           </div>
           <div class="auth__item">
             <label for="password" class="auth__label">Пароль</label>
-            <input type="password" class="auth__input" [(ngModel)]="password" name="password"/>
+            <input
+              type="password"
+              class="auth__input"
+              [(ngModel)]="password"
+              name="password"
+            />
           </div>
-          <div class="auth__item auth__item_save">
+
+          <!-- <div class="auth__item auth__item_save">
             <input type="checkbox" class="auth__input" />
             <label for="checkbox" class="auth__label auth__label_save">Запомнить?</label>
-          </div>
+          </div> -->
         </div>
         <div class="auth__btn">
           <button type="submit" class="btn">Войти</button>
         </div>
       </form>
+
       <!-- AUTH ACTION -->
-      <div class="auth__action">
+      <!-- <div class="auth__action">
         <div class="auth__remember">
           <a href="#restore">Забыли пароль?</a>
         </div>
-      </div>
+      </div> -->
+
       <!-- DECORE OF THE STRAIGHT LINE -->
       <div class="auth__decore"></div>
       <!-- REGISTER ACTION -->
