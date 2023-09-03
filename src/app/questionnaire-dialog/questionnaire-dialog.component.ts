@@ -62,6 +62,8 @@ export class QuestionnaireDialogComponent implements OnInit {
   currentAnswers: Answer[] = [];
   responses: QuestionnaireResponseData[] = [];
 
+  dataIsLoaded: boolean = false;
+
   constructor(
     private authService: AuthService,
     private questionService: QuestionsService,
@@ -75,10 +77,12 @@ export class QuestionnaireDialogComponent implements OnInit {
   ngOnInit() {
     this.fetchQuestions();
 
-    if (!this.questions.length) {
-      this.dialogService.closeDialog();
-      this.dialogService.openNotifyDialog(true);
-    }
+    setTimeout(() => {
+      if (!this.questions!.length) {
+        this.dialogService.closeDialog();
+        this.dialogService.openNotifyDialog(true);
+      }
+    }, 300);
   }
 
   /**
@@ -106,21 +110,25 @@ export class QuestionnaireDialogComponent implements OnInit {
       user: this.user_id,
     });
 
-    if (this.currQuesIdx === this.questions.length - 1) {
+    if (this.currQuesIdx === this.questions!.length - 1) {
       // Getting user_id from jwt token
       if (this.authService.getToken()) {
         // Creating question response list
-        let result = this.quesResponseService.createQuestionnaireResponses(
-          this.responses
-        );
+        this.quesResponseService
+          .createQuestionnaireResponses(this.responses)
+          .subscribe({
+            next: (response) => {
+              let status = response.status;
+              this.dialogService.closeDialog();
 
-        if (await result) {
-          this.dialogService.closeDialog();
-          this.dialogService.openNotifyDialog(true);
-        } else {
-          this.dialogService.closeDialog();
-          this.dialogService.openNotifyDialog(false);
-        }
+              if(status === 201) {
+                this.dialogService.openNotifyDialog(true);
+              } else {
+                this.dialogService.openNotifyDialog(false);
+              }
+            },
+            error: (e) => console.log(e)
+          });
       }
     } else {
       // Trigger the animation
@@ -155,6 +163,7 @@ export class QuestionnaireDialogComponent implements OnInit {
       (data) => {
         this.questions = data;
         this.fetchAnswer(false);
+        this.dataIsLoaded = true;
       },
       (error) => {
         console.log('Error fetching testimonials: ', error);

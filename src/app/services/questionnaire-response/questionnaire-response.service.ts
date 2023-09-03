@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from '../core/base.service';
 import { QuestionnaireResponseData } from 'src/app/models/questionnaire-response.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,16 +19,8 @@ export class QuestionnaireResponseService extends BaseService {
    * @param data - Questionnaire response data.
    * @returns
    */
-  postQuestionnaireResponse(data: QuestionnaireResponseData): boolean {
-    this.http.post(this.url, data).subscribe(
-      (response) => {
-        return true;
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    );
-    return false;
+  postQuestionnaireResponse(data: QuestionnaireResponseData): Observable<any> {
+    return this.http.post(this.url, data);
   }
 
   /**
@@ -35,21 +28,9 @@ export class QuestionnaireResponseService extends BaseService {
    * @param data - Array of QuestionnaireResponseData.
    * @returns
    */
-  async createQuestionnaireResponses(
+  createQuestionnaireResponses(
     data: QuestionnaireResponseData[]
-  ): Promise<boolean> {
-    try {
-      const response = await this.http
-        .post(`${this.url}/create_list/`, data)
-        .toPromise();
-      if (response) {
-        return true;
-      }
-    } catch (error) {
-      if (error instanceof HttpErrorResponse) {
-        this.handleError(error);
-      }
-    }
-    return false;
+  ): Observable<any> {
+    return this.http.post(`${this.url}/create_list/`, data);
   }
 }
