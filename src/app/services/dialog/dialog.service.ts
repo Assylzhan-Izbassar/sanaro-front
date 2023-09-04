@@ -48,20 +48,20 @@ export class DialogService {
    * Opens notification dialog.
    * @param data - Can be any data that should represent mat-dialog.
    */
-  openNotifyDialog(isError: boolean): void {
+  openNotifyDialog(isError: boolean, message: string): void {
 
     let data = {};
     if (isError) {
       data = {
-        message: 'Упс! Вопросы к сожалению не подгрузились!',
+        message: message,
         imgPath: '../../assets/questionnaire/circle-cross.svg',
-        isError: true
+        isError: isError
       }
     } else {
       data = {
-        message: 'Спасибо, мы скоро с вами свяжемся!',
+        message: message,
         imgPath: '../../assets/questionnaire/circle-check.svg',
-        isError: false
+        isError: isError
       }
     }
 

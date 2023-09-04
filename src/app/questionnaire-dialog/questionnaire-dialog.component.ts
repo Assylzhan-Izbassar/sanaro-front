@@ -17,6 +17,7 @@ import { Answer } from '../models/answer.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
 import jwtDecode from 'jwt-decode';
+import { DIRECTORY } from '../models/directory.model';
 
 @Component({
   selector: 'app-questionnaire-dialog',
@@ -80,7 +81,7 @@ export class QuestionnaireDialogComponent implements OnInit {
     setTimeout(() => {
       if (!this.questions!.length) {
         this.dialogService.closeDialog();
-        this.dialogService.openNotifyDialog(true);
+        this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
       }
     }, 300);
   }
@@ -118,16 +119,15 @@ export class QuestionnaireDialogComponent implements OnInit {
           .createQuestionnaireResponses(this.responses)
           .subscribe({
             next: (response) => {
-              let status = response.status;
               this.dialogService.closeDialog();
-
-              if(status === 201) {
-                this.dialogService.openNotifyDialog(true);
+              // We have a valid response
+              if (response.length > 0) {
+                this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
               } else {
-                this.dialogService.openNotifyDialog(false);
+                this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
               }
             },
-            error: (e) => console.log(e)
+            error: (e) => console.log(e),
           });
       }
     } else {
@@ -183,8 +183,8 @@ export class QuestionnaireDialogComponent implements OnInit {
     }
     let idx = this.questions[this.currQuesIdx].id;
     if (idx) {
-      this.answerService.getAnswers(idx).subscribe(
-        (data) => {
+      this.answerService.getAnswers(idx).subscribe({
+        next: (data) => {
           if (isAnsSelected) {
             setTimeout(() => {
               // Trigger the animation
@@ -195,10 +195,8 @@ export class QuestionnaireDialogComponent implements OnInit {
             this.currentAnswers = data;
           }
         },
-        (error) => {
-          console.log('Error fetching testimonials: ', error);
-        }
-      );
+        error: (e) => console.log('Error fetching testimonials: ', e)
+      });
     }
   }
 }

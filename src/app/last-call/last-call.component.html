@@ -15,21 +15,42 @@
         </div>
       </div>
       <!-- CALL TO ACTION BODY -->
-      <div class="call__body">
-        <div class="call__item">
-          <input type="text" placeholder="Имя" />
+      <form
+        [formGroup]="callRequestForm"
+        (ngSubmit)="sendRequest()"
+        class="call__body form"
+      >
+        <div class="form__inner">
+          <div class="call__item">
+            <input
+              type="text"
+              placeholder="Имя"
+              formControlName="username"
+              required
+            />
+          </div>
+          <div class="call__item">
+            <input
+              type="text"
+              placeholder="Номер телефона"
+              formControlName="phone_number"
+              required
+            />
+          </div>
+          <div class="call__item">
+            <input
+              type="text"
+              placeholder="Город"
+              formControlName="city"
+              required
+            />
+          </div>
         </div>
-        <div class="call__item">
-          <input type="text" placeholder="Номер телефона" />
+        <!-- CALL TO ACTION BUTTON -->
+        <div class="call__action">
+          <button type="submit" class="btn">Связаться с нами</button>
         </div>
-        <div class="call__item">
-          <input type="text" placeholder="Город" />
-        </div>
-      </div>
-      <!-- CALL TO ACTION BUTTON -->
-      <div class="call__action">
-        <div class="btn">Связаться с нами</div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
