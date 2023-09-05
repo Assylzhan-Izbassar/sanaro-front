@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, tap, catchError, map, interval, switchMap } from 'rxjs';
+import { Observable, tap, interval, Subscription } from 'rxjs';
 import { BaseService } from '../core/base.service';
 import jwtDecode from 'jwt-decode';
+import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +13,31 @@ export class AuthService extends BaseService {
   private readonly refreshUrl: string = `${this.apiUrl}/auth/jwt/refresh/`;
   private readonly tokenKey: string = 'jwtToken';
   private readonly refreshTokenKey = 'refresh_token';
+  private subscription?: Subscription;
+
+  constructor(
+    protected override http: HttpClient,
+    protected override cookieService: CookieService
+  ) {
+    super(http, cookieService);
+    window.addEventListener(
+      'beforeunload',
+      this.logoutOnWindowClose.bind(this)
+    );
+  }
+
+  /**
+   * Opens the confirmation popup when closing the window.
+   * @param event - Window event.
+   */
+  private logoutOnWindowClose(event: any) {
+    event.preventDefault();
+    event.returnValue = 'Are you sure you want to leave?';
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    this.logout();
+  }
 
   /**
    * Creating credentials for the user.
@@ -26,23 +53,13 @@ export class AuthService extends BaseService {
 
         this.saveToken(access);
         this.saveRefreshTokenCookie(refresh);
-        // start periodically call refresh token
-        this.startTokenRefreshTimer(this.getExpDate(access).getMilliseconds());
-      })
-    );
-  }
 
-  /**
-   * Refresh the token.
-   * @returns - New access token value.
-   */
-  refreshToken(): Observable<any> {
-    const refreshToken = this.getRefreshTokenCookie();
-    let data = { refresh: refreshToken };
-    return this.http.post<any>(this.refreshUrl, data).pipe(
-      tap((response) => {
-        const { access } = response;
-        this.saveToken(access);
+        if (this.getRefreshTokenCookie() && this.getToken()) {
+          let exp = this.getExpDate(access);
+          exp.setHours(exp.getHours() + 6);
+          let delta = exp.getTime() - new Date().getTime();
+          this.startTokenRefreshTimer(delta);
+        }
       })
     );
   }
@@ -106,15 +123,34 @@ export class AuthService extends BaseService {
   }
 
   /**
+   * Refresh the token.
+   * @returns - New access token value.
+   */
+  refreshToken(): Observable<any> {
+    const refreshToken = this.getRefreshTokenCookie();
+    let data = { refresh: refreshToken };
+    if (!refreshToken) {
+      this.removeToken();
+    }
+    return this.http.post<any>(this.refreshUrl, data);
+  }
+
+  /**
    * Timer for refreshing access token.
    * @param delta - Time in milliseconds.
    */
   private startTokenRefreshTimer(delta: number): void {
-    interval(delta - 10000)
-      .pipe(switchMap(() => this.refreshToken()))
-      .subscribe(() => {
-        console.log('refreshed!');
+    console.log('startTokenRefreshTimer', delta);
+    if (!delta) return;
+    this.subscription = interval(delta - 10000).subscribe(() => {
+      this.refreshToken().subscribe({
+        next: (response) => {
+          const { access } = response;
+          this.saveToken(access);
+        },
+        error: (error) => console.error(error),
       });
+    });
   }
 
   /**
