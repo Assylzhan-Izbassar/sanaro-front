@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth/auth.service';
+import { DialogService } from '../services/dialog/dialog.service';
 
 @Component({
   selector: 'app-innovation',
@@ -7,7 +7,9 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrls: ['./innovation.component.css'],
 })
 export class InnovationComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private dialog: DialogService) {}
 
-  onDetail() {}
+  onDetail() {
+    this.dialog.openRequestDialog(null);
+  }
 }

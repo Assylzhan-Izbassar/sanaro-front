@@ -1,13 +1,13 @@
 <!-- AUTH SECTION -->
-<div class="auth">
-  <div class="auth-container">
-    <div class="auth__inner">
+<div class="dialog">
+  <div class="dialog-container">
+    <div class="dialog__inner">
       <!-- AUTH HEADER -->
-      <div class="auth__header">
-        <div class="auth__title">
+      <div class="dialog__header">
+        <div class="dialog__title">
           <h2>Требуется вход в систему</h2>
         </div>
-        <div class="auth__subtitle">
+        <div class="dialog__subtitle">
           <h3>
             Для доступа к опроснику пожалуйста, выполните вход или
             зарегистрируйтесь
@@ -15,23 +15,23 @@
         </div>
       </div>
       <!-- AUTH INPUT FORMS -->
-      <form (ngSubmit)="login()" class="auth_form">
-        <div class="auth__inputs">
-          <div class="auth__item">
-            <label for="username" class="auth__label">Имя пользователя</label>
+      <form (ngSubmit)="login()" class="form">
+        <div class="dialog__inputs">
+          <div class="dialog__item">
+            <label for="username" class="dialog__label">Имя пользователя</label>
             <input
               type="text"
-              class="auth__input"
+              class="dialog__input"
               [(ngModel)]="username"
               name="username"
               placeholder="user@example.com"
             />
           </div>
-          <div class="auth__item">
-            <label for="password" class="auth__label">Пароль</label>
+          <div class="dialog__item">
+            <label for="password" class="dialog__label">Пароль</label>
             <input
               type="password"
-              class="auth__input"
+              class="dialog__input"
               [(ngModel)]="password"
               name="password"
             />
@@ -42,7 +42,7 @@
             <label for="checkbox" class="auth__label auth__label_save">Запомнить?</label>
           </div> -->
         </div>
-        <div class="auth__btn">
+        <div class="dialog__btn">
           <button type="submit" class="btn">Войти</button>
         </div>
       </form>
@@ -55,14 +55,16 @@
       </div> -->
 
       <!-- DECORE OF THE STRAIGHT LINE -->
-      <div class="auth__decore"></div>
+      <div class="dialog__decore"></div>
       <!-- REGISTER ACTION -->
-      <div class="auth__register register">
-        <div class="register__label">
-          <p>Нет аккаунта?</p>
-        </div>
-        <div class="register__action">
-          <a href="#register">Зарегистрируйтесь сейчас</a>
+      <div class="register">
+        <div class="register__inner">
+          <div class="register__label">
+            <p>Нет аккаунта?</p>
+          </div>
+          <div class="register__action">
+            <a href="#register">Зарегистрируйтесь сейчас</a>
+          </div>
         </div>
       </div>
     </div>

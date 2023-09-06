@@ -91,3 +91,107 @@ li {
   border: 2px solid var(--btn-bg-color);
   padding: 15px 56px;
 }
+
+/* ------------- */
+/* MODAL DIALOG */
+/* ------------- */
+
+.dialog {
+  color: var(--btn-bg-color);
+  font-family: 'Inter';
+}
+
+.dialog-container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.dialog__inner {
+  padding: 72px 0px;
+}
+
+/* MODAL HEADER */
+.dialog__header {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.dialog__title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 24px;
+  color: var(--primary-txt-color);
+}
+
+.dialog__subtitle {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: var(--subheading-txt-color);
+}
+
+/* MODAL INPUT */
+.dialog__inputs {
+  margin-top: 32px;
+}
+
+.dialog__item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+.dialog__item:first-child {
+  margin-top: 0px;
+}
+
+.dialog__label {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -1.5%;
+}
+
+.dialog__input {
+  margin-top: 6px;
+  background-color: var(--secondary-bg-color);
+  border: 0px;
+  border-radius: 16px;
+  padding: 20px 23px;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--btn-bg-color);
+}
+
+.dialog__input::placeholder {
+  color: var(--btn-bg-color);
+}
+
+.dialog__input:focus {
+  border: 2px solid var(--btn-bg-color);
+  outline: none !important;
+  padding: 18px 21px;
+}
+
+/* DIALOG ACTION */
+.dialog__btn {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.dialog__btn button {
+  width: 100%;
+}
+
+/* DECORE OF THE STRAIGHT LINE */
+.dialog__decore {
+  width: 100%;
+  height: 2px;
+  background-color: var(--btn-bg-color);
+  margin: 20px 0px;
+}
+
+

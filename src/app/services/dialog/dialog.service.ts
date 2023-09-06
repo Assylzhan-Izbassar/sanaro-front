@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthDialogComponent } from '../../auth-dialog/auth-dialog.component';
 import { QuestionnaireDialogComponent } from 'src/app/questionnaire-dialog/questionnaire-dialog.component';
 import { NotifyDialogComponent } from 'src/app/notify-dialog/notify-dialog.component';
+import { CallRequestDialogComponent } from 'src/app/call-request-dialog/call-request-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -45,24 +46,35 @@ export class DialogService {
   }
 
   /**
+   * Opens call request dialog.
+   * @param data - Can be any data that should represent mat-dialog.
+   */
+  openRequestDialog(data: any): void {
+    this.dialogRef = this.dialog.open(CallRequestDialogComponent, {
+      panelClass: 'custom-modalbox',
+      width: '50vw',
+      data: data,
+    });
+  }
+
+  /**
    * Opens notification dialog.
    * @param data - Can be any data that should represent mat-dialog.
    */
   openNotifyDialog(isError: boolean, message: string): void {
-
     let data = {};
     if (isError) {
       data = {
         message: message,
         imgPath: '../../assets/questionnaire/circle-cross.svg',
-        isError: isError
-      }
+        isError: isError,
+      };
     } else {
       data = {
         message: message,
         imgPath: '../../assets/questionnaire/circle-check.svg',
-        isError: isError
-      }
+        isError: isError,
+      };
     }
 
     this.dialogRef = this.dialog.open(NotifyDialogComponent, {
