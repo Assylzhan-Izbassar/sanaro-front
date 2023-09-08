@@ -4,6 +4,7 @@ import { BaseService } from '../core/base.service';
 import jwtDecode from 'jwt-decode';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { UserData } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService extends BaseService {
   private readonly url: string = `${this.apiUrl}/auth/jwt/create/`;
   private readonly refreshUrl: string = `${this.apiUrl}/auth/jwt/refresh/`;
+  private readonly usersUrl: string = `${this.apiUrl}/auth/users/`
   private readonly tokenKey: string = 'jwtToken';
   private readonly refreshTokenKey = 'refresh_token';
   private subscription?: Subscription;
@@ -62,6 +64,14 @@ export class AuthService extends BaseService {
         }
       })
     );
+  }
+
+  /**
+   * Registers a new user.
+   * @param userData - Data to register a new user.
+   */
+  register(userData: UserData): Observable<any> {
+    return this.http.post<UserData>(this.usersUrl, userData);
   }
 
   /**
@@ -140,7 +150,6 @@ export class AuthService extends BaseService {
    * @param delta - Time in milliseconds.
    */
   private startTokenRefreshTimer(delta: number): void {
-    console.log('startTokenRefreshTimer', delta);
     if (!delta) return;
     this.subscription = interval(delta - 10000).subscribe(() => {
       this.refreshToken().subscribe({

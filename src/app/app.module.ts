@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CallRequestDialogComponent } from './call-request-dialog/call-request-dialog.component';
+import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CallRequestDialogComponent } from './call-request-dialog/call-request-d
     QuestionnaireDialogComponent,
     NotifyDialogComponent,
     CallRequestDialogComponent,
+    RegisterDialogComponent,
   ],
   imports: [
     BrowserModule,

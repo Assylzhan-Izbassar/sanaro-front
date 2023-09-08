@@ -27,3 +27,13 @@
 .register__action {
   margin-left: 6px;
 }
+
+.register__action p {
+  color: var(--primary-txt-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register__action p:hover {
+  color: var(--secondary-txt-color);
+}

@@ -33,6 +33,9 @@ export class AuthDialogComponent {
     private dialogService: DialogService
   ) {}
 
+  /**
+   * Logins to the system.
+   */
   login(): void {
     this.authService.login(this.username, this.password).subscribe(
       () => {
@@ -42,5 +45,15 @@ export class AuthDialogComponent {
         console.log('Login error:', error);
       }
     );
+  }
+
+  /**
+   * Opens registration dialog.
+   */
+  openRegisterDialog() {
+    this.dialogService.closeDialog();
+    setTimeout(() => {
+      this.dialogService.openRegisterDialog(null);
+    }, 100);
   }
 }

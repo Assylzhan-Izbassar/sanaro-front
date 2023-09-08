@@ -81,9 +81,11 @@ export class QuestionnaireDialogComponent implements OnInit {
     setTimeout(() => {
       if (!this.questions!.length) {
         this.dialogService.closeDialog();
-        this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
+        setTimeout(() => {
+          this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
+        }, 100);
       }
-    }, 300);
+    }, 100);
   }
 
   /**
@@ -121,11 +123,13 @@ export class QuestionnaireDialogComponent implements OnInit {
             next: (response) => {
               this.dialogService.closeDialog();
               // We have a valid response
-              if (response.length > 0) {
-                this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
-              } else {
-                this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
-              }
+              setTimeout(() => {
+                if (response.length > 0) {
+                  this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
+                } else {
+                  this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
+                }
+              }, 100);
             },
             error: (e) => console.log(e),
           });

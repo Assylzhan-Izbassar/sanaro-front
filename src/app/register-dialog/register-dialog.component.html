@@ -1,0 +1,68 @@
+<!-- REGISTER DIALOG MODAL FORM -->
+<div class="dialog">
+  <div class="dialog-container">
+    <div class="dialog__inner">
+      <!-- REGISTER HEADER -->
+      <div class="dialog__header">
+        <div class="dialog__title">
+          <h2>Регистрация</h2>
+        </div>
+        <div class="dialog__subtitle">
+          <h3>Пишите основные данные</h3>
+        </div>
+      </div>
+      <!-- REGISTER INPUT FORMS -->
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="register()"
+        class="dialog__form form"
+      >
+        <!-- REGISTER INPUTS -->
+        <div class="dialog__inputs">
+          <div class="dialog__item">
+            <label for="username" class="dialog__label">Имя пользователя</label>
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="username"
+              placeholder="username"
+            />
+          </div>
+          <div class="dialog__item">
+            <label for="email" class="dialog__label">Email</label>
+            <input
+              type="email"
+              class="dialog__input"
+              formControlName="email"
+              placeholder="user@example.com"
+            />
+          </div>
+          <div class="dialog__item">
+            <label for="password" class="dialog__label">Пароль</label>
+            <input
+              type="password"
+              class="dialog__input"
+              formControlName="password"
+              autocomplete="on"
+            />
+          </div>
+          <div class="dialog__item">
+            <label for="passwordConfirm" class="dialog__label"
+              >Подтвердите пароль</label
+            >
+            <input
+              type="password"
+              class="dialog__input"
+              formControlName="passwordConfirm"
+              autocomplete="on"
+            />
+          </div>
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <div class="dialog__btn">
+          <button type="submit" class="btn">Зарегистрироваться</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

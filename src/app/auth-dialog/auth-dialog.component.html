@@ -34,6 +34,7 @@
               class="dialog__input"
               [(ngModel)]="password"
               name="password"
+              autocomplete="on"
             />
           </div>
 
@@ -63,7 +64,7 @@
             <p>Нет аккаунта?</p>
           </div>
           <div class="register__action">
-            <a href="#register">Зарегистрируйтесь сейчас</a>
+            <p (click)="openRegisterDialog()">Зарегистрируйтесь сейчас</p>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { AuthDialogComponent } from '../../auth-dialog/auth-dialog.component';
 import { QuestionnaireDialogComponent } from 'src/app/questionnaire-dialog/questionnaire-dialog.component';
 import { NotifyDialogComponent } from 'src/app/notify-dialog/notify-dialog.component';
 import { CallRequestDialogComponent } from 'src/app/call-request-dialog/call-request-dialog.component';
+import { RegisterDialogComponent } from 'src/app/register-dialog/register-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,10 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) {}
 
+  /**
+   * Opens authentication dialog.
+   * @param data - Can be any data that should represent mat-dialog.
+   */
   openDialog(data: any): void {
     if (localStorage.getItem('jwtToken')) {
       this.openQuestionnaireDialog(data);
@@ -96,6 +101,21 @@ export class DialogService {
     });
   }
 
+  /**
+   * Opens register dialog.
+   * @param data - Can be any data that should represent mat-dialog.
+   */
+  openRegisterDialog(data: any): void {
+    this.dialogRef = this.dialog.open(RegisterDialogComponent, {
+      panelClass: 'custom-modalbox',
+      width: '50vw',
+      data: data,
+    });
+  }
+
+  /**
+   * Closes current opened modal dialog.
+   */
   closeDialog(): void {
     if (this.dialogRef) {
       this.dialogRef.close();
