@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, tap, interval, Subscription } from 'rxjs';
-import { BaseService } from '../core/base.service';
-import jwtDecode from 'jwt-decode';
 import { HttpClient } from '@angular/common/http';
+import { Observable, tap, interval, Subscription } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { BaseService } from '../core/base.service';
 import { UserData } from 'src/app/models/user.model';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',

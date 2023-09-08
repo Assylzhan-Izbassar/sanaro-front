@@ -17,10 +17,61 @@
   max-height: 458px;
 }
 
-.sets__left img {
+.flip-card {
+  display: flex;
+  width: 100%;
+  height: 100em;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card__inner {
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 800ms;
+}
+
+.flip-card__front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Style front side of the card */
+.flip-card__front,
+.flip-card__back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+/* Style of the front side */
+.flip-card__front {
+  background-color: var(--main-bg-color);
+}
+
+.flip-card__back {
+  background-color: var(--main-bg-color);
+  transform: rotateY(-180deg);
+}
+
+/* Flip the card on hover */
+.flip-card:hover .flip-card__inner {
+  transform: rotateY(-180deg);
+}
+
+.card-back__inner {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-back__inner_center {
+  margin: 0 auto;
 }
 
 /* RIGHT */
