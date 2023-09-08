@@ -13,23 +13,35 @@
         </div>
       </div>
       <!-- REQUEST FORM -->
-      <form class="dialog__form form">
+      <form
+        [formGroup]="callRequestForm"
+        (ngSubmit)="onSend()"
+        class="dialog__form form"
+      >
         <div class="dialog__inputs">
           <div class="dialog__item">
             <label for="username" class="dialog__label">Имя</label>
-            <input type="text" class="dialog__input" />
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="username"
+            />
           </div>
           <div class="dialog__item">
             <label for="username" class="dialog__label">Номер телефона</label>
-            <input type="text" class="dialog__input" />
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="phone_number"
+            />
           </div>
           <div class="dialog__item">
             <label for="username" class="dialog__label">Город</label>
-            <input type="text" class="dialog__input" />
+            <input type="text" class="dialog__input" formControlName="city" />
           </div>
-          <div class="dialog__item" >
+          <div class="dialog__item">
             <label for="username" class="dialog__label">Причина</label>
-            <input type="text" class="dialog__input" />
+            <input type="text" class="dialog__input" formControlName="reason" />
           </div>
         </div>
         <!-- REQUEST BUTTON -->
