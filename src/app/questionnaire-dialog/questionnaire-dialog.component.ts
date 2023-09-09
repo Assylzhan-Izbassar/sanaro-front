@@ -83,9 +83,9 @@ export class QuestionnaireDialogComponent implements OnInit {
         this.dialogService.closeDialog();
         setTimeout(() => {
           this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
-        }, 100);
+        }, 300);
       }
-    }, 100);
+    }, 300);
   }
 
   /**

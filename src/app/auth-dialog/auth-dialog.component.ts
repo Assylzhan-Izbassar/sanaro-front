@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { DialogService } from '../services/dialog/dialog.service';
+import { SharedService } from '../services/core/shared.service';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -30,21 +31,36 @@ export class AuthDialogComponent {
 
   constructor(
     private authService: AuthService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private sharedService: SharedService
   ) {}
+
+  /**
+   * Shared service to send data to siblings.
+   * @param data - Any data.
+   */
+  sendDataToHeader(data: any) {
+    this.sharedService.sendData(data);
+  }
 
   /**
    * Logins to the system.
    */
   login(): void {
-    this.authService.login(this.username, this.password).subscribe(
-      () => {
-        this.dialogService.closeDialog();
+    this.authService.login(this.username, this.password).subscribe({
+      next: (response: any) => {
+        if (response.access) {
+          this.sendDataToHeader(true);
+          this.dialogService.closeDialog();
+          setTimeout(() => {
+            this.dialogService.openGreetingDialog({});
+          }, 100);
+        }
       },
-      (error) => {
+      error: (error) => {
         console.log('Login error:', error);
-      }
-    );
+      },
+    });
   }
 
   /**

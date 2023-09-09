@@ -28,6 +28,7 @@ import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CallRequestDialogComponent } from './call-request-dialog/call-request-dialog.component';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
+import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
     NotifyDialogComponent,
     CallRequestDialogComponent,
     RegisterDialogComponent,
+    GreetingDialogComponent,
   ],
   imports: [
     BrowserModule,

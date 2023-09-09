@@ -75,6 +75,7 @@ li {
   line-height: 27px;
   letter-spacing: -0.36px;
   cursor: pointer;
+  transition: background-color 0.5s;
 }
 
 .btn_sb {
@@ -88,8 +89,17 @@ li {
 .btn_sb:hover {
   background-color: var(--secondary-bg-color);
   color: var(--btn-bg-color);
-  border: 2px solid var(--btn-bg-color);
   padding: 15px 56px;
+  outline: none;
+  transition: background-color 0.3s;
+  border: 2px solid var(--btn-bg-color);
+}
+
+.btn:focus {
+  outline: none;
+  /* ! Then we should add here ! */
+  /* padding: 15px 56px; */
+  /* border: 2px solid var(--btn-bg-color); */
 }
 
 /* ------------- */
@@ -98,7 +108,7 @@ li {
 
 .dialog {
   color: var(--btn-bg-color);
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 .dialog-container {
@@ -193,5 +203,3 @@ li {
   background-color: var(--btn-bg-color);
   margin: 20px 0px;
 }
-
-

@@ -33,8 +33,8 @@ export class AuthService extends BaseService {
    * @param event - Window event.
    */
   private logoutOnWindowClose(event: any) {
-    event.preventDefault();
-    event.returnValue = 'Are you sure you want to leave?';
+    // event.preventDefault();
+    // event.returnValue = 'Are you sure you want to leave?';
     if (this.subscription) {
       this.subscription.unsubscribe();
     }

@@ -1,0 +1,22 @@
+<!-- GREETING DIALOG -->
+<div class="dialog" [@slideInOut]="slideState">
+  <div class="dialog-container">
+    <div class="dialog__inner">
+      <!-- GREETING HEADER -->
+      <div class="dialog__header">
+        <div class="dialog__title dialog__title_detail">
+          <h2>{{ greetings[currDataIdx].title }}</h2>
+        </div>
+        <div class="dialog__subtitle">
+          <h3>
+            {{ greetings[currDataIdx].infoTxt }}
+          </h3>
+        </div>
+        <!-- GREETING BUTTON -->
+        <div class="dialog__btn" (click)="onNext()">
+          <button class="btn">{{ greetings[currDataIdx].buttonTxt }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
