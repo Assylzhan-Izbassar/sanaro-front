@@ -9,6 +9,9 @@ import { DialogService } from '../services/dialog/dialog.service';
 export class HeroComponent {
   constructor(private dialogService: DialogService) {}
 
+  /**
+   * Opens an auth dialog if we do not authorize or questionnaire one.
+   */
   openAuthDialog(): void {
     this.dialogService.openDialog({});
   }

@@ -6,6 +6,7 @@ import { NotifyDialogComponent } from 'src/app/notify-dialog/notify-dialog.compo
 import { CallRequestDialogComponent } from 'src/app/call-request-dialog/call-request-dialog.component';
 import { RegisterDialogComponent } from 'src/app/register-dialog/register-dialog.component';
 import { GreetingDialogComponent } from 'src/app/greeting-dialog/greeting-dialog.component';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -120,6 +121,18 @@ export class DialogService {
    */
   openGreetingDialog(data: any) {
     this.dialogRef = this.dialog.open(GreetingDialogComponent, {
+      panelClass: 'custom-modalbox',
+      width: '50vw',
+      data: data,
+    });
+  }
+
+  /**
+   * Opens confirmation dialog of user's email address to send the questionnaire result.
+   * @param data - Can be any data that should represent mat-dialog.
+   */
+  openConfirmDialog(data: any) {
+    this.dialogRef = this.dialog.open(ConfirmDialogComponent, {
       panelClass: 'custom-modalbox',
       width: '50vw',
       data: data,

@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { DialogService } from '../services/dialog/dialog.service';
 import { SharedService } from '../services/core/shared.service';
+import { DIRECTORY } from '../models/directory.model';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -59,6 +60,10 @@ export class AuthDialogComponent {
       },
       error: (error) => {
         console.log('Login error:', error);
+        this.dialogService.closeDialog();
+        setTimeout(() => {
+          this.dialogService.openNotifyDialog(true, DIRECTORY.error_sending_call_request);
+        }, 300);
       },
     });
   }

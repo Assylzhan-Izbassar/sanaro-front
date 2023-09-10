@@ -29,6 +29,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { CallRequestDialogComponent } from './call-request-dialog/call-request-dialog.component';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.compo
     CallRequestDialogComponent,
     RegisterDialogComponent,
     GreetingDialogComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

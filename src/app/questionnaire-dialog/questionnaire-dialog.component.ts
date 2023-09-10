@@ -75,6 +75,9 @@ export class QuestionnaireDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
+  /**
+   * Initiates the questionnaire component.
+   */
   ngOnInit() {
     this.fetchQuestions();
 
@@ -125,7 +128,7 @@ export class QuestionnaireDialogComponent implements OnInit {
               // We have a valid response
               setTimeout(() => {
                 if (response.length > 0) {
-                  this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
+                  this.dialogService.openConfirmDialog({});
                 } else {
                   this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
                 }
