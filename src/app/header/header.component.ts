@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { DialogService } from '../services/dialog/dialog.service';
 import { AuthService } from '../services/auth/auth.service';
 import { SharedService } from '../services/core/shared.service';
@@ -30,6 +30,22 @@ export class HeaderComponent {
     }
   }
 
+  /**
+   * Method for scrolling to the specific parts of web page.
+   * @param fragment - Id of the section / fragment.
+   */
+  scrollToFragment(fragment: string): void {
+    const targetElement = document.getElementById(fragment);
+
+    if (targetElement) {
+      const desiredScrollPosition = targetElement.offsetTop - 73;
+      window.scrollTo({ top: desiredScrollPosition, behavior: 'smooth' });
+    }
+  }
+
+  /**
+   * To using sticky scrolling in the web page.
+   */
   onScroll(): void {
     if (this.sticky !== undefined) {
       if (window.scrollY > this.sticky) {
@@ -40,12 +56,18 @@ export class HeaderComponent {
     }
   }
 
+  /**
+   * Method when pressed login button.
+   */
   onLogin(): void {
     if (this.dialog) {
       this.dialog.openAuthDialog({});
     }
   }
 
+  /**
+   * Method when pressed logout button.
+   */
   onLogout(): void {
     this.service?.logout();
     setTimeout(() => {
@@ -53,6 +75,9 @@ export class HeaderComponent {
     }, 200);
   }
 
+  /**
+   * Method when pressed logo in the header.
+   */
   onRefresh(): void {
     window.location.reload();
   }

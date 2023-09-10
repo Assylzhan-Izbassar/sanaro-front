@@ -203,3 +203,8 @@ li {
   background-color: var(--btn-bg-color);
   margin: 20px 0px;
 }
+
+/* SMOOTH SCROLLING */
+.smooth-scroll {
+  transition: scroll-behavior 500ms ease-in-out;
+}

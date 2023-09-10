@@ -6,16 +6,19 @@
     </div>
     <ul class="header__list">
       <li class="header__item">
-        <a href="#">Инновация</a>
+        <a (click)="scrollToFragment('hero')">Главное</a>
       </li>
       <li class="header__item">
-        <a href="#">Продукты</a>
+        <a (click)="scrollToFragment('innovation')">Инновация</a>
       </li>
       <li class="header__item">
-        <a href="#">Отзывы</a>
+        <a (click)="scrollToFragment('products')">Продукты</a>
       </li>
       <li class="header__item">
-        <a href="#">Вопросы</a>
+        <a (click)="scrollToFragment('testimonials')">Отзывы</a>
+      </li>
+      <li class="header__item">
+        <a (click)="scrollToFragment('questions')">Вопросы</a>
       </li>
       <li class="header__item header__item_login">
         <div *ngIf="!isLoggedIn" (click)="onLogin()">

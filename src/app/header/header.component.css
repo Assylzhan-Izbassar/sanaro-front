@@ -31,6 +31,12 @@
 
 .header__item {
   margin-left: 25px;
+  cursor: pointer;
+}
+
+.header__item a:hover {
+  color: var(--btn-bg-color);
+  transition: color 300ms ease-in-out;
 }
 
 .header__item:first-child {
@@ -40,6 +46,11 @@
 .header__item_login div {
   display: flex;
   cursor: pointer;
+}
+
+.header__item_login:hover {
+  color: var(--btn-bg-color);
+  transition: color 300ms ease-in-out;
 }
 
 .header__log {

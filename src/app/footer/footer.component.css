@@ -52,6 +52,11 @@
   line-height: 20px;
 }
 
+.list__item a:hover {
+  color: var(--btn-bg-color);
+  transition: color 300ms ease-in-out;
+}
+
 .list__item:first-child {
   margin-top: 0px;
 }

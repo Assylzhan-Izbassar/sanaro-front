@@ -70,7 +70,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
-    }
+    },
   ],
   bootstrap: [AppComponent],
 })
