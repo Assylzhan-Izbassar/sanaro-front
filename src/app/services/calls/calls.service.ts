@@ -6,7 +6,7 @@ import { CallRequestData } from 'src/app/models/call-request.model';
   providedIn: 'root'
 })
 export class CallsService extends BaseService {
-  private readonly url: string = `${this.apiUrl}/lead_generation/callRequests/`;
+  private readonly url: string = `${this.apiUrl}/lead_generation/call_requests/`;
 
   postCallRequest(data: CallRequestData) {
     return this.http.post<CallRequestData>(this.url, data);

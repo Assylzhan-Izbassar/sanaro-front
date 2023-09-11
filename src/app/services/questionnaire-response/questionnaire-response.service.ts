@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../core/base.service';
 import { QuestionnaireResponseData } from 'src/app/models/questionnaire-response.model';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionnaireResponseService extends BaseService {
-  private _url: string = `${this.apiUrl}/content_management/questionnaire_response`;
-  // getter for url
-  public get url(): string {
-    return this._url;
-  }
+  private readonly url: string = `${this.apiUrl}/content_management/questionnaire_response`;
 
   /**
    * Creates item of questionnaire response in database.
