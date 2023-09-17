@@ -11,6 +11,6 @@ export class NumbersComponent {
     new SocialNumber('1M+', 'Преданных покупателей'),
     new SocialNumber('50+', 'Товаров на любой вкус'),
     new SocialNumber('5+', 'Официальных сотрудничеств'),
-    new SocialNumber('100+', 'Отзывов от покупателей'),
+    new SocialNumber('1К+', 'Отзывов от покупателей'),
   ]
 }

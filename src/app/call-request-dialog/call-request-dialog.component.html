@@ -1,15 +1,15 @@
 <!-- REQUEST MODAL FORM -->
 <div class="dialog">
-  <div class="dialog-container">
+  <div class="dialog-container dialog-container_border">
     <!-- REQUEST INNER -->
-    <div class="dialog__inner">
+    <div class="dialog__inner dialog__inner_top">
       <!-- REQUEST HEADER -->
       <div class="dialog__header">
         <div class="dialog__title">
-          <h2>Title</h2>
+          <h2>Получите подробную консультацию</h2>
         </div>
         <div class="dialog__subtitle">
-          <h3>Subtitle</h3>
+          <h3>Узнайте, как продукты FitLine могут изменить вашу жизнь - задайте нам свои вопросы</h3>
         </div>
       </div>
       <!-- REQUEST FORM -->
@@ -25,6 +25,7 @@
               type="text"
               class="dialog__input"
               formControlName="username"
+              placeholder="Ваше имя"
             />
           </div>
           <div class="dialog__item">
@@ -33,20 +34,21 @@
               type="text"
               class="dialog__input"
               formControlName="phone_number"
+              placeholder="+7 (7xx) xxx-xx-xx"
             />
           </div>
           <div class="dialog__item">
             <label for="username" class="dialog__label">Город</label>
-            <input type="text" class="dialog__input" formControlName="city" />
+            <input type="text" class="dialog__input" formControlName="city" placeholder="Ваш город"/>
           </div>
           <div class="dialog__item">
-            <label for="username" class="dialog__label">Причина</label>
-            <input type="text" class="dialog__input" formControlName="reason" />
+            <label for="username" class="dialog__label">Что хотели бы по подробнее узнать?</label>
+            <input type="text" class="dialog__input" formControlName="reason" placeholder="Расскажите, что вас заинтересовало. Мы готовы помочь!"/>
           </div>
         </div>
         <!-- REQUEST BUTTON -->
         <div class="dialog__btn">
-          <button type="submit" class="btn">Отправить</button>
+          <button type="submit" class="btn">Получить консультацию</button>
         </div>
       </form>
     </div>

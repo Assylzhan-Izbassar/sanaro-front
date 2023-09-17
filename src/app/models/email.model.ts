@@ -1,5 +1,5 @@
-// email-newsletter.model.ts
+// email.model.ts
 
 export interface EmailData {
-    email: string;
+    email?: string;
 }
