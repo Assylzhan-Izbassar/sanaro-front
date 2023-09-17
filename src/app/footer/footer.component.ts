@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NewslettersService } from '../services/newsletters/newsletters.service';
+import { EmailsService } from '../services/emails/emails.service';
 import { DialogService } from '../services/dialog/dialog.service';
 import { DIRECTORY } from '../models/directory.model';
 
@@ -12,7 +12,7 @@ export class FooterComponent {
   emailValue: string = '';
 
   constructor(
-    private newsletterService: NewslettersService,
+    private emailsService: EmailsService,
     private dialogService: DialogService
   ) {}
 
@@ -21,7 +21,7 @@ export class FooterComponent {
    */
   onEmailSent(): void {
     if (this.emailValue && this.isEmail(this.emailValue)) {
-      this.newsletterService
+      this.emailsService
         .postEmailNewsletters({ email: this.emailValue })
         .subscribe({
           next: () => {

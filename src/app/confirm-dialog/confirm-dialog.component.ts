@@ -1,7 +1,14 @@
+import { EmailsService } from './../services/emails/emails.service';
 import { Component } from '@angular/core';
 import { DialogService } from '../services/dialog/dialog.service';
 import { DIRECTORY } from '../models/directory.model';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -9,12 +16,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   styleUrls: ['./confirm-dialog.component.css'],
   animations: [
     trigger('emailAnimation', [
-      state('email_visible', style({ maxHeight: '250px'})),
+      state('email_visible', style({ maxHeight: '250px' })),
       state('email_hidden', style({ maxHeight: '0px' })),
-      transition(
-        'email_hidden => email_visible',
-        animate('500ms ease-in-out'),
-      ),
+      transition('email_hidden => email_visible', animate('500ms ease-in-out')),
     ]),
   ],
 })
@@ -23,16 +27,27 @@ export class ConfirmDialogComponent {
   emailVisible: boolean = false;
   clicked: boolean = false;
 
-  constructor(private dialogService: DialogService) {}
+  constructor(
+    private dialogService: DialogService,
+    private emailsService: EmailsService
+  ) {}
 
   onConfirm(event: EventTarget, isEmail: boolean): void {
-    if(isEmail) {
+    if (isEmail) {
       this.clicked = true;
       (event as Element).classList.add('dialog__btn_selected');
       this.dialogService.closeDialog();
       setTimeout(() => {
-        // !!! Here we should call the request of sending email !!!
-        this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
+        // calling the email sending method.
+        this.emailsService.postEmailTracking({ email: '' }).subscribe({
+          next: () => {
+            this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
+          },
+          error: (error) => {
+            this.dialogService.openNotifyDialog(true, DIRECTORY.error_sending_call_request);
+            console.log(error);
+          },
+        });
       }, 200);
     } else {
       (event as Element).classList.add('dialog__btn_selected');
@@ -49,8 +64,16 @@ export class ConfirmDialogComponent {
     // console.log(this.emailValue);
     this.dialogService.closeDialog();
     setTimeout(() => {
-      // !!! Here we should call the request of sending email !!!
-      this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
+      // calling the email sending method.
+      this.emailsService.postEmailTracking({ email: this.emailValue }).subscribe({
+        next: () => {
+          this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
+        },
+        error: (error) => {
+          this.dialogService.openNotifyDialog(true, DIRECTORY.error_sending_call_request);
+          console.log(error);
+        },
+      });
     }, 200);
   }
 }
