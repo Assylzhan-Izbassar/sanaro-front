@@ -15,27 +15,78 @@
         </div>
       </div>
       <!-- AUTH INPUT FORMS -->
-      <form (ngSubmit)="login()" class="form">
+      <form [formGroup]="authForm" class="form">
         <div class="dialog__inputs">
+          <!-- INPUT FORM FOR THE USERNAME -->
           <div class="dialog__item">
             <label for="username" class="dialog__label">Имя пользователя</label>
             <input
               type="text"
               class="dialog__input"
-              [(ngModel)]="username"
-              name="username"
-              placeholder="user@example.com"
+              formControlName="username"
+              placeholder="username"
             />
+            <!-- SHOWS THAT THE FIELD IS REQUIRED -->
+            <div
+              *ngIf="
+                authForm.get('username')?.hasError('required') &&
+                authForm.get('username')?.touched
+              "
+              class="validator validator_auth"
+            >
+              Поле username обязательно для заполнения
+            </div>
+            <!-- SHOWS THAT THE FIELD IS IN PATTERN -->
+            <div
+              *ngIf="
+                authForm.get('username')?.hasError('pattern') &&
+                authForm.get('username')?.touched
+              "
+              class="validator validator_auth"
+            >
+              Username должен содержать только латинские буквы
+            </div>
           </div>
+
+          <!-- INPUT FORM FOR THE PASSWORD -->
           <div class="dialog__item">
             <label for="password" class="dialog__label">Пароль</label>
             <input
               type="password"
               class="dialog__input"
-              [(ngModel)]="password"
-              name="password"
+              formControlName="password"
               autocomplete="on"
             />
+            <!-- SHOWS THAT THE FIELD IS REQUIRED -->
+            <div
+              *ngIf="
+                authForm.get('password')?.hasError('required') &&
+                authForm.get('password')?.touched
+              "
+              class="validator validator_auth"
+            >
+              Поле пароль обязательно для заполнения
+            </div>
+            <!-- SHOWS THAT THE FIELD'S MIN LENGTH -->
+            <div
+              *ngIf="
+                authForm.get('password')?.hasError('minlength') &&
+                authForm.get('password')?.touched
+              "
+              class="validator validator_auth"
+            >
+              Пароль должен содержать больше 8 символов
+            </div>
+            <!-- SHOWS THAT THE FIELD'S MAX LENGTH -->
+            <div
+              *ngIf="
+                authForm.get('password')?.hasError('maxlength') &&
+                authForm.get('password')?.touched
+              "
+              class="validator validator_auth"
+            >
+              Пароль должен содержать меньше 20 символов
+            </div>
           </div>
 
           <!-- <div class="auth__item auth__item_save">
@@ -44,7 +95,7 @@
           </div> -->
         </div>
         <div class="dialog__btn">
-          <button type="submit" class="btn">Войти</button>
+          <button class="btn" (click)="login()">Войти</button>
         </div>
       </form>
 

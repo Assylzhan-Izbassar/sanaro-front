@@ -37,3 +37,9 @@
 .register__action p:hover {
   color: var(--secondary-txt-color);
 }
+
+.validator_auth {
+  color: var(--secondary-txt-color);
+  margin-top: 5px;
+  font-size: 14px;
+}

@@ -47,8 +47,7 @@ export class AuthService extends BaseService {
    * @param password - Password
    * @returns - Credentials, like access and refresh token.
    */
-  login(username: string, password: string): Observable<any> {
-    const data = { username, password };
+  login(data: any): Observable<any> {
     return this.http.post<any>(this.url, data).pipe(
       tap((response) => {
         const { access, refresh } = response;
