@@ -102,6 +102,11 @@ li {
   /* border: 2px solid var(--btn-bg-color); */
 }
 
+.validation {
+ text-align: start;
+ color: var(--btn-bg-color);
+}
+
 /* ------------- */
 /* MODAL DIALOG */
 /* ------------- */

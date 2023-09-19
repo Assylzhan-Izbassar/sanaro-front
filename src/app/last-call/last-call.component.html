@@ -18,32 +18,93 @@
       <form
         [formGroup]="callRequestForm"
         (ngSubmit)="sendRequest()"
-        class="call__body form"
+        class="call__body call__body_top form"
       >
         <div class="form__inner">
           <div class="call__item">
-            <input
-              type="text"
-              placeholder="Имя"
-              formControlName="username"
-              required
-            />
+            <input type="text" placeholder="Имя" formControlName="username" />
+            <div
+              *ngIf="
+                callRequestForm.get('username')?.hasError('required') &&
+                callRequestForm.get('username')?.touched
+              "
+              class="validation call__validation"
+            >
+              Имя обязательное для заполнение
+            </div>
+            <div
+              *ngIf="
+                callRequestForm.get('username')?.hasError('minlength') &&
+                callRequestForm.get('username')?.touched
+              "
+              class="validation call__validation"
+            >
+              Имя должен быть больше 3 символов
+            </div>
           </div>
           <div class="call__item">
             <input
               type="text"
               placeholder="Номер телефона"
               formControlName="phone_number"
-              required
             />
+            <div
+              *ngIf="
+                callRequestForm.get('phone_number')?.hasError('required') &&
+                callRequestForm.get('phone_number')?.touched
+              "
+              class="validation call__validation"
+            >
+              Номер телефона обязательное для заполнение
+            </div>
+            <div
+              *ngIf="
+                callRequestForm.get('phone_number')?.hasError('minlength') &&
+                callRequestForm.get('phone_number')?.touched
+              "
+              class="validation call__validation"
+            >
+              Номер телефона не должен быть меньше 10 символов
+            </div>
+            <div
+              *ngIf="
+                callRequestForm.get('phone_number')?.hasError('maxlength') &&
+                callRequestForm.get('phone_number')?.touched
+              "
+              class="validation call__validation"
+            >
+              Номер телефона не должен быть больше 12 символов
+            </div>
+            <div
+              *ngIf="
+                callRequestForm.get('phone_number')?.hasError('pattern') &&
+                callRequestForm.get('phone_number')?.touched
+              "
+              class="validation call__validation"
+            >
+              Номер телефона должен быть в формате +77xxxxxxxxx или 7xxxxxxxxx и иметь только числа
+            </div>
           </div>
           <div class="call__item">
-            <input
-              type="text"
-              placeholder="Город"
-              formControlName="city"
-              required
-            />
+            <input type="text" placeholder="Город" formControlName="city" />
+            <div
+              *ngIf="
+                callRequestForm.get('city')?.hasError('required') &&
+                callRequestForm.get('city')?.touched
+              "
+              class="validation call__validation"
+            >
+              Название города обязательное для заполнение
+            </div>
+            <div
+              *ngIf="
+                callRequestForm.get('city')?.hasError('minlength') &&
+                callRequestForm.get('city')?.touched
+              "
+              class="validation call__validation"
+            >
+              Название города должен быть больше 3 символов
+            </div>
           </div>
         </div>
         <!-- CALL TO ACTION BUTTON -->

@@ -10,23 +10,25 @@ import { DIRECTORY } from '../models/directory.model';
   styleUrls: ['./call-request-dialog.component.css'],
 })
 export class CallRequestDialogComponent {
-  callRequestForm: FormGroup = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(3)]],
-    phone_number: [
-      '',
-      [Validators.required, Validators.minLength(10), Validators.maxLength(12)],
-    ],
-    city: ['', [Validators.required, Validators.minLength(3)]],
-    reason: ['', []],
-  });
+  callRequestForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private service: CallsService,
     private dialog: DialogService
-  ) {}
+  ) {
+    this.callRequestForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      phone_number: [
+        '',
+        [Validators.required, Validators.minLength(10), Validators.maxLength(12)],
+      ],
+      city: ['', [Validators.required, Validators.minLength(3)]],
+      reason: ['', []],
+    });
+  }
 
-  onSend() {
+  onSubmit() {
     if (this.callRequestForm.valid) {
       const formData = this.callRequestForm.value;
 

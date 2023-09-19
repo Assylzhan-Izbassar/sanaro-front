@@ -9,13 +9,16 @@
           <h2>Получите подробную консультацию</h2>
         </div>
         <div class="dialog__subtitle">
-          <h3>Узнайте, как продукты FitLine могут изменить вашу жизнь - задайте нам свои вопросы</h3>
+          <h3>
+            Узнайте, как продукты FitLine могут изменить вашу жизнь - задайте
+            нам свои вопросы
+          </h3>
         </div>
       </div>
       <!-- REQUEST FORM -->
       <form
         [formGroup]="callRequestForm"
-        (ngSubmit)="onSend()"
+        (ngSubmit)="onSubmit()"
         class="dialog__form form"
       >
         <div class="dialog__inputs">
@@ -27,6 +30,14 @@
               formControlName="username"
               placeholder="Ваше имя"
             />
+            <!-- <div
+              *ngIf="
+                callRequestForm.get('username')?.hasError('required') &&
+                callRequestForm.get('username')?.touched
+              "
+            >
+              Имя обязательное поле
+            </div> -->
           </div>
           <div class="dialog__item">
             <label for="username" class="dialog__label">Номер телефона</label>
@@ -39,11 +50,23 @@
           </div>
           <div class="dialog__item">
             <label for="username" class="dialog__label">Город</label>
-            <input type="text" class="dialog__input" formControlName="city" placeholder="Ваш город"/>
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="city"
+              placeholder="Ваш город"
+            />
           </div>
           <div class="dialog__item">
-            <label for="username" class="dialog__label">Что хотели бы по подробнее узнать?</label>
-            <input type="text" class="dialog__input" formControlName="reason" placeholder="Расскажите, что вас заинтересовало. Мы готовы помочь!"/>
+            <label for="username" class="dialog__label"
+              >Что хотели бы по подробнее узнать?</label
+            >
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="reason"
+              placeholder="Расскажите, что вас заинтересовало. Мы готовы помочь!"
+            />
           </div>
         </div>
         <!-- REQUEST BUTTON -->
