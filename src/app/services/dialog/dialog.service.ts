@@ -73,13 +73,13 @@ export class DialogService {
     if (isError) {
       data = {
         message: message,
-        imgPath: '../../assets/questionnaire/circle-cross.svg',
+        imgPath: 'assets/questionnaire/circle-cross.svg',
         isError: isError,
       };
     } else {
       data = {
         message: message,
-        imgPath: '../../assets/questionnaire/circle-check.svg',
+        imgPath: 'assets/questionnaire/circle-check.svg',
         isError: isError,
       };
     }

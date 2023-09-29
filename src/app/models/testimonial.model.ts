@@ -68,7 +68,7 @@ export class Testimonial {
     this._userDescription = data.user_description;
 
     if (!data.user_avatar) {
-      this._avatarPath = `../../assets/testimonials/default-img.svg`;
+      this._avatarPath = `assets/testimonials/default-img.svg`;
     } else {
       this._avatarPath = data.user_avatar;
     }
