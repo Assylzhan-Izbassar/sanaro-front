@@ -2,7 +2,7 @@
 <div class="header header_pos">
   <div class="header__inner">
     <div class="header__logo" (click)="onRefresh()">
-      <img src="../../assets/header/fitline-logo.svg" alt="FitLine Logo" />
+      <img src="assets/header/fitline-logo.svg" alt="FitLine Logo" />
     </div>
     <ul class="header__list">
       <li class="header__item">
@@ -24,13 +24,13 @@
         <div *ngIf="!isLoggedIn" (click)="onLogin()">
           <div>Войти</div>
           <div class="header__log">
-            <img src="../../assets/header/login.svg" alt="login-icon" />
+            <img src="assets/header/login.svg" alt="login-icon" />
           </div>
         </div>
         <div *ngIf="isLoggedIn" (click)="onLogout()">
           <div>Выйти</div>
           <div class="header__log">
-            <img src="../../assets/header/logout.svg" alt="logout-icon" />
+            <img src="assets/header/logout.svg" alt="logout-icon" />
           </div>
         </div>
       </li>
