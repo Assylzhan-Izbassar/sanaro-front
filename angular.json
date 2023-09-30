@@ -30,6 +30,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "outputPath": "docs/fitline-front",
               "budgets": [
                 {
                   "type": "initial",
