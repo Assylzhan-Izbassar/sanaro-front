@@ -9,6 +9,7 @@ import {
   transition,
   animate,
 } from '@angular/animations';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-greeting-dialog',
@@ -46,9 +47,24 @@ export class GreetingDialogComponent {
 
   constructor(
     private dialog: DialogService,
+    private authService: AuthService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    this.fillName(GREETING_DATA[0].title).then((result: string) => {
+      GREETING_DATA[0].title = result;
+    });
     this.greetings = GREETING_DATA;
+  }
+
+  private async fillName(title: string): Promise<string> {
+    try {
+      const response = await this.authService.getCurrentUserInfo();
+      let username = response?.username;
+      title = title.replace('{{username}}', username!);
+    } catch (error) {
+      console.log(error);
+    }
+    return title;
   }
 
   onNext() {

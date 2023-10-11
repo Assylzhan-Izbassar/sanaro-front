@@ -47,7 +47,7 @@ export class AuthService extends BaseService {
    * @param password - Password
    * @returns - Credentials, like access and refresh token.
    */
-  login(data: any): Observable<any> {
+  public login(data: any): Observable<any> {
     return this.http.post<any>(this.url, data).pipe(
       tap((response) => {
         const { access, refresh } = response;
@@ -69,14 +69,31 @@ export class AuthService extends BaseService {
    * Registers a new user.
    * @param userData - Data to register a new user.
    */
-  register(userData: UserData): Observable<any> {
+  public register(userData: UserData): Observable<any> {
     return this.http.post<UserData>(this.usersUrl, userData);
+  }
+
+  /**
+   * Method that returns current user data.
+   */
+  public getCurrentUserInfo(): Promise<UserData | undefined> {
+    let decodedToken: any = jwtDecode(this.getToken()!);
+    let userId = decodedToken.user_id;
+    return this.http.get<UserData>(this.usersUrl + userId).toPromise();
+  }
+
+  /**
+   * Method that returns user data by user id.
+   * @param userId - id of user
+   */
+  public getUserInfo(userId: number): Observable<UserData> {
+    return this.http.get<UserData>(this.usersUrl + userId);
   }
 
   /**
    * Removes access and refresh tokens from browser storage.
    */
-  logout(): void {
+  public logout(): void {
     this.removeToken();
     this.removeRefreshTokenCookie();
   }
@@ -93,7 +110,7 @@ export class AuthService extends BaseService {
    * Gets access token value.
    * @returns - Access token value.
    */
-  getToken(): string | null {
+  public getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
 
@@ -120,7 +137,7 @@ export class AuthService extends BaseService {
    * Gets refresh token from cookie.
    * @returns - Refresh token value.
    */
-  getRefreshTokenCookie(): string | null {
+  public getRefreshTokenCookie(): string | null {
     return this.cookieService.get(this.refreshTokenKey);
   }
 
@@ -135,7 +152,7 @@ export class AuthService extends BaseService {
    * Refresh the token.
    * @returns - New access token value.
    */
-  refreshToken(): Observable<any> {
+  public refreshToken(): Observable<any> {
     const refreshToken = this.getRefreshTokenCookie();
     let data = { refresh: refreshToken };
     if (!refreshToken) {
