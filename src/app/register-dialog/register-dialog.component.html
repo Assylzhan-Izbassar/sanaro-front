@@ -22,6 +22,7 @@
       >
         <!-- REGISTER INPUTS -->
         <div class="dialog__inputs">
+          <!-- USERNAME INPUT -->
           <div class="dialog__item">
             <label for="username" class="dialog__label">Имя пользователя</label>
             <input
@@ -30,7 +31,39 @@
               formControlName="username"
               placeholder="username"
             />
+            <!-- SHOWS THAT USERNAME IS REQUIRED -->
+            <div
+              *ngIf="
+                registerForm.get('username')?.hasError('required') &&
+                registerForm.get('username')?.touched
+              "
+              class="validation validation_register"
+            >
+              Поле username обязательно для заполнения
+            </div>
+            <!-- SHOWS THAT USERNAME'S MIN LENGTH IS 5 -->
+            <div
+              *ngIf="
+                registerForm.get('username')?.hasError('minlength') &&
+                registerForm.get('username')?.touched
+              "
+              class="validation validation_register"
+            >
+              Длина поле должен быть больше 5 символов
+            </div>
+            <!-- SHOWS THAT USERNAME'S PATTERN VALIDATION -->
+            <div
+              *ngIf="
+                registerForm.get('username')?.hasError('pattern') &&
+                registerForm.get('username')?.touched
+              "
+              class="validation validation_register"
+            >
+              Поле "Имя пользователя" должен содержать латинские буквы, цифры
+              или символы "-" и "_"
+            </div>
           </div>
+          <!-- EMAIL INPUT -->
           <div class="dialog__item">
             <label for="email" class="dialog__label">Email</label>
             <input
@@ -39,7 +72,35 @@
               formControlName="email"
               placeholder="user@example.com"
             />
+            <div
+              *ngIf="
+                registerForm.get('email')?.hasError('required') &&
+                registerForm.get('email')?.touched
+              "
+              class="validation validation_register"
+            >
+              Поле "Email" обязательно для заполнения
+            </div>
+            <div
+              *ngIf="
+                registerForm.get('email')?.hasError('minlength') &&
+                registerForm.get('email')?.touched
+              "
+              class="validation validation_register"
+            >
+              Длина поле должен быть больше 6 символов
+            </div>
           </div>
+          <div
+            *ngIf="
+              registerForm.get('email')?.hasError('email') &&
+              registerForm.get('email')?.touched
+            "
+            class="validation validation_register"
+          >
+            Поле должен содержать стандартный "Email"
+          </div>
+          <!-- PASSWORD INPUT -->
           <div class="dialog__item">
             <label for="password" class="dialog__label">Пароль</label>
             <input
@@ -48,7 +109,28 @@
               formControlName="password"
               autocomplete="on"
             />
+            <!-- SHOWS THAT PASSWORD IS REQUIRED -->
+            <div
+              *ngIf="
+                registerForm.get('password')?.hasError('required') &&
+                registerForm.get('password')?.touched
+              "
+              class="validation validation_register"
+            >
+              Поле "Пароль" обязательно для заполнения
+            </div>
+            <!-- SHOWS THAT MINLENGTH OF PASSWORD IS EIGHT -->
+            <div
+              *ngIf="
+                registerForm.get('password')?.hasError('minlength') &&
+                registerForm.get('password')?.touched
+              "
+              class="validation validation_register"
+            >
+              Пароль должен содержать минимум 8 символов
+            </div>
           </div>
+          <!-- PASSWORD CONFIRM INPUT -->
           <div class="dialog__item">
             <label for="passwordConfirm" class="dialog__label"
               >Подтвердите пароль</label
@@ -59,6 +141,26 @@
               formControlName="passwordConfirm"
               autocomplete="on"
             />
+            <!-- SHOWS THAT PASSWORD CONFIRMATION FIELD IS REQUIRED -->
+            <div
+              *ngIf="
+                registerForm.get('passwordConfirm')?.hasError('required') &&
+                registerForm.get('passwordConfirm')?.touched
+              "
+              class="validation validation_register"
+            >
+              Поле "Подтвердите пароль" обязательно для заполнения
+            </div>
+            <!-- SHOWS THAT PASSWORD AND PASSWORD CONFIRMATION ARE NOT EQUAL -->
+            <div
+              *ngIf="
+                registerForm.hasError('passwordMismatch') &&
+                registerForm.get('passwordConfirm')?.dirty
+              "
+              class="validation validation_register"
+            >
+              Пароли не совпадают
+            </div>
           </div>
         </div>
         <!-- SUBMIT BUTTON -->

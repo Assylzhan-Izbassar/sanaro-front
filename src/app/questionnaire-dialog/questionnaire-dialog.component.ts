@@ -16,8 +16,8 @@ import { Question } from '../models/question.model';
 import { Answer } from '../models/answer.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
-import jwtDecode from 'jwt-decode';
 import { DIRECTORY } from '../models/directory.model';
+import { UserData } from '../models/user.model';
 
 @Component({
   selector: 'app-questionnaire-dialog',
@@ -50,9 +50,7 @@ import { DIRECTORY } from '../models/directory.model';
 })
 export class QuestionnaireDialogComponent implements OnInit {
   uuid = uuidv4();
-  token = this.authService.getToken();
-  decodedToken: any = jwtDecode(this.token!);
-  user_id: number = this.decodedToken.user_id;
+  user_id?: number;
 
   currQuesIdx: number = 0;
   selectedOption: number = -1;
@@ -79,16 +77,33 @@ export class QuestionnaireDialogComponent implements OnInit {
    * Initiates the questionnaire component.
    */
   ngOnInit() {
+    this.fetchUserId();
     this.fetchQuestions();
 
     setTimeout(() => {
       if (!this.questions!.length) {
         this.dialogService.closeDialog();
         setTimeout(() => {
-          this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
+          this.dialogService.openNotifyDialog(
+            true,
+            DIRECTORY.error_loading_questions
+          );
         }, 300);
       }
     }, 300);
+  }
+
+  /**
+   * Method for loading user data, and set user id.
+   */
+  private async fetchUserId(): Promise<void> {
+    try {
+      await this.authService.getCurrentUserInfo().then((result: any) => {
+        this.user_id = result.id!;
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   /**
@@ -110,11 +125,16 @@ export class QuestionnaireDialogComponent implements OnInit {
    */
   async onAnswerSelected(): Promise<void> {
     let currAnsIdx = this.selectedOption;
-    this.responses.push({
-      questionnaire_uuid: this.uuid,
-      response: currAnsIdx,
-      user: this.user_id,
-    });
+    if(this.user_id) {
+      this.responses.push({
+        questionnaire_uuid: this.uuid,
+        response: currAnsIdx,
+        user: this.user_id,
+      });
+    } else {
+      // Stops the running code.
+      return;
+    }
 
     if (this.currQuesIdx === this.questions!.length - 1) {
       // Getting user_id from jwt token
@@ -130,7 +150,10 @@ export class QuestionnaireDialogComponent implements OnInit {
                 if (response.length > 0) {
                   this.dialogService.openConfirmDialog({});
                 } else {
-                  this.dialogService.openNotifyDialog(true, DIRECTORY.error_loading_questions);
+                  this.dialogService.openNotifyDialog(
+                    true,
+                    DIRECTORY.error_loading_questions
+                  );
                 }
               }, 100);
             },
@@ -202,7 +225,7 @@ export class QuestionnaireDialogComponent implements OnInit {
             this.currentAnswers = data;
           }
         },
-        error: (e) => console.log('Error fetching testimonials: ', e)
+        error: (e) => console.log('Error fetching testimonials: ', e),
       });
     }
   }

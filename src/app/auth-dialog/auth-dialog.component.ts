@@ -23,7 +23,7 @@ export class AuthDialogComponent {
     this.authForm = this.fb.group({
       username: [
         '',
-        [Validators.required, Validators.pattern(/^[A-Za-z]\w{4,29}$/)],
+        [Validators.required, Validators.pattern(/^[A-Za-z0-9_-]{4,29}$/)],
       ],
       password: [
         '',

@@ -1,3 +1,9 @@
 .dialog__inner_top {
-    padding: 64px 0px;
+  padding: 64px 0px;
+}
+
+.validation_register {
+  color: var(--secondary-txt-color);
+  margin-top: 5px;
+  font-size: 14px;
 }

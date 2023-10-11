@@ -32,7 +32,7 @@
                 authForm.get('username')?.hasError('required') &&
                 authForm.get('username')?.touched
               "
-              class="validator validator_auth"
+              class="validation validation_auth"
             >
               Поле username обязательно для заполнения
             </div>
@@ -42,7 +42,7 @@
                 authForm.get('username')?.hasError('pattern') &&
                 authForm.get('username')?.touched
               "
-              class="validator validator_auth"
+              class="validation validation_auth"
             >
               Username должен содержать только латинские буквы
             </div>
@@ -63,7 +63,7 @@
                 authForm.get('password')?.hasError('required') &&
                 authForm.get('password')?.touched
               "
-              class="validator validator_auth"
+              class="validation validation_auth"
             >
               Поле пароль обязательно для заполнения
             </div>
@@ -73,7 +73,7 @@
                 authForm.get('password')?.hasError('minlength') &&
                 authForm.get('password')?.touched
               "
-              class="validator validator_auth"
+              class="validation validation_auth"
             >
               Пароль должен содержать больше 8 символов
             </div>
@@ -83,7 +83,7 @@
                 authForm.get('password')?.hasError('maxlength') &&
                 authForm.get('password')?.touched
               "
-              class="validator validator_auth"
+              class="validation validation_auth"
             >
               Пароль должен содержать меньше 20 символов
             </div>
