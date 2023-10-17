@@ -1,4 +1,5 @@
 /* WELCOME SECTION */
+/* DESKTOP VERSION */
 .welcome {
   background-color: var(--secondary-bg-color);
   position: relative;
@@ -7,6 +8,7 @@
 
 .welcome__inner {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: -36px;
 }
@@ -58,6 +60,7 @@
 }
 
 .welcome__img img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -89,4 +92,51 @@
 
 .partners__item:first-child {
   margin-left: 0px;
+}
+
+/* FOR SIZES OF 360px */
+@media (max-width: 360px) {
+  .welcome__header {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 42px;
+    letter-spacing: -1px;
+  }
+  .welcome__headline {
+    text-align: center;
+    margin: 38px 30px 0px 30px;
+  }
+  .welcome__subheader {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-top: 24px;
+  }
+  /* ACTION */
+  .welcome__action {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .welcome__btn {
+    flex: 1 0 260.63px;
+  }
+
+  .welcome__proof {
+    font-size: 10px;
+    font-family: 400;
+    line-height: 14px;
+  }
+  .welcome__proof p {
+    margin: 0 auto;
+    max-width: 280px;
+  }
+  .welcome__proof_top {
+    margin: 12px 0px 30px 0px;
+  }
+  .welcome__btn .btn{
+    font-size: 16px;
+  }
 }
