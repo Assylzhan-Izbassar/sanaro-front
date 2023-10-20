@@ -1,0 +1,139 @@
+{
+  "configVersion": 1,
+  "timestamp": 1697808671343,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/index.html",
+        "/main.523e0093418c1de3.js",
+        "/manifest.webmanifest",
+        "/polyfills.24fa83026ed2ab9c.js",
+        "/runtime.4c9e0cc02dde3c26.js",
+        "/styles.18578051994eeee9.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/benefits/basics.svg",
+        "/assets/benefits/main-img.svg",
+        "/assets/benefits/restorate.svg",
+        "/assets/core/arrow.svg",
+        "/assets/core/check.svg",
+        "/assets/core/favicon.svg",
+        "/assets/features/flavors.svg",
+        "/assets/features/no-conservative.svg",
+        "/assets/features/sweeteners.svg",
+        "/assets/footer/arrow.svg",
+        "/assets/footer/footer-logo.svg",
+        "/assets/header/basket-icon.svg",
+        "/assets/header/fitline-logo.svg",
+        "/assets/header/login.svg",
+        "/assets/header/logout.svg",
+        "/assets/header/search-icon.svg",
+        "/assets/header/user.svg",
+        "/assets/hero/hero-img.svg",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/innovation/ntc-logo.png",
+        "/assets/innovation/ntc-logo.svg",
+        "/assets/innovation/proshape.svg",
+        "/assets/partners/dlv-brand.svg",
+        "/assets/partners/dsv-brand.svg",
+        "/assets/partners/radnet-brand.svg",
+        "/assets/partners/ski-austria-brand.svg",
+        "/assets/partners/sporthilfe-brand.svg",
+        "/assets/questionnaire/circle-check.svg",
+        "/assets/questionnaire/circle-cross.svg",
+        "/assets/questionnaire/loading.gif",
+        "/assets/testimonials/default-img.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/benefits/basics.svg": "dfdc7fffcd2dda143446a15a1b1630b372231fd2",
+    "/assets/benefits/main-img.svg": "b454b67ba1f114df251c8f1c4cf6cdaf807f313e",
+    "/assets/benefits/restorate.svg": "cafb09c007506ccae215a85bef54089dbbc05d82",
+    "/assets/core/arrow.svg": "4e145aa79527675c483ebb582148528ef2bd431f",
+    "/assets/core/check.svg": "df3bec4c2d04d7f911e1c1f5906b2b6721743039",
+    "/assets/core/favicon.svg": "1da89195a8480266ce2410e267afa1137c96b7d8",
+    "/assets/features/flavors.svg": "32d936bf715cdcc170054e951c002f4501a56a0f",
+    "/assets/features/no-conservative.svg": "0a573359be55dcd1b2febd9137a2a52064434e2c",
+    "/assets/features/sweeteners.svg": "cd1f608e2e4c925a14c3721ac139045fd7c9b4b4",
+    "/assets/footer/arrow.svg": "826d58ec687494ff3ba842c27a34982f1f5cac1e",
+    "/assets/footer/footer-logo.svg": "9f1a868ec4052ced754b48771d5ebeff45b7168d",
+    "/assets/header/basket-icon.svg": "e81b7e2e24138d0ea293a84d6ed3214733e9cd13",
+    "/assets/header/fitline-logo.svg": "aa2c58dccdab2a731da01595e639271504efb045",
+    "/assets/header/login.svg": "e0a8a15aaadeca7b5ce9f9a84959bd791243ae08",
+    "/assets/header/logout.svg": "0e630299518cd3a963be13d257d9c7b911d332e3",
+    "/assets/header/search-icon.svg": "6929d63b80c4a249bd490f528a1ba6cb2b3612fd",
+    "/assets/header/user.svg": "54ace05413c8d0278414e11c523f21137a14251e",
+    "/assets/hero/hero-img.svg": "55ac799e83386767b53b116aa575245674af1438",
+    "/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
+    "/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
+    "/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
+    "/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
+    "/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
+    "/assets/innovation/ntc-logo.png": "a5fa34b154c877e119a2a6f0ce2765a6db34dab9",
+    "/assets/innovation/ntc-logo.svg": "3d9e9075cf898265c58ed0fc3c6ca2d13b2b1070",
+    "/assets/innovation/proshape.svg": "233983dcf6d4a64cc025138d52e5897607a97890",
+    "/assets/partners/dlv-brand.svg": "3ef14f463e7c866ecc11676f2e94ebe6aedc35f5",
+    "/assets/partners/dsv-brand.svg": "2f70c4a23bae02d48adec8dd8262007c04a5e75d",
+    "/assets/partners/radnet-brand.svg": "2bd32a85b8cc42fe7d3e4c06d6d6d473bf195246",
+    "/assets/partners/ski-austria-brand.svg": "6ea0872007c9caac64588f2273219b1b985fffaf",
+    "/assets/partners/sporthilfe-brand.svg": "bc8ee46be6279aaffd368ad4cd16e7777ae52145",
+    "/assets/questionnaire/circle-check.svg": "cf4b55d6783b4c7921de8e4d5b0119e0c470527c",
+    "/assets/questionnaire/circle-cross.svg": "6304d845de634172ff8847d61b76a7bb7b5ad8a4",
+    "/assets/questionnaire/loading.gif": "016b0b7356f76aa049fdd4491ec3bf65c0909119",
+    "/assets/testimonials/default-img.svg": "d1252122d7bf8425844e320f0f5dd363c1eba053",
+    "/index.html": "bffda5266d37f3ca3f32397e389df1579fbfbb4c",
+    "/main.523e0093418c1de3.js": "f344f0cd674b6a36acf95ec4fb82dae00bbeb27d",
+    "/manifest.webmanifest": "9a088b7c4339228d1082e666ce105dc889bc180c",
+    "/polyfills.24fa83026ed2ab9c.js": "36b9d65ea4613bd981daa128bc74f6b485d80280",
+    "/runtime.4c9e0cc02dde3c26.js": "2befef5dcf1016fb03f841f7f20cf4b9c0eb7421",
+    "/styles.18578051994eeee9.css": "a89ff1efdfa9742d03762749700e785aa430e933"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
