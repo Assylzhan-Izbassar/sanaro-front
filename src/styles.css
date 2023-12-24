@@ -51,17 +51,10 @@ li {
   list-style: none;
 }
 
-.container,
-.container_inner {
-  margin: 0 auto;
-}
-
 .container {
-  max-width: 1110px;
-}
-
-.container_inner {
-  max-width: 1018px;
+  max-width: 1140px;
+  padding: 0px 15px;
+  margin: 0 auto;
 }
 
 .btn {

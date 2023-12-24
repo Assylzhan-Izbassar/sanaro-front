@@ -6,6 +6,7 @@
 .footer__inner {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 40px 0px;
 }
 
