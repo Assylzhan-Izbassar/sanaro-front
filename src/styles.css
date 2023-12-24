@@ -1,4 +1,3 @@
-/* GENERAL STYLE SHEET */
 :root {
   --white: #ffffff;
   --main-bg-color: #fdf8fa;
@@ -13,22 +12,14 @@
   --dialog-top-bottom: 52px;
 }
 
-body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  margin: 0px;
-  background-color: var(--main-bg-color);
-  color: var(--primary-txt-color);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0px;
-  padding: 0px;
+/* RESET STYLE SHEET */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 a,
@@ -42,20 +33,52 @@ a:hover {
   color: var(--secondary-txt-color);
 }
 
-ul {
-  margin: 0px;
-  padding: 0px;
+body {
+  height: 100%;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--main-bg-color);
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  color: var(--primary-txt-color);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+ul,
+ol,
 li {
   list-style: none;
 }
 
-.container {
-  max-width: 1140px;
+img {
+  vertical-align: top;
+}
+
+.wrapper {
+  min-height: 100%;
+  /* overflow: hidden; */
+}
+
+/* Technical class */
+._container {
+  max-width: 1110px;
   padding: 0px 15px;
   margin: 0 auto;
+  box-sizing: content-box;
 }
+
+/* --------------------- */
+/*  GENERAL BUTTON STYLE */
+/* --------------------- */
 
 .btn {
   color: var(--white);
@@ -96,8 +119,8 @@ li {
 }
 
 .validation {
- text-align: start;
- color: var(--btn-bg-color);
+  text-align: start;
+  color: var(--btn-bg-color);
 }
 
 /* ------------- */
