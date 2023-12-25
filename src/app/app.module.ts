@@ -31,6 +31,7 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
 import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { PartnersComponent } from './partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     RegisterDialogComponent,
     GreetingDialogComponent,
     ConfirmDialogComponent,
+    PartnersComponent,
   ],
   imports: [
     BrowserModule,

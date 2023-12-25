@@ -1,0 +1,27 @@
+/* PARTNERS SECTION */
+.partners {
+  max-width: 1369.98px;
+  background-color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.partners_border {
+  margin: 0 auto;
+  border-radius: 47px;
+}
+
+.partners__inner {
+  display: flex;
+  align-items: center;
+  padding: 103px 0px;
+  margin-top: -36px;
+}
+
+.partners__item {
+  margin-left: 40px;
+}
+
+.partners__item:first-child {
+  margin-left: 0px;
+}

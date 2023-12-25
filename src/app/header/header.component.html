@@ -1,82 +1,46 @@
-<!-- HEADER SECTION -->
-<header class="header header_pos">
-  <div class="header__container _container">
-    <div class="header__logo" (click)="onRefresh()">
-      <img src="assets/header/fitline-logo.svg" alt="FitLine Logo" />
-    </div>
-    <nav class="header__menu menu">
-      <ul class="menu__list">
-        <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('hero')">Главное</a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('innovation')">Инновация</a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('products')">Продукты</a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('testimonials')">Отзывы</a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('questions')">Вопросы</a>
-        </li>
-        <li class="menu__item menu__item_login">
-          <div *ngIf="!isLoggedIn" (click)="onLogin()">
-            <a class="menu__link">Войти</a>
-            <div class="menu__log">
-              <img src="assets/header/login.svg" alt="login-icon" />
-            </div>
-          </div>
-          <div *ngIf="isLoggedIn" (click)="onLogout()">
-            <a class="menu__link">Выйти</a>
-            <div class="menu__log">
-              <img src="assets/header/logout.svg" alt="logout-icon" />
-            </div>
-          </div>
-        </li>
-      </ul>
-    </nav>
+<div class="header__container _container-big">
+  <div class="header__logo" (click)="onRefresh()">
+    <img src="assets/header/fitline-logo.svg" alt="FitLine Logo" />
   </div>
-</header>
-
-
-
-<!-- <div class="header header_pos">
-  <div class="header__inner">
-    <div class="header__logo" (click)="onRefresh()">
-      <img src="assets/header/fitline-logo.svg" alt="FitLine Logo" />
-    </div>
-    <ul class="header__list">
-      <li class="header__item">
-        <a (click)="scrollToFragment('hero')">Главное</a>
+  <nav class="header__menu menu">
+    <ul class="menu__list">
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToFragment('hero')">Главное</a>
       </li>
-      <li class="header__item">
-        <a (click)="scrollToFragment('innovation')">Инновация</a>
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToFragment('innovation')"
+          >Инновация</a
+        >
       </li>
-      <li class="header__item">
-        <a (click)="scrollToFragment('products')">Продукты</a>
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToFragment('products')"
+          >Продукты</a
+        >
       </li>
-      <li class="header__item">
-        <a (click)="scrollToFragment('testimonials')">Отзывы</a>
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToFragment('testimonials')"
+          >Отзывы</a
+        >
       </li>
-      <li class="header__item">
-        <a (click)="scrollToFragment('questions')">Вопросы</a>
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToFragment('questions')"
+          >Вопросы</a
+        >
       </li>
-      <li class="header__item header__item_login">
+      <li class="menu__item menu__item_login">
         <div *ngIf="!isLoggedIn" (click)="onLogin()">
-          <div>Войти</div>
-          <div class="header__log">
+          <a class="menu__link">Войти</a>
+          <div class="menu__log">
             <img src="assets/header/login.svg" alt="login-icon" />
           </div>
         </div>
         <div *ngIf="isLoggedIn" (click)="onLogout()">
-          <div>Выйти</div>
-          <div class="header__log">
+          <a class="menu__link">Выйти</a>
+          <div class="menu__log">
             <img src="assets/header/logout.svg" alt="logout-icon" />
           </div>
         </div>
       </li>
     </ul>
-  </div>
-</div> -->
+  </nav>
+</div>

@@ -1,18 +1,26 @@
-.content {
-  margin: 0 auto;
-  max-width: 1440px;
-}
-
-.content__inner {
+.wrapper {
+  min-height: 100vh;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
-.content__body {
-  flex: 1 1;
+/* ------------------ */
+/* ------HEADER------ */
+/* ------------------ */
+.header {
+  background-color: var(--white);
 }
 
-.content__footer {
-  flex: 0 1;
+.header_pos {
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+}
+
+/* ------------------ */
+/* -------PAGE------- */
+/* ------------------ */
+.page {
+  flex: 1 1 auto;
 }
