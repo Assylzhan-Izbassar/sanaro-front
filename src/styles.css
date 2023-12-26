@@ -74,11 +74,12 @@ img {
   box-sizing: content-box;
 }
 
-._container-big {
-  max-width: 1260px;
-  padding: 0px 15px;
-  margin: 0 auto;
-  box-sizing: content-box;
+._container_medium {
+  max-width: 1147px;
+}
+
+._container_big {
+  max-width: 1255px;
 }
 
 ._ibg {

@@ -23,6 +23,7 @@
 .menu__list {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 @media (max-width: 479px) {
