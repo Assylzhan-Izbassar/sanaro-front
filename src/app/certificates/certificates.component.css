@@ -1,0 +1,23 @@
+.page__certificates {
+    position: relative;
+    z-index: 2;
+    margin-top: -36px;
+}
+.certificates {
+    background-color: white;
+    border-radius: 47px;
+}
+.certificates__container {
+    padding: 103px 0px;
+}
+.certificates__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.certificates__item {
+}
+.certificates__item img {
+    width: 100%;
+    height: 100%;
+}
