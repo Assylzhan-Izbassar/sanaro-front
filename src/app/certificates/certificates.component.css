@@ -1,39 +1,39 @@
 .page__certificates {
-    position: relative;
-    z-index: 2;
-    margin-top: -36px;
+  position: relative;
+  z-index: 2;
+  margin-top: -36px;
 }
 .certificates {
-    background-color: white;
-    border-radius: 47px;
+  background-color: white;
+  border-radius: 47px;
 }
 .certificates__container {
-    padding: 103px 0px;
+  padding: 103px 0px;
 }
 .certificates__list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .certificates__item {
-    padding: 13px 15px;
-    flex: 0 1 20%;
-    text-align: center;
-    min-width: 140px;
+  padding: 13px 15px;
+  flex: 0 1 20%;
+  text-align: center;
+  min-width: 140px;
 }
 .certificates__item img {
-    width: 100%;
-    object-fit: scale-down;
+  width: 100%;
+  object-fit: scale-down;
 }
 
 /* -------- media queries --------*/
 
 @media (max-width: 767px) {
-    .certificates {
-        border-radius: 31px;
-    }
-    .certificates__container {
-        padding: 60px 0px;
-    }
+  .certificates {
+    border-radius: 31px;
+  }
+  .certificates__container {
+    padding: 60px 0px;
+  }
 }

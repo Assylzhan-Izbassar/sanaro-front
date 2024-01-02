@@ -87,8 +87,9 @@
   font-weight: 400;
 }
 
-.ntc__button {
+.ntc__button button {
   font-size: 16px;
+  line-height: calc(24.5 / 16 * 100%);
 }
 
 /* -------- media queries --------*/

@@ -1,122 +1,83 @@
-/* SETS */
+.page__sets {
+}
 .sets {
   background-color: var(--secondary-bg-color);
-}
-
-.sets__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 75px 0px;
-  margin-top: 80px;
 }
-
-/* LEFT */
-.sets__left {
-  max-width: 447px;
-  max-height: 458px;
-}
-
-.flip-card {
+.sets__container {
   display: flex;
-  width: 100%;
-  height: 100em;
-  perspective: 1000px;
-  cursor: pointer;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-
-.flip-card__inner {
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 800ms;
+.sets__main-image {
+  min-width: 447px;
 }
-
-.flip-card__front img {
+.main-image {
+  position: relative;
+  padding: 0px 0px 46.26% 0px;
+  overflow: hidden;
+}
+.main-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/* Style front side of the card */
-.flip-card__front,
-.flip-card__back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
+.main-image__front {
 }
-
-/* Style of the front side */
-.flip-card__front {
-  background-color: var(--main-bg-color);
+.main-image__back {
 }
-
-.flip-card__back {
-  background-color: var(--main-bg-color);
-  transform: rotateY(-180deg);
-}
-
-/* Flip the card on hover */
-.flip-card:hover .flip-card__inner {
-  transform: rotateY(-180deg);
-}
-
-.card-back__inner {
-  width: 90%;
-  height: 100%;
+.sets__info {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 14px;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.card-back__inner_small {
-  font-size: 12px;
+.sets__info > *:not(:last-child) {
+  margin-bottom: 26.6px;
 }
-
-.card-back__inner_center {
-  margin: 0 auto;
-}
-
-/* RIGHT */
-.right {
+.info {
   max-width: 497px;
+  flex-shrink: 1;
+  overflow-y: auto;
 }
-
-.right__imgs {
+.info__upper {
   display: flex;
   justify-content: space-between;
 }
-
-.right__img {
-  max-width: 205.7px;
-  max-height: 205.7px;
+.info__img {
+  flex: 0 1 41.4%;
+  position: relative;
+  padding: 0px 0px 41.4% 0px;
+  overflow: hidden;
 }
-
-.right__img img {
+.info__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-.right__desc {
-  margin-top: 27px;
+.info__content {
+  flex: 1 1 auto;
 }
-
-.right__title {
+.info__content > *:not(:last-child) {
+  margin-bottom: 17.74px;
+}
+.info__content h2 {
   font-weight: 700;
-  font-size: 32px;
-  line-height: 34.33px;
+  font-size: 35.48px;
+  line-height: calc(31.9 / 35.48 * 100%);
 }
-
-.right__txt {
-  font-weight: 500;
-  line-height: 32px;
-  font-size: 18px;
-  margin-top: 16px;
+.info__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 19.35px;
+  line-height: calc(32.3 / 19.35 * 100%);
 }
-
-.right__btn {
-  margin-top: 18px;
+.info__btn button {
+  font-size: 17px;
+  line-height: calc(25.7 / 17 * 100%);
 }
