@@ -1,23 +1,20 @@
-<!-- TESTIMONIALS SECTION -->
-<div class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="testimonials__inner">
-      <!-- TESTIMONIALS LIST -->
-      <div class="testimonials__list">
-        <div
-          *ngFor="let testimonial of testimonials"
-          class="testimonials__item"
-        >
-          <div class="testimonials__text">
-            <p>{{ testimonial.text }}</p>
-          </div>
-          <div class="testimonials__footer">
-            <div class="testimonials__avatar">
-              <img src="{{ testimonial.avatar }}" alt="user-avatar" />
+<div class="page__testimonials testimonials">
+  <div class="testimonials__container _container">
+    <div class="testimonials__items">
+      <div
+        class="testimonials__item testimonial-item"
+        *ngFor="let testimonials of testimonials"
+      >
+        <div class="testimonial-item__card">
+          <div class="testimonials__text">{{ testimonials.text }}</div>
+          <div class="testimonials__footer user-info">
+            <div class="user-info__avatar">
+              <img
+                src="{{ testimonials.avatar }}"
+                alt="Изображение пользователя"
+              />
             </div>
-            <div class="testimonials__username">
-              <h4>{{ testimonial.username }}</h4>
-            </div>
+            <div class="user-info__username">{{ testimonials.username }}</div>
           </div>
         </div>
       </div>

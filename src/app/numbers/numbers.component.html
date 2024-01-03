@@ -1,18 +1,9 @@
-<!-- NUMBERS SECTION -->
-<div class="numbers">
-  <div class="container">
-    <div class="numbers__inner">
-      <!-- NUMBERS LIST -->
-      <div class="numbers__list">
-        <!-- LIST ITEM -->
-        <div *ngFor="let socialNumber of socialNumbers" class="numbers__item">
-          <div class="numbers__num">
-            <h1>{{ socialNumber.number }}</h1>
-          </div>
-          <div class="numbers__desc">
-            <p>{{ socialNumber.desc }}</p>
-          </div>
-        </div>
+<div class="page__numbers numbers">
+  <div class="numbers__container _container">
+    <div class="numbers__items">
+      <div class="numbers__item" *ngFor="let socialNumber of socialNumbers">
+        <div class="numbers__num">{{ socialNumber.number }}</div>
+        <div class="numbers__desc">{{ socialNumber.desc }}</div>
       </div>
     </div>
   </div>
