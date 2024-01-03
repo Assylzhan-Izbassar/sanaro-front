@@ -51,8 +51,11 @@
 }
 
 @media (max-width: 419px) {
+  .page__numbers {
+    margin: 60px 0px;
+  }
   .numbers {
-    padding: 64px 0px;
+    padding: 0px;
   }
   .numbers__item {
     min-width: 145px;
