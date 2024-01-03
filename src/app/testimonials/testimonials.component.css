@@ -1,13 +1,7 @@
 .page__testimonials {
   margin: 80px 0px;
 }
-@media (max-width: 419px) {
-  .page__testimonials {
-    margin: 30px 0px;
-  }
-}
-.testimonials {
-}
+
 .testimonials__container {
   font-size: 18px;
 }
@@ -15,52 +9,11 @@
   display: flex;
   flex-wrap: wrap;
 }
-@media (max-width: 991px) {
-  .testimonials__items {
-    justify-content: center;
-  }
-}
-@media (min-width: 696px) {
-  .testimonials__items {
-    margin: 0px -29px;
-  }
-}
+
 .testimonials__item {
   min-height: 375px;
   min-width: 282px;
 }
-@media (max-width: 419px) {
-  .testimonials__item {
-    min-height: 330px;
-  }
-}
-@media (max-width: 991px) {
-  .testimonials__item:not(:last-child) {
-    margin-bottom: 58px;
-  }
-}
-@media (max-width: 419px) {
-  .testimonials__item:not(:last-child) {
-    margin-bottom: 40px;
-  }
-}
-@media (min-width: 696px) {
-  .testimonials__item {
-    padding: 0px 29px;
-  }
-}
-
-@media (min-width: 992px) {
-  .testimonials__item {
-    flex: 0 1 calc(1 / 3 * 100%);
-  }
-}
-
-/* @media (max-width: 992px) {
-  .testimonials__item {
-    flex: 0 1 50%;
-  }
-} */
 
 .testimonial-item__card {
   display: flex;
@@ -78,15 +31,7 @@
   font-weight: 400;
   line-height: calc(28 / 18 * 100%);
 }
-@media (max-width: 419px) {
-  .testimonials__text {
-    font-size: 16px;
-  }
-}
-.testimonials__footer {
-}
-.user-info {
-}
+
 .user-info > *:not(:last-child) {
   margin-bottom: 16px;
 }
@@ -108,4 +53,45 @@
   font-size: 16px;
   line-height: (24 / 16 * 100%);
   letter-spacing: 0.1px;
+}
+
+/* -------- media queries --------*/
+
+@media (max-width: 991px) {
+  .testimonials__items {
+    justify-content: center;
+  }
+  .testimonials__item:not(:last-child) {
+    margin-bottom: 58px;
+  }
+}
+
+@media (max-width: 419px) {
+  .page__testimonials {
+    margin: 30px 0px;
+  }
+  .testimonials__item {
+    min-height: 330px;
+  }
+  .testimonials__item:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .testimonials__text {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 696px) {
+  .testimonials__items {
+    margin: 0px -29px;
+  }
+  .testimonials__item {
+    padding: 0px 29px;
+  }
+}
+
+@media (min-width: 992px) {
+  .testimonials__item {
+    flex: 0 1 calc(1 / 3 * 100%);
+  }
 }

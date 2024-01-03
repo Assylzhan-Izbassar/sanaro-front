@@ -1,42 +1,16 @@
-<div class="handle" id="questions">
-  <div class="container">
-    <div class="handle__inner handle__inner_top">
-      <div class="handle__title">
-        <h2>Часто задаваемые вопросы</h2>
-      </div>
-      <!-- HANDLE QUESTIONS -->
-      <div class="handle__list">
-        <div *ngFor="let objection of objections" class="handle__item">
-          <!-- HANDLE QUESTION -->
-          <div
-            class="handle__question question"
-            (click)="questionDropdown(objection)"
-          >
-            <div class="question__text">
-              <p>{{ objection.question }}</p>
-            </div>
-            <div class="question__icon">
-              <img
-                class="arrow"
-                [@arrowAnimation]="
-                  objection.answerVisible ? 'arrow_bottom' : 'arrow_left'
-                "
-                src="assets/core/arrow.svg"
-                alt="arrow"
-              />
-            </div>
-          </div>
-          <!-- HANDLE ANSWER -->
-          <div
-            class="handle__answer answer"
-            [@answerAnimation]="
-              objection.answerVisible ? 'answer_visible' : 'answer_hidden'
-            "
-          >
-            <p>{{ objection.answer }}</p>
-          </div>
+<section class="page__objections objections">
+  <div class="objections__container _container">
+    <div class="objections__header">
+      <h1>Часто задаваемые вопросы</h1>
+    </div>
+    <div class="objections__items">
+      <div class="objections__item" *ngFor="let objection of objections">
+        <div class="objections__question">
+          <div class="objections__text">{{ objection.question }}</div>
+          <span class="material-symbols-outlined">chevron_right</span>
         </div>
+        <div class="objections__answer"></div>
       </div>
     </div>
   </div>
-</div>
+</section>
