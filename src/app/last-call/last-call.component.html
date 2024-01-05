@@ -1,8 +1,33 @@
-<!-- LAST CALL TO ACTION SECTION -->
-<div class="call">
+<section class="page__last-call last-call">
+  <div class="last-call__container _container">
+    <div class="last-call__header">
+      <h1 class="last-call__title">Остались еще вопросы?</h1>
+      <h3 class="last-call__subtitle">
+        Закажите обратный звонок. Мы всегда рады ответить на любые ваши вопросы
+      </h3>
+    </div>
+    <form action="#" class="last-call__form">
+      <div class="last-call__inputs">
+        <div class="last-call__item">
+          <input type="text" class="last-call__input" placeholder="Имя" />
+        </div>
+        <div class="last-call__item">
+          <input type="text" class="last-call__input" placeholder="Номер телефона" />
+        </div>
+        <div class="last-call__item">
+          <input type="text" class="last-call__input" placeholder="Страна" />
+        </div>
+      </div>
+      <div class="last-call__btn">
+        <button class="btn">Связаться с нами</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- <div class="call">
   <div class="container">
     <div class="call__inner">
-      <!-- CALL TO ACTION HEADER -->
       <div class="call__header">
         <div class="call__title">
           <h1>Остались еще вопросы?</h1>
@@ -14,7 +39,6 @@
           </h2>
         </div>
       </div>
-      <!-- CALL TO ACTION BODY -->
       <form
         [formGroup]="callRequestForm"
         (ngSubmit)="sendRequest()"
@@ -107,11 +131,10 @@
             </div>
           </div>
         </div>
-        <!-- CALL TO ACTION BUTTON -->
         <div class="call__action">
           <button type="submit" class="btn">Связаться с нами</button>
         </div>
       </form>
     </div>
   </div>
-</div>
+</div> -->

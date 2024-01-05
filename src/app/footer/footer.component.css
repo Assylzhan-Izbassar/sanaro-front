@@ -1,5 +1,97 @@
-/* FOOTER SECTION */
-.footer {
+.footer__container {
+}
+
+.footer__body {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px;
+}
+.footer__logo {
+  position: relative;
+  padding: 0px 5.71% 5.4% 0px;
+}
+.footer__logo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: scale-down;
+  object-position: 0 0;
+}
+.footer__list {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+}
+.list-footer {
+}
+.list-footer__column {
+}
+.list-footer__header {
+  font-size: 16px;
+  line-height: calc(24 / 16 * 100%);
+  letter-spacing: 0.1px;
+}
+.footer__items {
+  margin-top: 16px;
+}
+.footer__items > *:not(:last-child) {
+  margin-bottom: 8px;
+}
+.footer__item {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: calc(20 / 14 * 100%);
+}
+.footer__subscribe {
+}
+.subscribe-footer {
+}
+.subscribe-footer__header {
+}
+.subscribe-footer__form {
+  position: relative;
+  max-width: 326px;
+  margin-top: 24px;
+}
+.subscribe-footer__input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--btn-bg-color);
+}
+.subscribe-footer__input,
+.subscribe-footer__input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(24 / 16 * 100%);
+  letter-spacing: 0.1px;
+  color: var(--btn-bg-color);
+}
+.subscribe-footer__input:focus {
+  outline-color: var(--secondary-bg-color);
+}
+.subscribe-footer__send {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+}
+.subscribe-footer__rights {
+  display: flex;
+  margin-top: 20px;
+}
+.subscribe-footer__rights > *:not(:last-child) {
+  margin-right: 35px;
+}
+.subcribe-footer__right {
+  color: var(--btn-bg-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12 * 100%);
+}
+
+
+/* .footer {
   max-height: 224px;
 }
 
@@ -10,7 +102,6 @@
   margin: 40px 0px;
 }
 
-/* FOOTER IMG */
 .footer__logo {
   max-width: 69.59px;
   max-height: 66.06px;
@@ -22,7 +113,6 @@
   overflow: hidden;
 }
 
-/* FOOTER CONTENT */
 .footer__content {
   display: flex;
   justify-content: space-between;
@@ -110,4 +200,4 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--btn-bg-color);
-}
+} */

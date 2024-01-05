@@ -3,25 +3,34 @@
   z-index: 2;
   margin-top: -36px;
 }
+
 .certificates {
-  background-color: white;
-  border-radius: 47px;
+  /* border-radius: 47px; */
 }
 .certificates__container {
+}
+.certificates__body {
+  background-color: white;
   padding: 103px 0px;
+  border-radius: 47px;
 }
 .certificates__list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-width: 1110px;
+  margin: 0 auto;
 }
 .certificates__item {
-  padding: 13px 15px;
   flex: 0 1 20%;
   text-align: center;
   min-width: 140px;
 }
+.certificates__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
 .certificates__item img {
   width: 100%;
   object-fit: scale-down;
@@ -33,7 +42,12 @@
   .certificates {
     border-radius: 31px;
   }
-  .certificates__container {
-    padding: 60px 0px;
+  .certificates__body {
+    padding: 80px 0px;
+  }
+}
+@media (min-width: 767px) {
+  .certificates__list > *:not(:last-child) {
+    padding-right: 40px;
   }
 }

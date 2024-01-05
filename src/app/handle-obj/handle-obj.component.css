@@ -1,4 +1,15 @@
 .page__objections {
+  margin-bottom: 107px;
+}
+@media (max-width: 767px)  {
+  .page__objections {
+    margin-bottom: 90px;
+  }
+}
+@media (max-width: 479px)  {
+  .page__objections {
+    margin-bottom: 50px;
+  }
 }
 .objections {
 }
