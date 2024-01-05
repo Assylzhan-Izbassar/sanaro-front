@@ -2,8 +2,6 @@
   padding: 48px 0px;
   background-color: var(--secondary-bg-color);
 }
-.last-call {
-}
 .last-call__container {
   font-family: "Inter", sans-serif;
   font-size: 16.81px;
@@ -19,55 +17,16 @@
   font-size: 48px;
   line-height: 128%;
 }
-@media (max-width: 992px) {
-  .last-call__title {
-    font-size: 42px;
-  }
-}
-@media (max-width: 767px) {
-  .last-call__title {
-    font-size: 36.75px;
-  }
-}
-@media (max-width: 605px) {
-  .last-call__title {
-    font-size: 32px;
-  }
-}
 .last-call__subtitle {
   font-size: 27px;
   color: var(--subheading-txt-color);
   line-height: 128%;
-}
-@media (max-width: 992px) {
-  .last-call__subtitle {
-    font-size: 23.625px;
-  }
-}
-@media (max-width: 767px) {
-  .last-call__subtitle {
-    font-size: 20.67px;
-  }
-}
-@media (max-width: 605px) {
-  .last-call__subtitle {
-    font-size: 18px;
-  }
-}
-.last-call__form {
 }
 .last-call__inputs {
   margin: 40px auto;
   max-width: 420px;
   display: flex;
   flex-direction: column;
-}
-@media (max-width: 767px) {
-  .last-call__inputs {
-    max-width: 367.5px;
-  }
-}
-.last-call__item {
 }
 .last-call__item:not(:last-child) {
   margin-bottom: 26px;
@@ -87,23 +46,47 @@
   font-family: "Inter", sans-serif;
   font-weight: 500;
 }
-@media (max-width: 767px) {
-  .last-call__input,
-  .last-call__input::placeholder {
-    font-size: 14.7px;
-  }
-}
 .last-call__input:focus {
   outline-color: var(--btn-bg-color);
-}
-.last-call__btn {
 }
 .last-call__btn button {
   font-size: 17.96px;
   line-height: calc(27.1 / 17.96 * 100%);
 }
+
+/* -------- media queries --------*/
+
+@media (max-width: 992px) {
+  .last-call__title {
+    font-size: 42px;
+  }
+  .last-call__subtitle {
+    font-size: 23.625px;
+  }
+}
 @media (max-width: 767px) {
-  .last-call__btn button  {
+  .last-call__title {
+    font-size: 36.75px;
+  }
+  .last-call__subtitle {
+    font-size: 20.67px;
+  }
+  .last-call__inputs {
+    max-width: 367.5px;
+  }
+  .last-call__input,
+  .last-call__input::placeholder {
+    font-size: 14.7px;
+  }
+  .last-call__btn button {
     font-size: 15.7px;
+  }
+}
+@media (max-width: 605px) {
+  .last-call__title {
+    font-size: 32px;
+  }
+  .last-call__subtitle {
+    font-size: 18px;
   }
 }

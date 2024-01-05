@@ -1,26 +1,9 @@
 .page__objections {
   margin-bottom: 107px;
 }
-@media (max-width: 767px)  {
-  .page__objections {
-    margin-bottom: 90px;
-  }
-}
-@media (max-width: 479px)  {
-  .page__objections {
-    margin-bottom: 50px;
-  }
-}
-.objections {
-}
 .objections__container {
   max-width: 572px;
   margin: 0 auto;
-}
-@media (max-width: 767px) {
-  .objections__container {
-    max-width: 450px;
-  }
 }
 .objections__header {
   font-weight: 700;
@@ -28,34 +11,11 @@
   line-height: calc(48 / 40 * 100%);
   letter-spacing: -0.5px;
 }
-@media (max-width: 767px) {
-  .objections__header {
-    font-size: 32px;
-  }
-}
-@media (max-width: 479px) {
-  .objections__header {
-    font-size: 28px;
-    text-align: center;
-  }
-}
 .objections__items {
   padding: 26px 16px 0px 16px;
 }
 .objections__items > *:not(:last-child) {
   margin-bottom: 38px;
-}
-@media (max-width: 767px) {
-  .objections__items > *:not(:last-child) {
-    margin-bottom: 24px;
-  }
-}
-@media (max-width: 479px) {
-  .objections__items > *:not(:last-child) {
-    margin-bottom: 16px;
-  }
-}
-.objections__item {
 }
 .objections__question {
   display: flex;
@@ -64,7 +24,6 @@
   cursor: pointer;
   position: relative;
 }
-
 .objections__item:not(:last-child) > .objections__question::after {
   content: "";
   position: absolute;
@@ -79,16 +38,6 @@
   font-size: 18px;
   line-height: calc(28 / 18 * 100%);
 }
-@media (max-width: 767px) {
-  .objections__text {
-    font-size: 16px;
-  }
-}
-@media (max-width: 479px) {
-  .objections__text {
-    font-size: 14px;
-  }
-}
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
@@ -101,12 +50,43 @@
   line-height: calc(24 / 16 * 100%);
   letter-spacing: 0.1px;
 }
+
+/* -------- media queries --------*/
+
 @media (max-width: 767px) {
+  .page__objections {
+    margin-bottom: 90px;
+  }
+  .objections__container {
+    max-width: 450px;
+  }
+  .objections__header {
+    font-size: 32px;
+  }
+  .objections__items > *:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  .objections__text {
+    font-size: 16px;
+  }
   .objections__answer {
     font-size: 15px;
   }
 }
 @media (max-width: 479px) {
+  .page__objections {
+    margin-bottom: 50px;
+  }
+  .objections__header {
+    font-size: 28px;
+    text-align: center;
+  }
+  .objections__items > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  .objections__text {
+    font-size: 14px;
+  }
   .objections__answer {
     font-size: 13px;
   }
