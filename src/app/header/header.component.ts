@@ -12,6 +12,9 @@ export class HeaderComponent {
   header: HTMLElement | null = document.querySelector('#header');
   sticky: number | undefined = this.header?.offsetTop;
 
+  menuIcon: HTMLElement | null = document.querySelector('.menu__icon');
+  menuBody: HTMLElement | null = document.querySelector('.menu__body');
+
   isLoggedIn = false;
 
   constructor(
@@ -30,12 +33,28 @@ export class HeaderComponent {
     }
   }
 
+  showMenu() {
+    this.menuIcon = document.querySelector('.menu__icon');
+    this.menuBody = document.querySelector('.menu__body');
+    if (this.menuIcon && this.menuBody) {
+      document.body.classList.toggle('_lock');
+      this.menuIcon.classList.toggle('_active');
+      this.menuBody.classList.toggle('_active');
+    }
+  }
+
   /**
    * Method for scrolling to the specific parts of web page.
    * @param fragment - Id of the section / fragment.
    */
   scrollToFragment(fragment: string): void {
     const targetElement = document.getElementById(fragment);
+
+    if (this.menuIcon?.classList.contains('_active')) {
+      document.body.classList.remove('_lock');
+      this.menuIcon.classList.remove('_active');
+      this.menuBody?.classList.remove('_active');
+    }
 
     if (targetElement) {
       const desiredScrollPosition = targetElement.offsetTop - 73;
@@ -48,11 +67,7 @@ export class HeaderComponent {
    */
   onScroll(): void {
     if (this.sticky !== undefined) {
-      if (window.scrollY > this.sticky) {
-        this.header?.classList.add('sticky');
-      } else {
-        this.header?.classList.remove('sticky');
-      }
+      this.header?.classList.toggle('sticky');
     }
   }
 
@@ -61,7 +76,14 @@ export class HeaderComponent {
    */
   onLogin(): void {
     if (this.dialog) {
-      this.dialog.openAuthDialog({});
+      if (this.menuIcon?.classList.contains('_active')) {
+        document.body.classList.remove('_lock');
+        this.menuIcon.classList.remove('_active');
+        this.menuBody?.classList.remove('_active');
+      }
+      setTimeout(() => {
+        this.dialog?.openAuthDialog({});
+      }, 300);
     }
   }
 
