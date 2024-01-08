@@ -24,13 +24,13 @@
               [value]="answer.id"
             />
             <div class="answer__text">
-              <div>{{ answer.answer_text }}</div>
+              {{ answer.answer_text }}
             </div>
           </div>
         </div>
       </div>
       <div class="questionnaire__button">
-        <button class="btn btn_pos" (click)="onAnswerSelected()">
+        <button class="btn btn_pos btn_full-width" (click)="onAnswerSelected()">
           Продолжить
         </button>
       </div>

@@ -1,5 +1,6 @@
 /* QUESTIONNAIRE DIALOG */
 .questionnaire {
+  font-family: "Inter", sans-serif;
   color: var(--btn-bg-color);
 }
 
@@ -12,9 +13,11 @@
   margin: var(--dialog-top-bottom) 0px;
 }
 
+.questionnaire__ready
+
 /* QUESTION */
 .question__text {
-  font-size: 24px;
+  font-size: 32px;
 }
 
 /* ANSWER */
@@ -50,7 +53,7 @@
 .answer__text {
   display: inline-flex;
   align-items: center;
-  font-size: 19px;
+  font-size: 22.45px;
   flex: 1 0 100%;
   position: relative;
 }
@@ -69,8 +72,8 @@
 .answer__text::after {
   content: "";
   position: absolute;
-  top: 3.5px;
-  left: 3.5px;
+  top: 2.5px;
+  left: 2.5px;
   width: 18px;
   height: 18px;
   background-color: var(--btn-bg-color);
@@ -81,8 +84,6 @@
 
 .question__text,
 .answer__text {
-  font-family: "Inter";
-  font-weight: 500;
   letter-spacing: -1.5%;
 }
 
@@ -93,4 +94,31 @@
 
 .questionnaire__button {
   display: none;
+}
+
+/* -------- media queries --------*/
+@media (max-width: 992px) {
+  .question__text {
+    font-size: 24px;
+  }
+  .answer__text {
+    font-size: 16.7px;
+  }
+}
+@media (max-width: 509px) {
+  .question__text {
+    font-size: 21px;
+  }
+  .answer__text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 419px) {
+  .question__text {
+    font-size: 18px;
+  }
+  .answer__text {
+    font-size: 11.5px;
+  }
 }

@@ -47,7 +47,7 @@ export class DialogService {
   openQuestionnaireDialog(data: any): void {
     this.dialogRef = this.dialog.open(QuestionnaireDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '50vw',
+      // width: '50vw',
       data: data,
     });
   }
@@ -59,7 +59,7 @@ export class DialogService {
   openRequestDialog(data: any): void {
     this.dialogRef = this.dialog.open(CallRequestDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '50vw',
+      // width: '50vw',
       data: data,
     });
   }
@@ -86,7 +86,7 @@ export class DialogService {
 
     this.dialogRef = this.dialog.open(NotifyDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '40vw',
+      // width: '40vw',
       data: data,
     });
   }
@@ -98,7 +98,7 @@ export class DialogService {
   openAuthDialog(data: any): void {
     this.dialogRef = this.dialog.open(AuthDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '50vw',
+      // width: '50vw',
       data: data,
     });
   }
@@ -110,7 +110,7 @@ export class DialogService {
   openRegisterDialog(data: any): void {
     this.dialogRef = this.dialog.open(RegisterDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '50vw',
+      // width: '50vw',
       data: data,
     });
   }
@@ -122,7 +122,7 @@ export class DialogService {
   openGreetingDialog(data: any) {
     this.dialogRef = this.dialog.open(GreetingDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '50vw',
+      // width: '50vw',
       data: data,
     });
   }
@@ -134,7 +134,7 @@ export class DialogService {
   openConfirmDialog(data: any) {
     this.dialogRef = this.dialog.open(ConfirmDialogComponent, {
       panelClass: 'custom-modalbox',
-      width: '50vw',
+      // width: '50vw',
       data: data,
     });
   }

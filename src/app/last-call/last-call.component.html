@@ -6,16 +6,35 @@
         Закажите обратный звонок. Мы всегда рады ответить на любые ваши вопросы
       </h3>
     </div>
-    <form action="#" class="last-call__form">
+    <form
+      [formGroup]="callRequestForm"
+      (ngSubmit)="sendRequest()"
+      class="last-call__form"
+    >
       <div class="last-call__inputs">
         <div class="last-call__item">
-          <input type="text" class="last-call__input" placeholder="Имя" />
+          <input
+            type="text"
+            class="last-call__input"
+            placeholder="Имя"
+            formControlName="username"
+          />
         </div>
         <div class="last-call__item">
-          <input type="text" class="last-call__input" placeholder="Номер телефона" />
+          <input
+            type="text"
+            class="last-call__input"
+            placeholder="Номер телефона"
+            formControlName="phone_number"
+          />
         </div>
         <div class="last-call__item">
-          <input type="text" class="last-call__input" placeholder="Страна" />
+          <input
+            type="text"
+            class="last-call__input"
+            placeholder="Город"
+            formControlName="city"
+          />
         </div>
       </div>
       <div class="last-call__btn">

@@ -12,7 +12,7 @@ import jwtDecode from 'jwt-decode';
 export class AuthService extends BaseService {
   private readonly url: string = `${this.apiUrl}/auth/jwt/create/`;
   private readonly refreshUrl: string = `${this.apiUrl}/auth/jwt/refresh/`;
-  private readonly usersUrl: string = `${this.apiUrl}/auth/users/`
+  private readonly usersUrl: string = `${this.apiUrl}/auth/users/`;
   private readonly tokenKey: string = 'jwtToken';
   private readonly refreshTokenKey = 'refresh_token';
   private subscription?: Subscription;

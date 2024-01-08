@@ -1,38 +1,48 @@
 <!-- CONFIRMATION DIALOG -->
 <div class="dialog">
-  <div class="dialog-container">
+  <div class="_dialog-container">
     <div class="dialog__inner">
       <!-- CONFIRMATION DIALOG HEADER -->
       <div class="dialog__header">
         <div class="dialog__title">
-          <h2>Давайте подтвердим email в который хотим отправить</h2>
+          Давайте подтвердим email в который хотим отправить
         </div>
         <div class="dialog__subtitle">
-          <h3>
-            Мы правильно поняли что можем на этот email отправить ваши
-            результаты?
-          </h3>
+          Мы правильно поняли что можем на этот email отправить ваши результаты?
         </div>
       </div>
       <!-- CONFIRMATION DIALOG BUTTONS -->
       <div class="dialog__btns">
         <div class="dialog__btn dialog__btn_width">
-          <button [disabled]="clicked" class="btn" (click)="onConfirm($event.target!, true)">Да</button>
+          <button
+            [disabled]="clicked"
+            class="btn"
+            (click)="onConfirm($event.target!, true)"
+          >
+            Да
+          </button>
         </div>
         <div class="dialog__btn dialog__btn_width dialog__btn_no">
-          <button [disabled]="clicked" class="btn" (click)="onConfirm($event.target!, false)">Нет</button>
+          <button
+            [disabled]="clicked"
+            class="btn"
+            (click)="onConfirm($event.target!, false)"
+          >
+            Нет
+          </button>
         </div>
       </div>
 
       <!-- CONFIRMATION HIDDEN -->
-      <div class="dialog__hidden" [@emailAnimation]="emailVisible ? 'email_visible' : 'email_hidden'">
+      <div
+        class="dialog__hidden"
+        [@emailAnimation]="emailVisible ? 'email_visible' : 'email_hidden'"
+      >
         <!-- CONFIRMATION DECORE -->
         <div class="dialog__decore"></div>
 
         <div class="dialog__header">
-            <div class="dialog__subtitle">
-                <h3>Напишите куда нам отправить</h3>
-            </div>
+          <div class="dialog__subtitle">Напишите куда нам отправить</div>
         </div>
         <!-- CONFIRMATION INPUTS -->
         <div class="dialog__inputs dialog__inputs_top">
@@ -48,7 +58,9 @@
         </div>
         <!-- CONFIRMATION BUTTON -->
         <div class="dialog__btn">
-          <button class="btn" (click)="onContinue()">Продолжить</button>
+          <button class="btn btn_full-width" (click)="onContinue()">
+            Продолжить
+          </button>
         </div>
       </div>
     </div>

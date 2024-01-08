@@ -9,13 +9,10 @@
 
 /* AUTH ACTION */
 .auth__action {
-  /* margin-top: 24px; */
   margin-top: 12px;
 }
-
 .auth__remember {
   text-align: right;
-  /* margin-top: 12px; */
 }
 
 /* REGISTER ACTION */
@@ -23,23 +20,40 @@
   display: flex;
   justify-content: center;
 }
-
 .register__action {
-  margin-left: 6px;
-}
-
-.register__action p {
   color: var(--primary-txt-color);
-  text-decoration: none;
   cursor: pointer;
 }
-
-.register__action p:hover {
+.register__action:hover {
   color: var(--secondary-txt-color);
 }
 
-.validation_auth {
-  color: var(--secondary-txt-color);
-  margin-top: 5px;
-  font-size: 14px;
+/* -------- media queries --------*/
+@media (max-width: 992px) {
+  .register__inner {
+    font-size: 14px;
+  }
+}
+@media (max-width: 479px) {
+  .register__inner {
+    font-size: 13px;
+  }
+}
+@media (max-width: 419px) {
+  .register__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .register__inner > *:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  .register__inner {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 419px) {
+  .register__action {
+    margin-left: 6px;
+  }
 }

@@ -1,6 +1,6 @@
 <!-- AUTH SECTION -->
 <div class="dialog">
-  <div class="dialog-container">
+  <div class="_dialog-container">
     <div class="dialog__inner">
       <!-- AUTH HEADER -->
       <div class="dialog__header">
@@ -15,7 +15,7 @@
         </div>
       </div>
       <!-- AUTH INPUT FORMS -->
-      <form [formGroup]="authForm" class="form">
+      <form [formGroup]="authForm" class="dialog__form form">
         <div class="dialog__inputs">
           <!-- INPUT FORM FOR THE USERNAME -->
           <div class="dialog__item">
@@ -32,7 +32,7 @@
                 authForm.get('username')?.hasError('required') &&
                 authForm.get('username')?.touched
               "
-              class="validation validation_auth"
+              class="validation"
             >
               Поле username обязательно для заполнения
             </div>
@@ -42,7 +42,7 @@
                 authForm.get('username')?.hasError('pattern') &&
                 authForm.get('username')?.touched
               "
-              class="validation validation_auth"
+              class="validation"
             >
               Username должен содержать только латинские буквы
             </div>
@@ -63,7 +63,7 @@
                 authForm.get('password')?.hasError('required') &&
                 authForm.get('password')?.touched
               "
-              class="validation validation_auth"
+              class="validation"
             >
               Поле пароль обязательно для заполнения
             </div>
@@ -73,7 +73,7 @@
                 authForm.get('password')?.hasError('minlength') &&
                 authForm.get('password')?.touched
               "
-              class="validation validation_auth"
+              class="validation"
             >
               Пароль должен содержать больше 8 символов
             </div>
@@ -83,7 +83,7 @@
                 authForm.get('password')?.hasError('maxlength') &&
                 authForm.get('password')?.touched
               "
-              class="validation validation_auth"
+              class="validation"
             >
               Пароль должен содержать меньше 20 символов
             </div>
@@ -95,27 +95,18 @@
           </div> -->
         </div>
         <div class="dialog__btn">
-          <button class="btn" (click)="login()">Войти</button>
+          <button class="btn btn_full-width" (click)="login()">Войти</button>
         </div>
       </form>
-
-      <!-- AUTH ACTION -->
-      <!-- <div class="auth__action">
-        <div class="auth__remember">
-          <a href="#restore">Забыли пароль?</a>
-        </div>
-      </div> -->
 
       <!-- DECORE OF THE STRAIGHT LINE -->
       <div class="dialog__decore"></div>
       <!-- REGISTER ACTION -->
-      <div class="register">
+      <div class="dialog__register register">
         <div class="register__inner">
-          <div class="register__label">
-            <p>Нет аккаунта?</p>
-          </div>
-          <div class="register__action">
-            <p (click)="openRegisterDialog()">Зарегистрируйтесь сейчас</p>
+          <div class="register__label">Нет аккаунта?</div>
+          <div class="register__action" (click)="openRegisterDialog()">
+            Зарегистрируйтесь сейчас
           </div>
         </div>
       </div>

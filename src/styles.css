@@ -64,7 +64,6 @@ img {
   vertical-align: top;
 }
 
-
 /* --------------------- */
 /*  TECHNICAL CLASSES */
 /* --------------------- */
@@ -74,23 +73,18 @@ img {
   margin: 0 auto;
   box-sizing: content-box;
 }
-
 ._container_small {
   max-width: 990px;
 }
-
 ._container_medium {
   max-width: 1147px;
 }
-
 ._container_big {
   max-width: 1255px;
 }
-
 ._ibg {
   position: relative;
 }
-
 ._ibg img {
   position: absolute;
   width: 100%;
@@ -100,9 +94,9 @@ img {
   object-fit: cover;
 }
 
-/* --------------------- */
-/*  GENERAL BUTTON STYLE */
-/* --------------------- */
+/* ------------------------ */
+/* - GENERAL BUTTON STYLE - */
+/* ------------------------ */
 
 .btn {
   color: var(--white);
@@ -110,7 +104,7 @@ img {
   border-width: 0px;
   border-radius: 68.485px;
   padding: 17px 58px;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: calc(27 / 18 * 100%);
@@ -131,16 +125,12 @@ img {
   background-color: var(--secondary-bg-color);
   color: var(--btn-bg-color);
   padding: 15px 56px;
-  outline: none;
   transition: background-color 0.3s;
   border: 2px solid var(--btn-bg-color);
 }
 
 .btn:focus {
-  outline: none;
-  /* ! Then we should add here ! */
-  /* padding: 15px 56px; */
-  /* border: 2px solid var(--btn-bg-color); */
+  outline-color: var(--btn-bg-color);
 }
 
 .validation {
@@ -154,38 +144,40 @@ img {
 
 .dialog {
   color: var(--btn-bg-color);
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
 }
-
-.dialog-container {
-  max-width: 80%;
+._dialog-container {
+  max-width: 561.6px;
+  padding: 53.5px 37.44px;
   margin: 0 auto;
+  box-sizing: content-box;
 }
 
-.dialog__inner {
-  padding: 72px 0px;
+.dialog__inner > *:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 /* MODAL HEADER */
 .dialog__header {
   text-align: center;
-  margin: 0 auto;
+  font-weight: 500;
+}
+
+.dialog__header > *:not(:last-child) {
+  margin-bottom: 12px;
 }
 
 .dialog__title {
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-  line-height: 42px;
+  font-size: 32px;
+  line-height: 121.8%;
+  letter-spacing: -1.5%;
   color: var(--primary-txt-color);
 }
 
 .dialog__subtitle {
-  margin-top: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.1px;
+  font-size: 22.45px;
+  line-height: 121.8%;
+  letter-spacing: -1.5%;
   color: var(--subheading-txt-color);
 }
 
@@ -194,51 +186,45 @@ img {
   margin-top: 32px;
 }
 
+.dialog__inputs > *:not(:last-child) {
+  margin-bottom: 12px;
+}
+
 .dialog__item {
   display: flex;
   flex-direction: column;
-  margin-top: 12px;
 }
-
-.dialog__item:first-child {
-  margin-top: 0px;
+.dialog__item > *:not(:last-child) {
+  margin-bottom: 6px;
 }
 
 .dialog__label {
   font-size: 16px;
-  font-weight: 500;
   letter-spacing: -1.5%;
 }
 
 .dialog__input {
-  margin-top: 6px;
-  background-color: var(--secondary-bg-color);
-  border: 0px;
   border-radius: 16px;
-  padding: 20px 23px;
-
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--btn-bg-color);
+  padding: 21px 24px;
+  background-color: var(--secondary-bg-color);
 }
 
+.dialog__input,
 .dialog__input::placeholder {
+  font-size: 16px;
   color: var(--btn-bg-color);
 }
 
 .dialog__input:focus {
-  border: 2px solid var(--btn-bg-color);
-  outline: none !important;
-  padding: 18px 21px;
+  outline-color: var(--btn-bg-color);
 }
 
 /* DIALOG ACTION */
 .dialog__btn {
-  width: 100%;
   margin-top: 24px;
 }
 
-.dialog__btn button {
+.btn_full-width {
   width: 100%;
 }
 
@@ -247,10 +233,108 @@ img {
   width: 100%;
   height: 2px;
   background-color: var(--btn-bg-color);
-  margin: 20px 0px;
 }
 
 /* SMOOTH SCROLLING */
 .smooth-scroll {
   transition: scroll-behavior 500ms ease-in-out;
+}
+
+/* -------------- */
+/* - VALIDATION - */
+/* -------------- */
+.validation {
+  margin-top: 5px;
+  font-size: 14px;
+  color: var(--secondary-txt-color);
+}
+
+/* -------- media queries --------*/
+@media (max-width: 992px) {
+  .dialog__title {
+    font-size: 24px;
+  }
+  .dialog__subtitle {
+    font-size: 16.7px;
+  }
+  .dialog__label {
+    font-size: 14px;
+  }
+  .dialog__input,
+  .dialog__input::placeholder {
+    font-size: 14px;
+  }
+  .dialog__btn button {
+    font-size: 16px;
+  }
+  .validation {
+    font-size: 13px;
+  }
+}
+@media (max-width: 767px) {
+  ._dialog-container {
+    max-width: 483.9px;
+    padding: 35px 28px;
+  }
+  .dialog__inputs {
+    margin-top: 16px;
+  }
+  .dialog__btn {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 509px) {
+  .dialog__title {
+    font-size: 21px;
+  }
+  .dialog__subtitle {
+    font-size: 14px;
+  }
+}
+@media (max-width: 479px) {
+  .dialog__header > *:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  .dialog__label {
+    font-size: 13px;
+  }
+  .dialog__input {
+    padding: 18px 20px;
+  }
+  .dialog__btn button {
+    font-size: 14px;
+  }
+  .validation {
+    font-size: 12px;
+  }
+}
+@media (max-width: 419px) {
+  ._dialog-container {
+    padding: 16px 12.8px;
+  }
+  .dialog__inner > *:not(:last-child) {
+    margin-bottom: 12px;
+  }
+  .dialog__title {
+    font-size: 18px;
+  }
+  .dialog__subtitle {
+    font-size: 11.5px;
+  }
+  .dialog__label {
+    font-size: 12px;
+  }
+  .dialog__input {
+    padding: 16px 18px;
+  }
+  .dialog__input,
+  .dialog__input::placeholder {
+    font-size: 12px;
+  }
+  .dialog__btn button {
+    padding: 14px 18px;
+  }
+  .validation {
+    font-size: 11px;
+  }
 }

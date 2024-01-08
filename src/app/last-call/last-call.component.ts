@@ -58,7 +58,7 @@ export class LastCallComponent {
           console.log('Error when creating call request', e);
           if (e.status == 401) {
             this.dialogService.openNotifyDialog(true, DIRECTORY.unauthorized);
-          } else if (e.status == 500) {
+          } else if (e.status == 0 || e.status == 500) {
             this.dialogService.openNotifyDialog(true, DIRECTORY.server_error);
           }
         },
