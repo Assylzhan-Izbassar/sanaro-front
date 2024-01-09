@@ -1,9 +1,10 @@
 :root {
-  --white: #ffffff;
-  --main-bg-color: #fdf8fa;
-  --secondary-bg-color: #ffe7f0;
+  --header-bg-color: #eaeccc;
+  --certificates-bg-color: #ffffec;
+  --main-bg-color: #f1e4c3;
+  --secondary-bg-color: #f7db6a;
   --stroke-bg-color: #d6d2d4;
-  --btn-bg-color: #ff0060;
+  --btn-bg-color: #7aa874;
   --canvas-bg-color: rgba(255, 231, 240, 0.93);
   --primary-txt-color: #000000;
   --secondary-txt-color: #090909;

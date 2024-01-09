@@ -4,8 +4,8 @@
   margin-top: -36px;
 }
 .certificates__body {
-  background-color: white;
-  padding: 103px 0px;
+  background-color: var(--certificates-bg-color);
+  padding: 78px 0px;
   border-radius: 47px;
 }
 .certificates__list {
@@ -25,7 +25,7 @@
 
 .certificates__img {
   position: relative;
-  padding: 0px 0px calc(73.22 / 182 * 100%) 0px;
+  padding: 0px 0px calc(123.22 / 182 * 100%) 0px;
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@
   .certificates__list {
     margin: -15px auto;
   }
-  .certificates__list > *:not(:last-child) {
+  .certificates__list > * {
     padding: 15px 0px;
   }
 }
