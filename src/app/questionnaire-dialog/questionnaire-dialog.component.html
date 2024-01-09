@@ -1,8 +1,7 @@
 <!-- QUESTIONNAIRE SECTION -->
-<div class="questionnaire" [@slideInOut]="slideState">
-  <div class="questionnaire-container">
-    <div class="questionnaire__inner">
-      <div class="questionnaire__check"></div>
+<div class="dialog" [@slideInOut]="slideState">
+  <div class="_dialog-container">
+    <div class="dialog__inner questionnaire">
       <div class="questionnaire__ready" *ngIf="dataIsLoaded">
         <!-- QUESTION SECTION -->
         <div class="question">
@@ -11,7 +10,7 @@
           </h2>
         </div>
         <!-- ANSWERS SECTION -->
-        <div class="answer answer_top">
+        <div class="answer">
           <div
             class="answer__item"
             *ngFor="let answer of currentAnswers"
@@ -29,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="questionnaire__button">
+      <div class="dialog__btn dialog__btn_questionnaire">
         <button class="btn btn_pos btn_full-width" (click)="onAnswerSelected()">
           Продолжить
         </button>

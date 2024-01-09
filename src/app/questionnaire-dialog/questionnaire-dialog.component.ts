@@ -114,7 +114,7 @@ export class QuestionnaireDialogComponent implements OnInit {
     this.selectedOption = option;
     if (!this.continueBtn) {
       this.continueBtn = this.elementRef.nativeElement.querySelector(
-        '.questionnaire__button'
+        '.dialog__btn_questionnaire'
       )!;
     }
     this.showContBtn(true);

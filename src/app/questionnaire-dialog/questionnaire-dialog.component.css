@@ -13,8 +13,6 @@
   margin: var(--dialog-top-bottom) 0px;
 }
 
-.questionnaire__ready
-
 /* QUESTION */
 .question__text {
   font-size: 32px;
@@ -24,8 +22,7 @@
 .answer {
   max-width: 968px;
 }
-
-.answer_top {
+.answer > *:first-child {
   margin-top: 27px;
 }
 
@@ -41,11 +38,9 @@
 .answer__item:first-child {
   margin-top: 0px;
 }
-
 .answer__input {
   display: none;
 }
-
 .answer__input:checked + .answer__text::after {
   transform: scale(1);
 }
@@ -87,12 +82,7 @@
   letter-spacing: -1.5%;
 }
 
-.btn_pos {
-  width: 100%;
-  margin-top: 30px;
-}
-
-.questionnaire__button {
+.dialog__btn_questionnaire {
   display: none;
 }
 
@@ -111,6 +101,23 @@
   }
   .answer__text {
     font-size: 14px;
+  }
+  .answer > *:first-child {
+    margin-top: 20px;
+  }
+  .answer__item {
+    padding: 15px 12px;
+  }
+  .answer__text::before {
+    flex: 0 0 18px;
+    height: 18px;
+    margin: 0px 9px 0px 0px;
+  }
+  .answer__text::after {
+    top: 2.5px;
+    left: 2.5px;
+    width: 13px;
+    height: 13px;
   }
 }
 

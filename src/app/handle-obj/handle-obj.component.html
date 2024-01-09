@@ -4,12 +4,18 @@
       <h1>Часто задаваемые вопросы</h1>
     </div>
     <div class="objections__items">
-      <div class="objections__item" *ngFor="let objection of objections">
+      <div
+        class="objections__item"
+        *ngFor="let objection of objections"
+        (click)="onSelectedQuestion($event.srcElement)"
+      >
         <div class="objections__question">
           <div class="objections__text">{{ objection.question }}</div>
           <span class="material-symbols-outlined">chevron_right</span>
         </div>
-        <div class="objections__answer"></div>
+        <div class="objections__answer">
+          <p>{{ objection.answer }}</p>
+        </div>
       </div>
     </div>
   </div>

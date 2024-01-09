@@ -21,8 +21,8 @@
   display: flex;
   align-items: center;
   min-height: 60px;
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
 }
 .objections__item:not(:last-child) > .objections__question::after {
   content: "";
@@ -40,15 +40,27 @@
 }
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  transform: rotate(0deg);
+  transition: transform 1s ease 0s;
+}
+.material-symbols-outlined._active {
+  transform: rotate(90deg);
 }
 .objections__answer {
-  /* Нужно потом убрать! */
-  display: none;
-  /* Нужно потом убрать! */
-  padding-top: 25px;
+  max-height: 0px;
+  overflow: hidden;
   font-weight: 300;
   line-height: calc(24 / 16 * 100%);
   letter-spacing: 0.1px;
+  transition: max-height 1.5s ease 0s;
+}
+.objections__answer p {
+  padding-top: 25px;
+  white-space: pre-line;
+}
+
+.objections__answer._active {
+  max-height: 25rem;
 }
 
 /* -------- media queries --------*/

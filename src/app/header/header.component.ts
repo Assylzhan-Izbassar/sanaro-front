@@ -9,11 +9,11 @@ import { SharedService } from '../services/core/shared.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  header: HTMLElement | null = document.querySelector('#header');
-  sticky: number | undefined = this.header?.offsetTop;
+  header?: HTMLElement | null;
+  sticky: number | undefined;
 
-  menuIcon: HTMLElement | null = document.querySelector('.menu__icon');
-  menuBody: HTMLElement | null = document.querySelector('.menu__body');
+  menuIcon?: HTMLElement | null;
+  menuBody?: HTMLElement | null;
 
   isLoggedIn = false;
 
@@ -33,9 +33,15 @@ export class HeaderComponent {
     }
   }
 
-  showMenu() {
+  ngAfterViewInit() {
+    this.header = document.querySelector('#header');
+    this.sticky = this.header?.offsetTop;
+
     this.menuIcon = document.querySelector('.menu__icon');
     this.menuBody = document.querySelector('.menu__body');
+  }
+
+  showMenu() {
     if (this.menuIcon && this.menuBody) {
       document.body.classList.toggle('_lock');
       this.menuIcon.classList.toggle('_active');
