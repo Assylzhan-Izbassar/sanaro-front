@@ -50,7 +50,6 @@ import { UserData } from '../models/user.model';
 })
 export class QuestionnaireDialogComponent implements OnInit {
   uuid = uuidv4();
-  user_id?: number;
 
   currQuesIdx: number = 0;
   selectedOption: number = -1;
@@ -77,7 +76,6 @@ export class QuestionnaireDialogComponent implements OnInit {
    * Initiates the questionnaire component.
    */
   ngOnInit() {
-    this.fetchUserId();
     this.fetchQuestions();
 
     setTimeout(() => {
@@ -91,19 +89,6 @@ export class QuestionnaireDialogComponent implements OnInit {
         }, 300);
       }
     }, 300);
-  }
-
-  /**
-   * Method for loading user data, and set user id.
-   */
-  private async fetchUserId(): Promise<void> {
-    try {
-      await this.authService.getCurrentUserInfo().then((result: any) => {
-        this.user_id = result.id!;
-      });
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   /**
@@ -125,40 +110,36 @@ export class QuestionnaireDialogComponent implements OnInit {
    */
   async onAnswerSelected(): Promise<void> {
     let currAnsIdx = this.selectedOption;
-    if(this.user_id) {
-      this.responses.push({
-        questionnaire_uuid: this.uuid,
-        response: currAnsIdx,
-        user: this.user_id,
-      });
-    } else {
-      // Stops the running code.
-      return;
-    }
+    // if(this.user_id) {
+    //   this.responses.push({
+    //     questionnaire_uuid: this.uuid,
+    //     response: currAnsIdx,
+    //     user: this.user_id,
+    //   });
+    // } else {
+    //   // Stops the running code.
+    //   return;
+    // }
+
+    this.responses.push({
+      questionnaire_uuid: this.uuid,
+      response: currAnsIdx,
+      // user: this.user_id,
+    });
 
     if (this.currQuesIdx === this.questions!.length - 1) {
+      this.quesResponseService.data = this.responses;
+      this.dialogService.closeDialog();
+
+      setTimeout(() => {
+        this.dialogService.openGreetingDialog({ currIndex: 2 }); // current index represents conf. of auth
+      }, 100);
+
+      // MAYBE WE DON'T NEED BELLOW
+
       // Getting user_id from jwt token
       if (this.authService.getToken()) {
         // Creating question response list
-        this.quesResponseService
-          .createQuestionnaireResponses(this.responses)
-          .subscribe({
-            next: (response) => {
-              this.dialogService.closeDialog();
-              // We have a valid response
-              setTimeout(() => {
-                if (response.length > 0) {
-                  this.dialogService.openConfirmDialog({});
-                } else {
-                  this.dialogService.openNotifyDialog(
-                    true,
-                    DIRECTORY.error_loading_questions
-                  );
-                }
-              }, 100);
-            },
-            error: (e) => console.log(e),
-          });
       }
     } else {
       // Trigger the animation

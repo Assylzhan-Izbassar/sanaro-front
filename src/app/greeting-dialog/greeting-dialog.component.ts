@@ -54,6 +54,10 @@ export class GreetingDialogComponent {
       GREETING_DATA[0].title = result;
     });
     this.greetings = GREETING_DATA;
+
+    if (data.currIndex) {
+      this.currDataIdx = data.currIndex;
+    }
   }
 
   private async fillName(title: string): Promise<string> {
@@ -68,7 +72,7 @@ export class GreetingDialogComponent {
   }
 
   onNext() {
-    if (this.currDataIdx + 1 < this.greetings.length) {
+    if (this.currDataIdx + 1 < this.greetings.length - 1) {
       this.slideState = 'out';
 
       setTimeout(() => {
@@ -80,6 +84,11 @@ export class GreetingDialogComponent {
         this.slideState = 'in';
         this.currDataIdx++;
       }, 500);
+    } else if (this.currDataIdx == this.greetings.length - 1) {
+      this.dialog.closeDialog();
+      setTimeout(() => {
+        this.dialog.openAuthDialog({});
+      }, 100);
     } else {
       this.dialog.closeDialog();
       setTimeout(() => {

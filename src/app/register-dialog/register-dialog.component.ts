@@ -59,6 +59,11 @@ export class RegisterDialogComponent {
           setTimeout(() => {
             this.dialog.openNotifyDialog(false, DIRECTORY.register_success);
           }, 100);
+
+          setTimeout(() => {
+            this.dialog.closeDialog();
+          }, 1000);
+          this.dialog.openAuthDialog({});
         },
         error: (error) => {
           console.log('Error when registering a new user.', error);

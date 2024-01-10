@@ -39,7 +39,7 @@ export class ConfirmDialogComponent {
       this.dialogService.closeDialog();
       setTimeout(() => {
         // calling the email sending method.
-        this.emailsService.postEmailTracking({ }).subscribe({
+        this.emailsService.postEmailTracking({}).subscribe({
           next: () => {
             this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
           },

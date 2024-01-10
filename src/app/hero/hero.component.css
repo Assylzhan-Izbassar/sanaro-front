@@ -6,7 +6,7 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 636px;
+  max-width: 620px;
   padding: 130px 0;
 }
 
@@ -22,7 +22,7 @@
 
 .hero__text {
   font-weight: 400;
-  font-size: calc(21 / 16 * 100%);
+  font-size: calc(21.36 / 16 * 100%);
   line-height: calc(23 / 16 * 100%);
 }
 

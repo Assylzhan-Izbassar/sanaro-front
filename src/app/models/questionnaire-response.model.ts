@@ -4,7 +4,7 @@ export interface QuestionnaireResponseData {
   id?: number;
   questionnaire_uuid: string;
   response: number;
-  user: number;
+  user?: number;
 }
 
 export class QuestionnaireResponse {
@@ -32,10 +32,10 @@ export class QuestionnaireResponse {
     this._response = value;
   }
 
-  private _user: number;
+  private _user?: number;
   // getter and setter for _user
   public get user(): number {
-    return this._user;
+    return this._user ? this._user : -1;
   }
   public set user(value: number) {
     this._user = value;
