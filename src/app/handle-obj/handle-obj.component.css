@@ -38,14 +38,16 @@
   font-size: 18px;
   line-height: calc(28 / 18 * 100%);
 }
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   transform: rotate(0deg);
-  transition: transform 1s ease 0s;
+  transition: transform 1.5s ease 0s;
 }
 .material-symbols-outlined._active {
   transform: rotate(90deg);
 }
+
 .objections__answer {
   max-height: 0px;
   overflow: hidden;
@@ -58,7 +60,6 @@
   padding-top: 25px;
   white-space: pre-line;
 }
-
 .objections__answer._active {
   max-height: 25rem;
 }

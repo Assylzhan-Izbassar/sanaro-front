@@ -9,18 +9,41 @@ import { Objection, objections as obj } from '../models/objection.model';
 export class HandleObjComponent {
   objections: Objection[] = obj;
 
-  onSelectedQuestion(el: any) {
-    const parentElem = (el as HTMLElement).parentElement;
+  onSelectedQuestion(idx: number) {
+    const questions = document.querySelectorAll('.objections__item');
+    if (questions) {
+      const selected = questions[idx];
+      const arrow = selected.firstChild?.lastChild;
+      const answer = selected.lastChild;
 
-    if (parentElem) {
-      const ansElem = parentElem.nextSibling;
-      if (ansElem) {
-        (ansElem as HTMLElement).classList.toggle('_active');
-        const spanElem = parentElem.lastChild;
-        if (spanElem) {
-          (spanElem as HTMLElement).classList.toggle('_active');
-        }
+      if (arrow && answer) {
+        (arrow as HTMLElement).classList.toggle('_active');
+        (answer as HTMLElement).classList.toggle('_active');
       }
     }
+
+    // console.log(el);
+    // const parentElem = (el as HTMLElement).parentElement;
+
+    // if (parentElem) {
+    //   const ansElem = parentElem.nextSibling as HTMLElement;
+    //   const spanElem = parentElem.lastChild as HTMLElement;
+
+    //   console.log(ansElem);
+    //   console.log(spanElem);
+
+    //   if (ansElem && spanElem) {
+    //     if (spanElem.classList.contains('_active')) {
+    //       spanElem.classList.remove('_active');
+    //     } else {
+    //       spanElem.classList.add('_active');
+    //     }
+    //     if (ansElem.classList.contains('_active')) {
+    //       ansElem.classList.remove('_active');
+    //     } else {
+    //       ansElem.classList.add('_active');
+    //     }
+    //   }
+    // }
   }
 }

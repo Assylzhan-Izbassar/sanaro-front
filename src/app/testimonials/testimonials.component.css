@@ -63,6 +63,9 @@
   .testimonials__item {
     padding: 0px 15px;
   }
+  .user-info {
+    padding-top: 58px;
+  }
 }
 
 @media (max-width: 1087px) {
@@ -86,12 +89,15 @@
   }
   .testimonials__item {
     min-height: 330px;
-    max-width: 270px;
+    max-width: 310px;
   }
   .testimonials__item:not(:last-child) {
     margin-bottom: 40px;
   }
   .testimonials__text {
     font-size: 16px;
+  }
+  .user-info {
+    padding-top: 30px;
   }
 }

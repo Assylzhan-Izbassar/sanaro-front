@@ -184,12 +184,16 @@
 }
 
 @media (max-width: 500px) {
+  .innovation__container {
+    padding-top: 70.5px;
+    padding-bottom: 70.5px;
+  }
   .ntc__title {
-    max-width: 75%;
+    max-width: 60%;
   }
   .ntc__logo {
-    width: 25.5%;
-    height: 29.13%;
+    width: 35.5%;
+    height: 70.13%;
   }
   .ntc__logo img {
     height: 73%;
@@ -198,9 +202,9 @@
 }
 
 @media (max-width: 479px) {
-  .innovation__container {
-    padding-top: 81.5px;
-    padding-bottom: 81.5px;
+  .ntc__logo {
+    width: 35.5%;
+    height: 30.13%;
   }
   .ntc__content {
     flex: 0 1 95%;

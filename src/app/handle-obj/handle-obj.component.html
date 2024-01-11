@@ -6,8 +6,8 @@
     <div class="objections__items">
       <div
         class="objections__item"
-        *ngFor="let objection of objections"
-        (click)="onSelectedQuestion($event.srcElement)"
+        *ngFor="let objection of objections; index as idx"
+        (click)="onSelectedQuestion(idx)"
       >
         <div class="objections__question">
           <div class="objections__text">{{ objection.question }}</div>
