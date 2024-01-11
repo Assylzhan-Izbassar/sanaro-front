@@ -1,9 +1,10 @@
 <section class="page__last-call last-call">
   <div class="last-call__container _container">
     <div class="last-call__header">
-      <h1 class="last-call__title">Остались еще вопросы?</h1>
+      <h1 class="last-call__title">Давайте с Вами свяжемся?</h1>
       <h3 class="last-call__subtitle">
-        Закажите обратный звонок. Мы всегда рады ответить на любые ваши вопросы
+        Закажите обратный звонок, чтобы назначить точное время ZOOM встречи для
+        решения именно Вашей ситуации
       </h3>
     </div>
     <form
@@ -19,6 +20,24 @@
             placeholder="Имя"
             formControlName="username"
           />
+          <div
+            *ngIf="
+              callRequestForm.get('username')?.hasError('required') &&
+              callRequestForm.get('username')?.touched
+            "
+            class="validation call__validation"
+          >
+            Имя обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('username')?.hasError('minlength') &&
+              callRequestForm.get('username')?.touched
+            "
+            class="validation call__validation"
+          >
+            Имя должен быть больше 3 символов
+          </div>
         </div>
         <div class="last-call__item">
           <input
@@ -27,6 +46,43 @@
             placeholder="Номер телефона"
             formControlName="phone_number"
           />
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('required') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('minlength') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона не должен быть меньше 10 символов
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('maxlength') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона не должен быть больше 12 символов
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('pattern') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона должен быть в формате +77xxxxxxxxx или 7xxxxxxxxx и
+            иметь только числа
+          </div>
         </div>
         <div class="last-call__item">
           <input
@@ -35,125 +91,29 @@
             placeholder="Город"
             formControlName="city"
           />
+          <div
+            *ngIf="
+              callRequestForm.get('city')?.hasError('required') &&
+              callRequestForm.get('city')?.touched
+            "
+            class="validation call__validation"
+          >
+            Название города обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('city')?.hasError('minlength') &&
+              callRequestForm.get('city')?.touched
+            "
+            class="validation call__validation"
+          >
+            Название города должен быть больше 3 символов
+          </div>
         </div>
       </div>
       <div class="last-call__btn">
-        <button class="btn">Связаться с нами</button>
+        <button class="btn">Давайте!</button>
       </div>
     </form>
   </div>
 </section>
-
-<!-- <div class="call">
-  <div class="container">
-    <div class="call__inner">
-      <div class="call__header">
-        <div class="call__title">
-          <h1>Остались еще вопросы?</h1>
-        </div>
-        <div class="call__subtitle">
-          <h2>
-            Закажите обратный звонок. Мы всегда рады ответить на любые ваши
-            вопросы
-          </h2>
-        </div>
-      </div>
-      <form
-        [formGroup]="callRequestForm"
-        (ngSubmit)="sendRequest()"
-        class="call__body call__body_top form"
-      >
-        <div class="form__inner">
-          <div class="call__item">
-            <input type="text" placeholder="Имя" formControlName="username" />
-            <div
-              *ngIf="
-                callRequestForm.get('username')?.hasError('required') &&
-                callRequestForm.get('username')?.touched
-              "
-              class="validation call__validation"
-            >
-              Имя обязательное для заполнение
-            </div>
-            <div
-              *ngIf="
-                callRequestForm.get('username')?.hasError('minlength') &&
-                callRequestForm.get('username')?.touched
-              "
-              class="validation call__validation"
-            >
-              Имя должен быть больше 3 символов
-            </div>
-          </div>
-          <div class="call__item">
-            <input
-              type="text"
-              placeholder="Номер телефона"
-              formControlName="phone_number"
-            />
-            <div
-              *ngIf="
-                callRequestForm.get('phone_number')?.hasError('required') &&
-                callRequestForm.get('phone_number')?.touched
-              "
-              class="validation call__validation"
-            >
-              Номер телефона обязательное для заполнение
-            </div>
-            <div
-              *ngIf="
-                callRequestForm.get('phone_number')?.hasError('minlength') &&
-                callRequestForm.get('phone_number')?.touched
-              "
-              class="validation call__validation"
-            >
-              Номер телефона не должен быть меньше 10 символов
-            </div>
-            <div
-              *ngIf="
-                callRequestForm.get('phone_number')?.hasError('maxlength') &&
-                callRequestForm.get('phone_number')?.touched
-              "
-              class="validation call__validation"
-            >
-              Номер телефона не должен быть больше 12 символов
-            </div>
-            <div
-              *ngIf="
-                callRequestForm.get('phone_number')?.hasError('pattern') &&
-                callRequestForm.get('phone_number')?.touched
-              "
-              class="validation call__validation"
-            >
-              Номер телефона должен быть в формате +77xxxxxxxxx или 7xxxxxxxxx и иметь только числа
-            </div>
-          </div>
-          <div class="call__item">
-            <input type="text" placeholder="Город" formControlName="city" />
-            <div
-              *ngIf="
-                callRequestForm.get('city')?.hasError('required') &&
-                callRequestForm.get('city')?.touched
-              "
-              class="validation call__validation"
-            >
-              Название города обязательное для заполнение
-            </div>
-            <div
-              *ngIf="
-                callRequestForm.get('city')?.hasError('minlength') &&
-                callRequestForm.get('city')?.touched
-              "
-              class="validation call__validation"
-            >
-              Название города должен быть больше 3 символов
-            </div>
-          </div>
-        </div>
-        <div class="call__action">
-          <button type="submit" class="btn">Связаться с нами</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> -->

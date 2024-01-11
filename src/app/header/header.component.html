@@ -1,6 +1,7 @@
 <div class="header__container _container _container_big">
   <div class="header__logo" (click)="onRefresh()">
-    <img src="assets/header/fitline-logo.svg" alt="FitLine Logo" />
+    <div class="logo logo_size">sanaro</div>
+    <!-- <img src="assets/header/fitline-logo.svg" alt="FitLine Logo" /> -->
   </div>
   <nav class="header__menu menu">
     <div class="menu__icon" (click)="showMenu()">
@@ -9,37 +10,39 @@
     <div class="menu__body">
       <ul class="menu__list">
         <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('hero')">Главное</a>
+          <div class="menu__link" (click)="scrollToFragment('hero')">
+            Главное
+          </div>
         </li>
         <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('innovation')"
-            >Инновация</a
-          >
+          <div class="menu__link" (click)="scrollToFragment('innovation')">
+            Инновация
+          </div>
         </li>
         <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('products')"
-            >Продукты</a
-          >
+          <div class="menu__link" (click)="scrollToFragment('products')">
+            Ингредиенты
+          </div>
         </li>
         <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('testimonials')"
-            >Отзывы</a
-          >
+          <div class="menu__link" (click)="scrollToFragment('testimonials')">
+            Отзывы
+          </div>
         </li>
         <li class="menu__item">
-          <a class="menu__link" (click)="scrollToFragment('questions')"
-            >Вопросы</a
-          >
+          <div class="menu__link" (click)="scrollToFragment('questions')">
+            Вопросы
+          </div>
         </li>
         <li class="menu__item menu__item_login">
           <div *ngIf="!isLoggedIn" (click)="onLogin()">
-            <a class="menu__link">Войти</a>
+            <div class="menu__link">Войти</div>
             <div class="menu__log">
               <img src="assets/header/login.svg" alt="login-icon" />
             </div>
           </div>
           <div *ngIf="isLoggedIn" (click)="onLogout()">
-            <a class="menu__link">Выйти</a>
+            <div class="menu__link">Выйти</div>
             <div class="menu__log">
               <img src="assets/header/logout.svg" alt="logout-icon" />
             </div>

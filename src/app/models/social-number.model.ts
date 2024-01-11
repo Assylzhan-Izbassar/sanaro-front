@@ -36,8 +36,8 @@ export class SocialNumber {
 }
 
 export const socialNumbers = [
-  new SocialNumber('1M+', 'Преданных покупателей'),
-  new SocialNumber('50+', 'Товаров на любой вкус'),
-  new SocialNumber('5+', 'Официальных сотрудничеств'),
-  new SocialNumber('1К+', 'Отзывов от покупателей'),
+  new SocialNumber('100К+', 'Преданных покупателей'),
+  new SocialNumber('30+', 'На мировом рынке'),
+  new SocialNumber('350', 'Ученых в научном совете'),
+  new SocialNumber('10К+', 'Отзывов от покупателей'),
 ];

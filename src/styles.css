@@ -1,11 +1,11 @@
 :root {
-  --header-bg-color: #eaeccc;
+  --header-bg-color: #ffffec;
   --certificates-bg-color: #ffffec;
   --main-bg-color: #f1e4c3;
   --secondary-bg-color: #f7db6a;
   --stroke-bg-color: #d6d2d4;
   --btn-bg-color: #7aa874;
-  --canvas-bg-color: rgba(255, 231, 240, 0.93);
+  --canvas-bg-color: rgba(247, 219, 106, 0.93);
   --primary-txt-color: #000000;
   --secondary-txt-color: #090909;
   --subheading-txt-color: rgba(0, 0, 0, 0.62);
@@ -13,6 +13,11 @@
   --stroke-color: #e8e4e6;
   --dialog-max-width: 90%;
   --dialog-top-bottom: 52px;
+}
+
+@font-face {
+  font-family: Furore;
+  src: url(assets/fonts/Furore.otf) format("opentype");
 }
 
 /* RESET STYLE SHEET */
@@ -102,6 +107,9 @@ img {
 /* ------------------------ */
 /* - GENERAL BUTTON STYLE - */
 /* ------------------------ */
+.logo {
+  font-family: "Furore";
+}
 
 .btn {
   color: var(--certificates-bg-color);

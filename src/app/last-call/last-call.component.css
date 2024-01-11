@@ -49,7 +49,12 @@
 .last-call__input:focus {
   outline-color: var(--btn-bg-color);
 }
+.last-call__btn {
+  max-width: 260.5px;
+  margin: 0 auto;
+}
 .last-call__btn button {
+  width: 100%;
   font-size: 17.96px;
   line-height: calc(27.1 / 17.96 * 100%);
 }

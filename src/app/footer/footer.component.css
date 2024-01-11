@@ -23,6 +23,10 @@
   object-position: 0 0;
 }
 
+.logo_size {
+  font-size: 28px;
+}
+
 /* footer list */
 .footer__column:nth-child(2) {
   display: flex;
@@ -53,7 +57,7 @@
 
 /* footer subscribe */
 .subscribe-footer {
-  max-width: 326px;
+  max-width: 340px;
 }
 
 /* footer-forms */
