@@ -89,8 +89,10 @@
 }
 
 .ntc__button button {
-  font-size: 16px;
+  font-size: 16.21px;
+  font-weight: 400;
   line-height: calc(24.5 / 16 * 100%);
+  letter-spacing: -0.32px;
 }
 
 /* -------- media queries --------*/
@@ -104,11 +106,9 @@
 @media (max-width: 1200px) {
   .ntc__content h2 {
     font-size: 42px;
-    line-height: calc(57.7 / 42 * 100%);
   }
   .ntc__text {
     font-size: 18px;
-    line-height: calc(38 / 18 * 100%);
   }
 }
 
@@ -121,11 +121,9 @@
   }
   .ntc__content h2 {
     font-size: 38px;
-    line-height: calc(48 / 38 * 100%);
   }
   .ntc__text {
     font-size: 16px;
-    line-height: calc(32 / 16 * 100%);
   }
 }
 
@@ -192,8 +190,9 @@
     max-width: 60%;
   }
   .ntc__logo {
-    width: 35.5%;
-    height: 70.13%;
+    width: 50.5%;
+    height: 80.13%;
+    top: 40px;
   }
   .ntc__logo img {
     height: 73%;
@@ -202,9 +201,12 @@
 }
 
 @media (max-width: 479px) {
+  .page__innovation {
+    margin: 30px 0px;
+  }
   .ntc__logo {
-    width: 35.5%;
-    height: 30.13%;
+    width: 40.5%;
+    height: 40.13%;
   }
   .ntc__content {
     flex: 0 1 95%;
@@ -212,13 +214,18 @@
   }
   .ntc__content h2 {
     font-size: 36px;
-    line-height: calc(48 / 36 * 100%);
   }
   .ntc__text {
-    font-size: 14px;
-    line-height: calc(28 / 14 * 100%);
+    font-size: 15px;
   }
   .ntc__button button {
     width: 100%;
+  }
+}
+
+@media (max-width: 479px) {
+  .ntc__logo {
+    width: 33.5%;
+    height: 33.13%;
   }
 }

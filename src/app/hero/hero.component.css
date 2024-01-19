@@ -6,7 +6,7 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 620px;
+  max-width: 600px;
   padding: 130px 0;
 }
 
@@ -94,7 +94,7 @@
     font-size: calc(36 / 16 * 100%);
   }
   .hero__text {
-    font-size: calc(14 / 16 * 100%);
+    font-size: calc(16 / 16 * 100%);
     line-height: calc(17 / 16 * 100%);
   }
   .hero__button {
@@ -113,7 +113,7 @@
 @media (max-width: 767px) {
   .hero__img {
     width: 100%;
-    opacity: 0.4;
+    opacity: 0.45;
   }
 }
 
@@ -128,7 +128,7 @@
   }
   .hero__button {
     flex-wrap: wrap;
-    margin-top: 36px;
+    margin-top: 16px;
   }
   .hero__button button {
     margin: 10px 0;
@@ -138,6 +138,6 @@
   }
   .hero__proof {
     margin: 0 auto;
-    font-size: calc(11 / 16 * 100%);
+    font-size: calc(12 / 16 * 100%);
   }
 }

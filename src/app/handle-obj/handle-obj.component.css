@@ -91,16 +91,16 @@
     margin-bottom: 50px;
   }
   .objections__header {
-    font-size: 28px;
+    font-size: 32px;
     text-align: center;
   }
   .objections__items > *:not(:last-child) {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
   .objections__text {
-    font-size: 14px;
+    font-size: 18px;
   }
   .objections__answer {
-    font-size: 13px;
+    font-size: 15px;
   }
 }

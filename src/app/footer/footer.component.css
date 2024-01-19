@@ -137,4 +137,8 @@
   .subcribe-footer__right {
     font-size: 10px;
   }
+
+  .subscribe-footer__form {
+    margin-top: 16px;
+  }
 }
