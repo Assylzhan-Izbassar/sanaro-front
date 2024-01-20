@@ -106,15 +106,15 @@
   }
 
   .menu__icon._active span {
-    transform: scale(0) translate(0px, -50%);
+    transform: scale(0);
   }
   .menu__icon._active::before {
-    top: 51%;
+    top: 45%;
     transform: rotate(-45deg) translate(0px, -50%);
   }
   .menu__icon._active::after {
-    bottom: 46%;
-    transform: rotate(45deg) translate(0px, 50%);
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 55%);
   }
 
   .menu__body {
