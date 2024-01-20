@@ -31,6 +31,8 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
 import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { CertificatesComponent } from './certificates/certificates.component';
+import { ServiceWorkerModule, SwRegistrationOptions } from '@angular/service-worker';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { CertificatesComponent } from './certificates/certificates.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js'),
   ],
   providers: [
     AuthService,
@@ -72,6 +75,10 @@ import { CertificatesComponent } from './certificates/certificates.component';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
+    },
+    {
+      provide: SwRegistrationOptions,
+      useFactory: () => ({ enabled: environment.production }),
     },
   ],
   bootstrap: [AppComponent],
