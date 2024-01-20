@@ -79,7 +79,7 @@
   }
 }
 
-@media (min-width: 340px) {
+@media (max-width: 845px) and (min-width: 340px) {
   .numbers__item:nth-child(even) {
     margin-left: 20px;
   }

@@ -17,7 +17,6 @@ import { Answer } from '../models/answer.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
 import { DIRECTORY } from '../models/directory.model';
-import { UserData } from '../models/user.model';
 
 @Component({
   selector: 'app-questionnaire-dialog',
@@ -56,7 +55,7 @@ export class QuestionnaireDialogComponent implements OnInit {
   isContBtnShow: boolean = false;
   slideState: 'in' | 'middle' | 'out' = 'in';
   continueBtn?: HTMLElement;
-  questions: Question[] = [];
+  questions: Question[] | undefined = [];
   currentAnswers: Answer[] = [];
   responses: QuestionnaireResponseData[] = [];
 
@@ -110,21 +109,10 @@ export class QuestionnaireDialogComponent implements OnInit {
    */
   async onAnswerSelected(): Promise<void> {
     let currAnsIdx = this.selectedOption;
-    // if(this.user_id) {
-    //   this.responses.push({
-    //     questionnaire_uuid: this.uuid,
-    //     response: currAnsIdx,
-    //     user: this.user_id,
-    //   });
-    // } else {
-    //   // Stops the running code.
-    //   return;
-    // }
 
     this.responses.push({
       questionnaire_uuid: this.uuid,
       response: currAnsIdx,
-      // user: this.user_id,
     });
 
     if (this.currQuesIdx === this.questions!.length - 1) {
@@ -134,13 +122,6 @@ export class QuestionnaireDialogComponent implements OnInit {
       setTimeout(() => {
         this.dialogService.openGreetingDialog({ currIndex: 2 }); // current index represents conf. of auth
       }, 100);
-
-      // MAYBE WE DON'T NEED BELLOW
-
-      // Getting user_id from jwt token
-      if (this.authService.getToken()) {
-        // Creating question response list
-      }
     } else {
       // Trigger the animation
       this.slideState = 'out';
@@ -169,17 +150,16 @@ export class QuestionnaireDialogComponent implements OnInit {
   /**
    * Fetches the questions from database.
    */
-  private fetchQuestions(): void {
-    this.questionService.getQuestions().subscribe(
-      (data) => {
-        this.questions = data;
+  private async fetchQuestions(): Promise<void> {
+    try {
+      this.questions = await this.questionService.getQuestions().toPromise();
+      if (this.questions) {
         this.fetchAnswer(false);
         this.dataIsLoaded = true;
-      },
-      (error) => {
-        console.log('Error fetching testimonials: ', error);
       }
-    );
+    } catch (error) {
+      console.log('Error fetching testimonials: ', error);
+    }
   }
 
   /**
@@ -192,22 +172,24 @@ export class QuestionnaireDialogComponent implements OnInit {
         this.slideState = 'middle';
       }, 500);
     }
-    let idx = this.questions[this.currQuesIdx].id;
-    if (idx) {
-      this.answerService.getAnswers(idx).subscribe({
-        next: (data) => {
-          if (isAnsSelected) {
-            setTimeout(() => {
-              // Trigger the animation
-              this.slideState = 'in';
+    if (this.questions) {
+      let idx = this.questions[this.currQuesIdx].id;
+      if (idx) {
+        this.answerService.getAnswers(idx).subscribe({
+          next: (data) => {
+            if (isAnsSelected) {
+              setTimeout(() => {
+                // Trigger the animation
+                this.slideState = 'in';
+                this.currentAnswers = data;
+              }, 500);
+            } else {
               this.currentAnswers = data;
-            }, 500);
-          } else {
-            this.currentAnswers = data;
-          }
-        },
-        error: (e) => console.log('Error fetching testimonials: ', e),
-      });
+            }
+          },
+          error: (e) => console.log('Error fetching testimonials: ', e),
+        });
+      }
     }
   }
 }

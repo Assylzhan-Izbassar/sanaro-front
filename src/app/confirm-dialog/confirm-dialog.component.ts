@@ -16,8 +16,8 @@ import {
   styleUrls: ['./confirm-dialog.component.css'],
   animations: [
     trigger('emailAnimation', [
-      state('email_visible', style({ maxHeight: '250px' })),
-      state('email_hidden', style({ maxHeight: '0px' })),
+      state('email_visible', style({ maxHeight: '250px', overflow: 'visible' })),
+      state('email_hidden', style({ maxHeight: '0px', overflow: 'hidden' })),
       transition('email_hidden => email_visible', animate('500ms ease-in-out')),
     ]),
   ],

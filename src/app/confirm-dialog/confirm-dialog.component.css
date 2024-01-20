@@ -18,26 +18,20 @@
   flex: 1 1 278px;
 }
 
-/* .dialog__btn_no button {
-  background-color: var(--line-bg-color);
-  color: var(--white);
-  padding: 17px 56px;
-  transition: border, padding, color 0.3s;
-}
-
-.dialog__btn_no button:hover {
-  color: var(--secondary-txt-color);
-  padding: 15px 58px;
-  border: 2px solid var(--secondary-txt-color);
-  transition: border, padding, color 0.3s;
-} */
-
 .dialog__inputs_top {
   margin-top: 12px;
 }
+
+/* .dialog__input_width {
+  max-width: 95%;
+} */
 
 .dialog__hidden {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 500ms ease-in-out;
+}
+
+.dialog__btn_width button {
+  width: 100%;
 }

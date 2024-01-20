@@ -15,7 +15,7 @@
 
 /* QUESTION */
 .question__text {
-  font-size: 32px;
+  font-size: 30px;
 }
 
 /* ANSWER */
@@ -48,7 +48,7 @@
 .answer__text {
   display: inline-flex;
   align-items: center;
-  font-size: 22.45px;
+  font-size: 19.45px;
   flex: 1 0 100%;
   position: relative;
 }
