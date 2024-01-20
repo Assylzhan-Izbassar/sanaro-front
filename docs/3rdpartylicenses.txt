@@ -66,9 +66,6 @@ MIT
 @angular/router
 MIT
 
-@angular/service-worker
-MIT
-
 jwt-decode
 MIT
 The MIT License (MIT)
