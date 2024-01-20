@@ -1,4 +1,4 @@
-# FitLine Front-end App
+# sanaro.co frontend application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
