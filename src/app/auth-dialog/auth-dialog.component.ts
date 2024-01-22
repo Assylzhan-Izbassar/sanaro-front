@@ -95,7 +95,7 @@ export class AuthDialogComponent {
                   'Упс! Id пользователя не найден!'
                 );
               }
-            }, 100);
+            }, 500);
           }
         },
         error: (error) => {

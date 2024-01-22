@@ -85,9 +85,9 @@ export class QuestionnaireDialogComponent implements OnInit {
             true,
             DIRECTORY.error_loading_questions
           );
-        }, 300);
+        }, 500);
       }
-    }, 300);
+    }, 500);
   }
 
   /**
