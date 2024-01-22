@@ -85,9 +85,9 @@ export class QuestionnaireDialogComponent implements OnInit {
             true,
             DIRECTORY.error_loading_questions
           );
-        }, 300);
+        }, 500);
       }
-    }, 300);
+    }, 500);
   }
 
   /**
@@ -121,7 +121,7 @@ export class QuestionnaireDialogComponent implements OnInit {
 
       setTimeout(() => {
         this.dialogService.openGreetingDialog({ currIndex: 2 }); // current index represents conf. of auth
-      }, 100);
+      }, 500);
     } else {
       // Trigger the animation
       this.slideState = 'out';
