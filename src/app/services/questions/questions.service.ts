@@ -13,12 +13,7 @@ export class QuestionsService extends BaseService {
     return this._url;
   }
 
-  getQuestions(): Observable<Question[]> {
-    return this.http.get<QuestionData[]>(this.url).pipe(
-      map((response: any[]) => {
-        return response.map((item) => new Question(item));
-      }),
-      catchError(this.handleError)
-    );
+  getQuestions(): Observable<QuestionData[]> {
+    return this.http.get<QuestionData[]>(this.url);
   }
 }

@@ -1,14 +1,15 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthService } from './services/auth/auth.service';
 import { DialogService } from './services/dialog/dialog.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,12 +26,12 @@ import { HandleObjComponent } from './handle-obj/handle-obj.component';
 import { LastCallComponent } from './last-call/last-call.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
-import { CookieService } from 'ngx-cookie-service';
 import { CallRequestDialogComponent } from './call-request-dialog/call-request-dialog.component';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { CertificatesComponent } from './certificates/certificates.component';
+
 
 @NgModule({
   declarations: [

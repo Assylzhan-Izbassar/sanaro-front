@@ -5,6 +5,7 @@ import { SharedService } from '../services/core/shared.service';
 import { DIRECTORY } from '../models/directory.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QuestionnaireResponseService } from '../services/questionnaire-response/questionnaire-response.service';
+import { WaitingService } from '../services/core/waiting.service';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -18,6 +19,7 @@ export class AuthDialogComponent {
 
   constructor(
     private authService: AuthService,
+    private waitingService: WaitingService,
     private dialogService: DialogService,
     private sharedService: SharedService,
     private questionnareResponseService: QuestionnaireResponseService,
@@ -48,54 +50,43 @@ export class AuthDialogComponent {
   }
 
   /**
-   * Method for loading user data, and set user id.
-   */
-  private async fetchUserId(): Promise<void> {
-    try {
-      await this.authService.getCurrentUserInfo().then((result: any) => {
-        this.user_id = result.id!;
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  /**
    * Logins to the system.
    */
-  login(): void {
+  public login() {
     if (this.authForm.valid) {
       let formData = this.authForm.value;
 
       this.authService.login(formData).subscribe({
-        next: (response: any) => {
+        next: async (response: any) => {
           if (response.access) {
             this.sendDataToHeader(true);
             this.dialogService.closeDialog();
-            this.fetchUserId(); // getting user_id
 
-            setTimeout(() => {
-              // sending collected questionnaire responses
-              if (this.user_id) {
-                let response =
-                  this.questionnareResponseService.postQuestionnaireResponses(
-                    this.user_id
-                  ); // sending questionnaire responses to the server
-                if (response) {
-                  this.dialogService.openConfirmDialog({}); // opens confirmation dialog
-                } else {
-                  this.dialogService.openNotifyDialog(
-                    true,
-                    'Упс, серверная ошибка! Не смогли отправить результаты опросника на сервер!'
-                  );
-                }
+            const p = this.authService.getCurrentUserInfo();
+            await this.waitingService.waitFor(p).then((item) => {
+              this.user_id = item?.id;
+            });
+
+            // sending collected questionnaire responses
+            if (this.user_id) {
+              let response =
+                this.questionnareResponseService.postQuestionnaireResponses(
+                  this.user_id
+                ); // sending questionnaire responses to the server
+              if (response) {
+                this.dialogService.openConfirmDialog({}); // opens confirmation dialog
               } else {
                 this.dialogService.openNotifyDialog(
                   true,
-                  'Упс! Id пользователя не найден!'
+                  'Упс, серверная ошибка! Не смогли отправить результаты опросника на сервер!'
                 );
               }
-            }, 500);
+            } else {
+              this.dialogService.openNotifyDialog(
+                true,
+                'Упс! ID пользователя не найден!'
+              );
+            }
           }
         },
         error: (error) => {
