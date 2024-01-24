@@ -76,10 +76,10 @@ export class AuthService extends BaseService {
   /**
    * Method that returns current user data.
    */
-  public getCurrentUserInfo(): Promise<UserData | undefined> {
+  public getCurrentUserInfo(): Observable<UserData | undefined> {
     let decodedToken: any = jwtDecode(this.getToken()!);
     let userId = decodedToken.user_id;
-    return this.http.get<UserData>(this.usersUrl + userId).toPromise();
+    return this.http.get<UserData>(this.usersUrl + userId);
   }
 
   /**

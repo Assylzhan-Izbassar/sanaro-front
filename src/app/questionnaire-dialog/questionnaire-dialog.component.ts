@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ElementRef } from '@angular/core';
+import { Component, Inject, ElementRef } from '@angular/core';
 import {
   trigger,
   state,
@@ -9,7 +9,6 @@ import {
 import { DialogService } from '../services/dialog/dialog.service';
 import { QuestionsService } from '../services/questions/questions.service';
 import { AnswersService } from '../services/answers/answers.service';
-import { AuthService } from '../services/auth/auth.service';
 import { QuestionnaireResponseService } from '../services/questionnaire-response/questionnaire-response.service';
 import { QuestionnaireResponseData } from '../models/questionnaire-response.model';
 import { Question } from '../models/question.model';
@@ -17,6 +16,8 @@ import { Answer } from '../models/answer.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { v4 as uuidv4 } from 'uuid';
 import { DIRECTORY } from '../models/directory.model';
+import { WaitingService } from '../services/core/waiting.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-questionnaire-dialog',
@@ -47,7 +48,7 @@ import { DIRECTORY } from '../models/directory.model';
     ]),
   ],
 })
-export class QuestionnaireDialogComponent implements OnInit {
+export class QuestionnaireDialogComponent {
   uuid = uuidv4();
 
   currQuesIdx: number = 0;
@@ -68,26 +69,10 @@ export class QuestionnaireDialogComponent implements OnInit {
     private answerService: AnswersService,
     private dialogService: DialogService,
     private elementRef: ElementRef,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-
-  /**
-   * Initiates the questionnaire component.
-   */
-  ngOnInit() {
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private waitingService: WaitingService
+  ) {
     this.fetchQuestions();
-
-    setTimeout(() => {
-      if (!this.questions!.length) {
-        this.dialogService.closeDialog();
-        setTimeout(() => {
-          this.dialogService.openNotifyDialog(
-            true,
-            DIRECTORY.error_loading_questions
-          );
-        }, 500);
-      }
-    }, 500);
   }
 
   /**
@@ -119,9 +104,13 @@ export class QuestionnaireDialogComponent implements OnInit {
       this.quesResponseService.data = this.responses;
       this.dialogService.closeDialog();
 
-      setTimeout(() => {
-        this.dialogService.openGreetingDialog({ currIndex: 2 }); // current index represents conf. of auth
-      }, 500);
+      if (this.authService.getToken()) {
+        this.dialogService.openConfirmDialog({});
+      } else {
+        setTimeout(() => {
+          this.dialogService.openGreetingDialog({ currIndex: 2 }); // current index represents conf. of auth
+        }, 500);
+      }
     } else {
       // Trigger the animation
       this.slideState = 'out';
@@ -150,15 +139,23 @@ export class QuestionnaireDialogComponent implements OnInit {
   /**
    * Fetches the questions from database.
    */
-  private async fetchQuestions(): Promise<void> {
-    try {
-      this.questions = await this.questionService.getQuestions().toPromise();
-      if (this.questions) {
-        this.fetchAnswer(false);
-        this.dataIsLoaded = true;
-      }
-    } catch (error) {
-      console.log('Error fetching testimonials: ', error);
+  private async fetchQuestions() {
+    const p = this.questionService.getQuestions();
+    (await this.waitingService.waitFor(p)).map((item) => {
+      this.questions?.push(new Question(item));
+    });
+
+    if (this.questions) {
+      this.fetchAnswer(false);
+      this.dataIsLoaded = true;
+    } else {
+      this.dialogService.closeDialog();
+      setTimeout(() => {
+        this.dialogService.openNotifyDialog(
+          true,
+          DIRECTORY.error_loading_questions
+        );
+      }, 500);
     }
   }
 
