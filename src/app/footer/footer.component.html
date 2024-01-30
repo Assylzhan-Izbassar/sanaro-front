@@ -22,8 +22,14 @@
           <div class="list-footer__header footer-header">Социальные сети</div>
           <ul class="footer__items">
             <li class="footer__item">
-              <a href="#">Instagram</a>
+              <a href="https://www.instagram.com/sanaro.co/">Instagram</a>
             </li>
+          </ul>
+        </div>
+        <div class="list-footer__column">
+          <div class="list-footer__header footer-header">Телефон</div>
+          <ul class="footer__items">
+            <li class="footer__item">+7 701 013 08 95</li>
           </ul>
         </div>
       </div>
@@ -33,14 +39,14 @@
         <div class="subscribe-footer__header footer-header">
           Подпишитесь и получайте новости о нас!
         </div>
-        <form action="#" class="subscribe-footer__form">
+        <form (ngSubmit)="onEmailSent()" class="subscribe-footer__form">
           <input
             type="email"
             class="subscribe-footer__input"
             required
             placeholder="sanaro@example.com"
           />
-          <a href="#" class="subscribe-footer__send">
+          <a href="" class="subscribe-footer__send" type="submit">
             <img src="assets/footer/arrow.svg" alt="Стрелка отправить" />
           </a>
         </form>
