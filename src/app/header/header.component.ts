@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DialogService } from '../services/dialog/dialog.service';
 import { AuthService } from '../services/auth/auth.service';
 import { SharedService } from '../services/core/shared.service';
+import { phoneNumber } from '../models/base.model';
 
 @Component({
   selector: 'app-header',
@@ -15,12 +17,14 @@ export class HeaderComponent {
   menuIcon?: HTMLElement | null;
   menuBody?: HTMLElement | null;
 
+  phoneNumber? = phoneNumber;
   isLoggedIn = false;
 
   constructor(
     private dialog?: DialogService,
     private service?: AuthService,
-    private sharedSerice?: SharedService
+    private sharedSerice?: SharedService,
+    private router?: Router
   ) {
     if (this.sharedSerice) {
       this.sharedSerice.getData().subscribe({
@@ -53,7 +57,7 @@ export class HeaderComponent {
    * Method for scrolling to the specific parts of web page.
    * @param fragment - Id of the section / fragment.
    */
-  scrollToFragment(fragment: string): void {
+  scrollToFragment(fragment: string): boolean {
     const targetElement = document.getElementById(fragment);
 
     if (this.menuIcon?.classList.contains('_active')) {
@@ -63,9 +67,16 @@ export class HeaderComponent {
     }
 
     if (targetElement) {
+      // targetElement.scrollIntoView({
+      //   block: 'start',
+      //   behavior: 'smooth',
+      //   inline: 'start',
+      // });
       const desiredScrollPosition = targetElement.offsetTop - 73;
       window.scrollTo({ top: desiredScrollPosition, behavior: 'smooth' });
+      this.router?.navigate([], { fragment: fragment });
     }
+    return false;
   }
 
   /**

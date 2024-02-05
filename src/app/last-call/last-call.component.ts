@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CallsService } from '../services/calls/calls.service';
 import { DialogService } from '../services/dialog/dialog.service';
 import { DIRECTORY } from '../models/directory.model';
+import { phoneNumber, landingContent } from '../models/base.model';
 
 @Component({
   selector: 'app-last-call',
@@ -11,11 +12,14 @@ import { DIRECTORY } from '../models/directory.model';
 })
 export class LastCallComponent {
   callRequestForm: FormGroup;
+  phoneNumber: string = phoneNumber;
+  content: any = landingContent;
+  body: Element = document.body;
 
   constructor(
     private fb: FormBuilder,
     private service: CallsService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
   ) {
     this.callRequestForm = this.fb.group({
       username: [

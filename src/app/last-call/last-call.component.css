@@ -59,6 +59,9 @@
   line-height: calc(27.1 / 17.96 * 100%);
 }
 
+.last-call__phone-call {
+  margin-top: 50px;
+}
 /* -------- media queries --------*/
 
 @media (max-width: 992px) {
