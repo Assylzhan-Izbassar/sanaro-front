@@ -10,6 +10,7 @@
   --secondary-txt-color: #090909;
   --subheading-txt-color: rgba(0, 0, 0, 0.62);
   --line-bg-color: rgba(0, 0, 0, 0.3);
+  --action-color: #cd0039;
   --stroke-color: #e8e4e6;
   --dialog-max-width: 90%;
   --dialog-top-bottom: 52px;
@@ -53,6 +54,52 @@ body {
 body._lock {
   overflow: hidden;
 }
+
+
+/* TOUCH SCREEN */
+body._touch .header__phone {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+body._touch .last-call__form {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body._touch .last-call__phone-call {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* PC */
+body._pc .header__phone {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body._pc .last-call__form {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+body._pc .last-call__phone-call {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
 h1,
 h2,
@@ -117,7 +164,6 @@ img {
   border-width: 0px;
   border-radius: 68.485px;
   padding: 17px 58px;
-  font-family: "Helvetica", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: calc(27 / 18 * 100%);

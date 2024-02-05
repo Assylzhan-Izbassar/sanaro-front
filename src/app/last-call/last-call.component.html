@@ -1,11 +1,22 @@
-<section class="page__last-call last-call">
+<section id="request" class="page__last-call last-call">
   <div class="last-call__container _container">
     <div class="last-call__header">
-      <h1 class="last-call__title">Давайте с Вами свяжемся?</h1>
-      <h2 class="last-call__subtitle">
-        Закажите обратный звонок, чтобы назначить точное время ZOOM встречи для
-        решения именно Вашей ситуации
-      </h2>
+      <div *ngIf="body.classList.contains('_pc'); else noCallPc">
+        <h2 class="last-call__title">
+          {{content.pc.lastCall.header}}
+        </h2>
+        <h3 class="last-call__subtitle">
+          {{content.pc.lastCall.subheader}}
+        </h3>
+      </div>
+      <ng-template #noCallPc>
+        <h2 class="last-call__title">
+          {{content.mobile.lastCall.header}}
+        </h2>
+        <h3 class="last-call__subtitle">
+          {{content.mobile.lastCall.subheader}}
+        </h3>
+      </ng-template>
     </div>
     <form
       [formGroup]="callRequestForm"
@@ -115,5 +126,8 @@
         <button class="btn">Давайте!</button>
       </div>
     </form>
+    <div class="last-call__phone-call">
+      <a href="tel:{{phoneNumber}}" class="btn">Позвонить</a>
+    </div>
   </div>
 </section>
