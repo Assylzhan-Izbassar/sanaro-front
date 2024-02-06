@@ -14,23 +14,25 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HeroComponent } from './hero/hero.component';
-import { InnovationComponent } from './innovation/innovation.component';
-import { FeaturesComponent } from './features/features.component';
-import { SetsComponent } from './sets/sets.component';
-import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
-import { QuestionnaireDialogComponent } from './questionnaire-dialog/questionnaire-dialog.component';
-import { NumbersComponent } from './numbers/numbers.component';
-import { TestimonialsComponent } from './testimonials/testimonials.component';
-import { HandleObjComponent } from './handle-obj/handle-obj.component';
-import { LastCallComponent } from './last-call/last-call.component';
+import { HeroComponent } from './pages/hero/hero.component';
+import { InnovationComponent } from './pages/innovation/innovation.component';
+import { FeaturesComponent } from './pages/features/features.component';
+import { SetsComponent } from './pages/sets/sets.component';
+import { AuthDialogComponent } from './pages/auth-dialog/auth-dialog.component';
+import { QuestionnaireDialogComponent } from './pages/questionnaire-dialog/questionnaire-dialog.component';
+import { NumbersComponent } from './pages/numbers/numbers.component';
+import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
+import { HandleObjComponent } from './pages/handle-obj/handle-obj.component';
+import { LastCallComponent } from './pages/last-call/last-call.component';
 import { FooterComponent } from './footer/footer.component';
-import { NotifyDialogComponent } from './notify-dialog/notify-dialog.component';
-import { CallRequestDialogComponent } from './call-request-dialog/call-request-dialog.component';
-import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
-import { GreetingDialogComponent } from './greeting-dialog/greeting-dialog.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { CertificatesComponent } from './certificates/certificates.component';
+import { NotifyDialogComponent } from './pages/notify-dialog/notify-dialog.component';
+import { CallRequestDialogComponent } from './pages/call-request-dialog/call-request-dialog.component';
+import { RegisterDialogComponent } from './pages/register-dialog/register-dialog.component';
+import { GreetingDialogComponent } from './pages/greeting-dialog/greeting-dialog.component';
+import { ConfirmDialogComponent } from './pages/confirm-dialog/confirm-dialog.component';
+import { CertificatesComponent } from './pages/certificates/certificates.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+import { MainComponent } from './pages/main/main.component';
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import { CertificatesComponent } from './certificates/certificates.component';
     GreetingDialogComponent,
     ConfirmDialogComponent,
     CertificatesComponent,
+    ThankYouComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

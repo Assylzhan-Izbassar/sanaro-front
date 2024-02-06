@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AuthDialogComponent } from '../../auth-dialog/auth-dialog.component';
-import { QuestionnaireDialogComponent } from 'src/app/questionnaire-dialog/questionnaire-dialog.component';
-import { NotifyDialogComponent } from 'src/app/notify-dialog/notify-dialog.component';
-import { CallRequestDialogComponent } from 'src/app/call-request-dialog/call-request-dialog.component';
-import { RegisterDialogComponent } from 'src/app/register-dialog/register-dialog.component';
-import { GreetingDialogComponent } from 'src/app/greeting-dialog/greeting-dialog.component';
-import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
+import { AuthDialogComponent } from '../../pages/auth-dialog/auth-dialog.component';
+import { QuestionnaireDialogComponent } from 'src/app/pages/questionnaire-dialog/questionnaire-dialog.component';
+import { NotifyDialogComponent } from 'src/app/pages/notify-dialog/notify-dialog.component';
+import { CallRequestDialogComponent } from 'src/app/pages/call-request-dialog/call-request-dialog.component';
+import { RegisterDialogComponent } from 'src/app/pages/register-dialog/register-dialog.component';
+import { GreetingDialogComponent } from 'src/app/pages/greeting-dialog/greeting-dialog.component';
+import { ConfirmDialogComponent } from 'src/app/pages/confirm-dialog/confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root',

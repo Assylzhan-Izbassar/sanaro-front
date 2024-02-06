@@ -1,0 +1,133 @@
+<section id="request" class="page__last-call last-call">
+  <div class="last-call__container _container">
+    <div class="last-call__header">
+      <div *ngIf="body.classList.contains('_pc'); else noCallPc">
+        <h2 class="last-call__title">
+          {{ content.pc.lastCall.header }}
+        </h2>
+        <h3 class="last-call__subtitle">
+          {{ content.pc.lastCall.subheader }}
+        </h3>
+      </div>
+      <ng-template #noCallPc>
+        <h2 class="last-call__title">
+          {{ content.mobile.lastCall.header }}
+        </h2>
+        <h3 class="last-call__subtitle">
+          {{ content.mobile.lastCall.subheader }}
+        </h3>
+      </ng-template>
+    </div>
+    <form
+      [formGroup]="callRequestForm"
+      (ngSubmit)="sendRequest()"
+      class="last-call__form"
+    >
+      <div class="last-call__inputs">
+        <div class="last-call__item">
+          <input
+            type="text"
+            class="last-call__input"
+            placeholder="Имя"
+            formControlName="username"
+          />
+          <div
+            *ngIf="
+              callRequestForm.get('username')?.hasError('required') &&
+              callRequestForm.get('username')?.touched
+            "
+            class="validation call__validation"
+          >
+            Имя обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('username')?.hasError('minlength') &&
+              callRequestForm.get('username')?.touched
+            "
+            class="validation call__validation"
+          >
+            Имя должен быть больше 3 символов
+          </div>
+        </div>
+        <div class="last-call__item">
+          <input
+            type="text"
+            class="last-call__input"
+            placeholder="Номер телефона"
+            formControlName="phone_number"
+          />
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('required') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('minlength') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона не должен быть меньше 10 символов
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('maxlength') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона не должен быть больше 12 символов
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('phone_number')?.hasError('pattern') &&
+              callRequestForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона должен быть в формате +77xxxxxxxxx или 7xxxxxxxxx и
+            иметь только числа
+          </div>
+        </div>
+        <div class="last-call__item">
+          <input
+            type="text"
+            class="last-call__input"
+            placeholder="Город"
+            formControlName="city"
+          />
+          <div
+            *ngIf="
+              callRequestForm.get('city')?.hasError('required') &&
+              callRequestForm.get('city')?.touched
+            "
+            class="validation call__validation"
+          >
+            Название города обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              callRequestForm.get('city')?.hasError('minlength') &&
+              callRequestForm.get('city')?.touched
+            "
+            class="validation call__validation"
+          >
+            Название города должен быть больше 3 символов
+          </div>
+        </div>
+      </div>
+      <div class="last-call__btn">
+        <button class="btn">Давайте!</button>
+      </div>
+    </form>
+    <div class="last-call__phone-call">
+      <a href="tel:{{ phoneNumber }}" class="btn">Позвонить</a>
+    </div>
+  </div>
+</section>
