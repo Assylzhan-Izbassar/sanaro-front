@@ -33,6 +33,7 @@ import { ConfirmDialogComponent } from './pages/confirm-dialog/confirm-dialog.co
 import { CertificatesComponent } from './pages/certificates/certificates.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { MainComponent } from './pages/main/main.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { MainComponent } from './pages/main/main.component';
     CertificatesComponent,
     ThankYouComponent,
     MainComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,

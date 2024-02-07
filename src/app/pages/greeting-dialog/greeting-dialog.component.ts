@@ -64,20 +64,14 @@ export class GreetingDialogComponent {
       }, 500);
 
       setTimeout(() => {
-        // Trigger the animation
-        this.slideState = 'in';
+        this.slideState = 'in'; // Trigger the animation
         this.currDataIdx++;
       }, 500);
-    } else if (this.currDataIdx == this.greetings.length - 1) {
-      this.dialog.closeDialog();
-      setTimeout(() => {
-        this.dialog.openAuthDialog({});
-      }, 100);
     } else {
       this.dialog.closeDialog();
       setTimeout(() => {
-        this.dialog.openQuestionnaireDialog({});
-      }, 100);
+        this.dialog.openQuizDialog({});
+      }, 200);
     }
   }
 }

@@ -6,8 +6,8 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
-  padding: 130px 0;
+  max-width: 620px;
+  padding: 80px 0px;
 }
 
 .hero__body > *:not(:last-child) {
@@ -22,21 +22,44 @@
 
 .hero__text {
   font-weight: 400;
-  font-size: calc(21.36 / 16 * 100%);
+  font-size: calc(20 / 16 * 100%);
   line-height: calc(23 / 16 * 100%);
 }
 
-.hero__button {
+.highlight,
+.text__item_need {
+  color: #ff6868;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.text__item_need {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.highlight,
+.invert-highlight {
+  text-decoration: underline;
+}
+
+.hero__action {
+  margin-top: 50px;
   display: flex;
-  align-items: center;
-  margin-top: 68px;
+  flex-direction: column;
+  max-width: 415px;
 }
 
 .hero__proof {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.proof__item {
   font-weight: 400;
-  max-width: 300px;
-  flex: 0 1 auto;
-  margin: 0 0 0 40px;
+  flex: 0 1 50%;
+  text-align: center;
 }
 
 .hero__img {

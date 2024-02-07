@@ -1,0 +1,151 @@
+/* TECHNICAL CLASSES */
+._hide {
+  display: none;
+}
+.bar__item._active {
+  background-color: var(--btn-bg-color);
+}
+
+/* ACTUAL CLASSES */
+.quiz {
+  font-family: "Inter", sans-serif;
+}
+.quiz__container {
+  display: flex;
+  align-items: flex-start;
+
+  padding: 50px 50px;
+}
+.quiz__content {
+  margin-right: 50px;
+  max-width: 425px;
+}
+.quiz__content > *:not(:last-child) {
+  margin-bottom: 15px;
+}
+.quiz__content > *:last-child {
+  margin-top: 70px;
+}
+
+.quiz__header {
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.header__index {
+  font-weight: 700;
+  font-size: 84px;
+  line-height: calc(57 / 48 * 100%);
+}
+.header__bar {
+}
+.bar {
+  display: flex;
+  margin-left: 40px;
+}
+.bar__item {
+  width: 20px;
+  height: 20px;
+  background-color: var(--stroke-bg-color);
+}
+.bar__item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.quiz__task {
+}
+.quiz__question {
+}
+.question {
+}
+.question__text {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -1.5%;
+}
+
+.quiz__answers {
+  margin-top: 20px;
+}
+.answer {
+}
+.answer > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+.answer__item {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+.answer__text {
+  display: inline-flex;
+  flex: 1 0 100%;
+  position: relative;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -1.5%;
+}
+
+/* RADIO INPUT */
+.answer__text::before {
+  content: "";
+  align-self: flex-start;
+  flex: 0 0 23px;
+  height: 23px;
+  background-color: transparent;
+  border: 1px solid var(--btn-bg-color);
+  border-radius: 50%;
+  margin: 0px 11.5px 0px 0px;
+}
+.answer__text::after {
+  content: "";
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--btn-bg-color);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+}
+.answer__input {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  cursor: pointer;
+  opacity: 0;
+  overflow: hidden;
+}
+.answer__input:checked + .answer__text::after {
+  transform: scale(1);
+}
+/* RADIO INPUT */
+
+.quiz__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.quiz__btn_next {
+  margin-left: 15px;
+}
+.quiz__img {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.quiz__img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+}

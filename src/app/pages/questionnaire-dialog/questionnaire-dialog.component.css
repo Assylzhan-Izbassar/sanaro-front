@@ -25,6 +25,9 @@
 .answer > *:first-child {
   margin-top: 27px;
 }
+.answer__item:first-child {
+  margin-top: 0px;
+}
 
 .answer__item {
   display: flex;
@@ -35,9 +38,6 @@
   cursor: pointer;
 }
 
-.answer__item:first-child {
-  margin-top: 0px;
-}
 .answer__input {
   display: none;
 }

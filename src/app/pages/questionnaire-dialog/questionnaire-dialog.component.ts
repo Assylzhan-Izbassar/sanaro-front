@@ -72,7 +72,8 @@ export class QuestionnaireDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private waitingService: WaitingService
   ) {
-    this.fetchQuestions();
+    // this.fetchQuestions();
+    this.dataIsLoaded = true;
   }
 
   /**
