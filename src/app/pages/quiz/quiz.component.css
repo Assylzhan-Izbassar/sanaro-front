@@ -26,9 +26,6 @@
 .quiz__content > *:last-child {
   margin-top: 70px;
 }
-
-.quiz__header {
-}
 .header {
   display: flex;
   align-items: center;
@@ -37,8 +34,6 @@
   font-weight: 700;
   font-size: 84px;
   line-height: calc(57 / 48 * 100%);
-}
-.header__bar {
 }
 .bar {
   display: flex;
@@ -52,23 +47,13 @@
 .bar__item:not(:last-child) {
   margin-right: 30px;
 }
-
-.quiz__task {
-}
-.quiz__question {
-}
-.question {
-}
 .question__text {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -1.5%;
 }
-
 .quiz__answers {
   margin-top: 20px;
-}
-.answer {
 }
 .answer > *:not(:last-child) {
   margin-bottom: 10px;
@@ -85,7 +70,6 @@
   align-items: center;
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: -1.5%;
 }
 
 /* RADIO INPUT */

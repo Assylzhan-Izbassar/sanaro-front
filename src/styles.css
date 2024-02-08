@@ -209,7 +209,7 @@ img {
 }
 ._dialog-container {
   max-width: 561.6px;
-  padding: 53.5px 37.44px;
+  padding: 50px 50px;
   margin: 0 auto;
   box-sizing: content-box;
 }
@@ -243,10 +243,6 @@ img {
 }
 
 /* MODAL INPUT */
-.dialog__inputs {
-  margin-top: 32px;
-}
-
 .dialog__inputs > *:not(:last-child) {
   margin-bottom: 12px;
 }
@@ -268,6 +264,7 @@ img {
   border-radius: 16px;
   padding: 21px 24px;
   background-color: var(--secondary-bg-color);
+  box-sizing: border-box;
 }
 
 .dialog__input,
@@ -283,6 +280,7 @@ img {
 /* DIALOG ACTION */
 .dialog__btn {
   margin-top: 24px;
+  box-sizing: border-box;
 }
 
 .btn_full-width {

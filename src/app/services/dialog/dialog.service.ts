@@ -8,6 +8,7 @@ import { RegisterDialogComponent } from 'src/app/pages/register-dialog/register-
 import { GreetingDialogComponent } from 'src/app/pages/greeting-dialog/greeting-dialog.component';
 import { ConfirmDialogComponent } from 'src/app/pages/confirm-dialog/confirm-dialog.component';
 import { QuizComponent } from 'src/app/pages/quiz/quiz.component';
+import { QuizEndComponent } from 'src/app/pages/quiz-end/quiz-end.component';
 
 @Injectable({
   providedIn: 'root',
@@ -59,6 +60,17 @@ export class DialogService {
    */
   openQuizDialog(data: any): void {
     this.dialogRef = this.dialog.open(QuizComponent, {
+      panelClass: 'custom-modalbox',
+      data: data,
+    });
+  }
+
+  /**
+   * Opens quiz-end dialog.
+   * @param data - Can be any data that should represent mat-dialog.
+   */
+  openQuizEndDialog(data: any): void {
+    this.dialogRef = this.dialog.open(QuizEndComponent, {
       panelClass: 'custom-modalbox',
       data: data,
     });

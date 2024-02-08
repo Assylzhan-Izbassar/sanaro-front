@@ -1,0 +1,113 @@
+<div class="dialog">
+  <div class="_dialog-container">
+    <div class="dialog__inner">
+      <div class="dialog__header">
+        <h1 class="dialog__title">
+          Получите образцы вкусного коктеля прямо сейчас
+        </h1>
+      </div>
+      <form
+        [formGroup]="userInfoForm"
+        (ngSubmit)="sendInfo()"
+        class="dialog__form form"
+      >
+        <div class="dialog__inputs">
+          <div class="dialog__item">
+            <label for="username" class="dialog__label">Имя</label>
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="username"
+              placeholder="Ваше имя"
+            />
+          </div>
+          <div
+            *ngIf="
+              userInfoForm.get('username')?.hasError('required') &&
+              userInfoForm.get('username')?.touched
+            "
+            class="validation call__validation"
+          >
+            Имя обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              userInfoForm.get('username')?.hasError('minlength') &&
+              userInfoForm.get('username')?.touched
+            "
+            class="validation call__validation"
+          >
+            Имя должен быть больше 3 символов
+          </div>
+
+          <div class="dialog__item">
+            <label for="phoneNumber" class="dialog__label"
+              >Номер телефона</label
+            >
+            <input
+              type="text"
+              class="dialog__input"
+              formControlName="phoneNumber"
+              placeholder="+7 (7xx) xxx-xx-xx"
+            />
+          </div>
+          <div
+            *ngIf="
+              userInfoForm.get('phoneNumber')?.hasError('required') &&
+              userInfoForm.get('phoneNumber')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона обязательное для заполнение
+          </div>
+          <div
+            *ngIf="
+              userInfoForm.get('phone_number')?.hasError('minlength') &&
+              userInfoForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона не должен быть меньше 10 символов
+          </div>
+          <div
+            *ngIf="
+              userInfoForm.get('phone_number')?.hasError('maxlength') &&
+              userInfoForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона не должен быть больше 12 символов
+          </div>
+          <div
+            *ngIf="
+              userInfoForm.get('phone_number')?.hasError('pattern') &&
+              userInfoForm.get('phone_number')?.touched
+            "
+            class="validation call__validation"
+          >
+            Номер телефона должен быть в формате +77xxxxxxxxx или 7xxxxxxxxx и
+            иметь только числа
+          </div>
+
+          <hr class="dialog__divide" />
+
+          <div class="dialog__item dialog__item_checkbox">
+            <input
+              type="checkbox"
+              class="dialog__input dialog__input_checkbox"
+              formControlName="isChecked"
+            />
+            <label for="isChecked" class="dialog__label dialog__label_checkbox"
+              >Мне нужна консультация</label
+            >
+          </div>
+        </div>
+        <div class="dialog__btn">
+          <button type="submit" class="btn btn_full-width">
+            Получить образцы!
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

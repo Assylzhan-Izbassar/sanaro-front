@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { quiz } from 'src/app/models/question.model';
+import { DialogService } from 'src/app/services/dialog/dialog.service';
 
 @Component({
   selector: 'app-quiz',
@@ -14,6 +15,8 @@ export class QuizComponent implements OnInit, AfterViewInit {
   prevBtn?: Element;
   nextBtn?: Element;
   barItems?: HTMLCollectionOf<Element>;
+
+  constructor(private dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
@@ -49,44 +52,51 @@ export class QuizComponent implements OnInit, AfterViewInit {
    * Switch to the next question.
    */
   next() {
-    if (this.quiz[this.currentQuestion].question.selected != -1) {
-      if (this.currentQuestion != this.quiz.length - 1) {
-        this.currentQuestion++;
-      }
-      if (this.currentQuestion > 0) {
-        this.prevBtn?.classList.remove('_hide');
-      }
-      if (this.currentQuestion == this.quiz.length - 1) {
-        // Here should be code
-      }
-      this.selectedOption = this.quiz[this.currentQuestion].question.selected;
+    setTimeout(() => {
+      if (this.quiz[this.currentQuestion].question.selected != -1) {
+        if (this.currentQuestion == this.quiz.length - 1) {
+          this.dialogService.closeDialog();
+          setTimeout(() => {
+            this.dialogService.openQuizEndDialog({}); // switching to the info collection form dialog.
+          }, 100);
+        }
+        if (this.currentQuestion != this.quiz.length - 1) {
+          this.currentQuestion++;
+        }
+        if (this.currentQuestion > 0) {
+          this.prevBtn?.classList.remove('_hide');
+        }
+        this.selectedOption = this.quiz[this.currentQuestion].question.selected;
 
-      this.barItems?.[this.currentQuestion - 1]!.classList.remove('_active');
-      this.barItems?.[this.currentQuestion]!.classList.add('_active');
+        this.barItems?.[this.currentQuestion - 1]!.classList.remove('_active');
+        this.barItems?.[this.currentQuestion]!.classList.add('_active');
 
-      this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
-    }
+        this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
+      }
+    }, 100);
   }
 
   /**
    * Switch to the previous question.
    */
   prev() {
-    if (this.currentQuestion > 0) {
-      this.currentQuestion--;
-      this.selectedOption = this.quiz[this.currentQuestion].question.selected;
+    setTimeout(() => {
+      if (this.currentQuestion > 0) {
+        this.currentQuestion--;
+        this.selectedOption = this.quiz[this.currentQuestion].question.selected;
 
-      this.barItems?.[this.currentQuestion]!.classList.add('_active');
-      this.barItems?.[this.currentQuestion + 1]!.classList.remove('_active');
+        this.barItems?.[this.currentQuestion]!.classList.add('_active');
+        this.barItems?.[this.currentQuestion + 1]!.classList.remove('_active');
 
-      this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
-    }
+        this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
+      }
 
-    if (this.currentQuestion < this.quiz.length - 1) {
-      this.nextBtn?.classList.remove('_hide');
-    }
-    if (this.currentQuestion == 0) {
-      this.prevBtn?.classList.add('_hide');
-    }
+      if (this.currentQuestion < this.quiz.length - 1) {
+        this.nextBtn?.classList.remove('_hide');
+      }
+      if (this.currentQuestion == 0) {
+        this.prevBtn?.classList.add('_hide');
+      }
+    }, 100);
   }
 }

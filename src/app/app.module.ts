@@ -34,6 +34,7 @@ import { CertificatesComponent } from './pages/certificates/certificates.compone
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { MainComponent } from './pages/main/main.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
+import { QuizEndComponent } from './pages/quiz-end/quiz-end.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { QuizComponent } from './pages/quiz/quiz.component';
     ThankYouComponent,
     MainComponent,
     QuizComponent,
+    QuizEndComponent,
   ],
   imports: [
     BrowserModule,
