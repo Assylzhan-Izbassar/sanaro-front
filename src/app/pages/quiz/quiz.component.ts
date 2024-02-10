@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { quiz } from 'src/app/models/question.model';
+import { WaitingService } from 'src/app/services/core/waiting.service';
 import { DialogService } from 'src/app/services/dialog/dialog.service';
+import { QuestionsService } from 'src/app/services/questions/questions.service';
 
 @Component({
   selector: 'app-quiz',
@@ -11,32 +12,51 @@ export class QuizComponent implements OnInit, AfterViewInit {
   selectedOption: number = -1;
   currentQuestion: number = 0;
   currentImgUrl: string = '';
-  quiz: any = quiz;
+  quiz: any;
   prevBtn?: Element;
   nextBtn?: Element;
   barItems?: HTMLCollectionOf<Element>;
 
-  constructor(private dialogService: DialogService) {}
+  constructor(
+    private dialogService: DialogService,
+    private questionsService: QuestionsService,
+    private waitingService: WaitingService
+  ) {}
 
   ngOnInit(): void {
-    this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
+    this.fetchData();
+
+    setTimeout(() => {
+      if (this.quiz) {
+        this.currentImgUrl = this.quiz[this.currentQuestion].img_url;
+      }
+    }, 100);
   }
 
   ngAfterViewInit(): void {
-    this.prevBtn = document.getElementsByClassName(
-      'quiz__btn_prev'
-    )[0] as Element;
-    this.prevBtn.classList.add('_hide');
+    setTimeout(() => {
+      if (this.quiz) {
+        this.prevBtn = document.getElementsByClassName(
+          'quiz__btn_prev'
+        )[0] as Element;
+        this.prevBtn.classList.add('_hide');
 
-    this.nextBtn = document.getElementsByClassName(
-      'quiz__btn_next'
-    )[0] as Element;
+        this.nextBtn = document.getElementsByClassName(
+          'quiz__btn_next'
+        )[0] as Element;
 
-    this.barItems = document.getElementsByClassName('bar__item');
-    const firstBarItem = this.barItems[this.currentQuestion];
-    firstBarItem.classList.add('_active');
+        this.barItems = document.getElementsByClassName('bar__item');
+        const firstBarItem = this.barItems[this.currentQuestion];
+        firstBarItem.classList.add('_active');
 
-    this.selectedOption = this.quiz[this.currentQuestion].question.selected;
+        this.selectedOption = this.quiz[this.currentQuestion].selected;
+      }
+    }, 100);
+  }
+
+  async fetchData() {
+    const p = this.questionsService.getQuestions();
+    this.quiz = await this.waitingService.waitFor(p);
   }
 
   /**
@@ -44,7 +64,7 @@ export class QuizComponent implements OnInit, AfterViewInit {
    * @param option - Option id that is selected.
    */
   onSelectOption(option: number): void {
-    this.quiz[this.currentQuestion].question.selected = option;
+    this.quiz[this.currentQuestion].selected = option;
     this.selectedOption = option;
   }
 
@@ -53,11 +73,11 @@ export class QuizComponent implements OnInit, AfterViewInit {
    */
   next() {
     setTimeout(() => {
-      if (this.quiz[this.currentQuestion].question.selected != -1) {
+      if (this.quiz[this.currentQuestion].selected != -1) {
         if (this.currentQuestion == this.quiz.length - 1) {
           this.dialogService.closeDialog();
           setTimeout(() => {
-            this.dialogService.openQuizEndDialog({}); // switching to the info collection form dialog.
+            this.dialogService.openQuizEndDialog({ data: this.quiz }); // switching to the info collection form dialog.
           }, 100);
         }
         if (this.currentQuestion != this.quiz.length - 1) {
@@ -66,12 +86,12 @@ export class QuizComponent implements OnInit, AfterViewInit {
         if (this.currentQuestion > 0) {
           this.prevBtn?.classList.remove('_hide');
         }
-        this.selectedOption = this.quiz[this.currentQuestion].question.selected;
+        this.selectedOption = this.quiz[this.currentQuestion].selected;
 
         this.barItems?.[this.currentQuestion - 1]!.classList.remove('_active');
         this.barItems?.[this.currentQuestion]!.classList.add('_active');
 
-        this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
+        this.currentImgUrl = this.quiz[this.currentQuestion].img_url;
       }
     }, 100);
   }
@@ -83,12 +103,12 @@ export class QuizComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       if (this.currentQuestion > 0) {
         this.currentQuestion--;
-        this.selectedOption = this.quiz[this.currentQuestion].question.selected;
+        this.selectedOption = this.quiz[this.currentQuestion].selected;
 
         this.barItems?.[this.currentQuestion]!.classList.add('_active');
         this.barItems?.[this.currentQuestion + 1]!.classList.remove('_active');
 
-        this.currentImgUrl = this.quiz[this.currentQuestion].question.img_url;
+        this.currentImgUrl = this.quiz[this.currentQuestion].img_url;
       }
 
       if (this.currentQuestion < this.quiz.length - 1) {

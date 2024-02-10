@@ -59,7 +59,10 @@
 .proof__item {
   font-weight: 400;
   flex: 0 1 50%;
-  text-align: center;
+}
+
+.proof__item > *:not(:last-child) {
+  margin-left: 20px;
 }
 
 .hero__img {

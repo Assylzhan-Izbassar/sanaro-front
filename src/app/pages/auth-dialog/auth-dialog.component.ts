@@ -4,7 +4,6 @@ import { DialogService } from '../../services/dialog/dialog.service';
 import { SharedService } from '../../services/core/shared.service';
 import { DIRECTORY } from '../../models/directory.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { QuestionnaireResponseService } from '../../services/questionnaire-response/questionnaire-response.service';
 import { WaitingService } from '../../services/core/waiting.service';
 
 @Component({
@@ -22,7 +21,6 @@ export class AuthDialogComponent {
     private waitingService: WaitingService,
     private dialogService: DialogService,
     private sharedService: SharedService,
-    private questionnareResponseService: QuestionnaireResponseService,
     private fb: FormBuilder
   ) {
     this.authForm = this.fb.group({
@@ -69,12 +67,9 @@ export class AuthDialogComponent {
 
             // sending collected questionnaire responses
             if (this.user_id) {
-              let response =
-                this.questionnareResponseService.postQuestionnaireResponses(
-                  this.user_id
-                ); // sending questionnaire responses to the server
+              // sending questionnaire responses to the server
               if (response) {
-                this.dialogService.openConfirmDialog({}); // opens confirmation dialog
+                // !!!
               } else {
                 this.dialogService.openNotifyDialog(
                   true,

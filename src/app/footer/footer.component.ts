@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EmailsService } from '../services/emails/emails.service';
 import { DialogService } from '../services/dialog/dialog.service';
 import { DIRECTORY } from '../models/directory.model';
 
@@ -11,29 +10,13 @@ import { DIRECTORY } from '../models/directory.model';
 export class FooterComponent {
   emailValue: string = '';
 
-  constructor(
-    private emailsService: EmailsService,
-    private dialogService: DialogService
-  ) {}
+  constructor(private dialogService: DialogService) {}
 
   /**
    * Method then creates newsletter for the email to the user.
    */
   onEmailSent(): void {
     if (this.emailValue && this.isEmail(this.emailValue)) {
-      this.emailsService
-        .postEmailNewsletters({ email: this.emailValue })
-        .subscribe({
-          next: () => {
-            this.dialogService.openNotifyDialog(false, DIRECTORY.call_back);
-          },
-          error: () => {
-            this.dialogService.openNotifyDialog(
-              true,
-              DIRECTORY.error_sending_call_request
-            );
-          },
-        });
     } else {
       this.dialogService.openNotifyDialog(
         true,

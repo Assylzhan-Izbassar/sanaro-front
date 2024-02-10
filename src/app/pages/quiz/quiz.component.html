@@ -1,4 +1,4 @@
-<div class="quiz">
+<div class="quiz" *ngIf="quiz">
   <div class="quiz__container">
     <div class="quiz__content">
       <div class="quiz__header header">
@@ -10,7 +10,7 @@
       <div class="quiz__task">
         <div class="quiz__question question">
           <h2 class="question__text">
-            {{ quiz[currentQuestion].question.text }}
+            {{ quiz[currentQuestion].text }}
           </h2>
         </div>
         <div

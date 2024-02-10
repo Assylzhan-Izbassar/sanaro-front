@@ -19,7 +19,6 @@ import { InnovationComponent } from './pages/innovation/innovation.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { SetsComponent } from './pages/sets/sets.component';
 import { AuthDialogComponent } from './pages/auth-dialog/auth-dialog.component';
-import { QuestionnaireDialogComponent } from './pages/questionnaire-dialog/questionnaire-dialog.component';
 import { NumbersComponent } from './pages/numbers/numbers.component';
 import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
 import { HandleObjComponent } from './pages/handle-obj/handle-obj.component';
@@ -29,7 +28,6 @@ import { NotifyDialogComponent } from './pages/notify-dialog/notify-dialog.compo
 import { CallRequestDialogComponent } from './pages/call-request-dialog/call-request-dialog.component';
 import { RegisterDialogComponent } from './pages/register-dialog/register-dialog.component';
 import { GreetingDialogComponent } from './pages/greeting-dialog/greeting-dialog.component';
-import { ConfirmDialogComponent } from './pages/confirm-dialog/confirm-dialog.component';
 import { CertificatesComponent } from './pages/certificates/certificates.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { MainComponent } from './pages/main/main.component';
@@ -46,18 +44,15 @@ import { QuizEndComponent } from './pages/quiz-end/quiz-end.component';
     FeaturesComponent,
     SetsComponent,
     AuthDialogComponent,
-    QuestionnaireDialogComponent,
     NumbersComponent,
     TestimonialsComponent,
     HandleObjComponent,
     LastCallComponent,
     FooterComponent,
-    QuestionnaireDialogComponent,
     NotifyDialogComponent,
     CallRequestDialogComponent,
     RegisterDialogComponent,
     GreetingDialogComponent,
-    ConfirmDialogComponent,
     CertificatesComponent,
     ThankYouComponent,
     MainComponent,

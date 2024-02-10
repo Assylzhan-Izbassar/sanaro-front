@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthDialogComponent } from '../../pages/auth-dialog/auth-dialog.component';
-import { QuestionnaireDialogComponent } from 'src/app/pages/questionnaire-dialog/questionnaire-dialog.component';
 import { NotifyDialogComponent } from 'src/app/pages/notify-dialog/notify-dialog.component';
 import { CallRequestDialogComponent } from 'src/app/pages/call-request-dialog/call-request-dialog.component';
 import { RegisterDialogComponent } from 'src/app/pages/register-dialog/register-dialog.component';
 import { GreetingDialogComponent } from 'src/app/pages/greeting-dialog/greeting-dialog.component';
-import { ConfirmDialogComponent } from 'src/app/pages/confirm-dialog/confirm-dialog.component';
 import { QuizComponent } from 'src/app/pages/quiz/quiz.component';
 import { QuizEndComponent } from 'src/app/pages/quiz-end/quiz-end.component';
 
@@ -24,35 +22,6 @@ export class DialogService {
   }
 
   constructor(private dialog: MatDialog) {}
-
-  /**
-   * Opens authentication dialog.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openDialog(data: any): void {
-    if (localStorage.getItem('jwtToken')) {
-      this.openQuestionnaireDialog(data);
-    } else {
-      this.openAuthDialog(data);
-    }
-    if (this.dialogRef) {
-      this.dialogRef.afterClosed().subscribe(() => {
-        // Handle any action after the dialog is closed
-      });
-    }
-  }
-
-  /**
-   * Opens questionnaire dialog.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openQuestionnaireDialog(data: any): void {
-    this.dialogRef = this.dialog.open(QuestionnaireDialogComponent, {
-      panelClass: 'custom-modalbox',
-      // width: '50vw',
-      data: data,
-    });
-  }
 
   /**
    * Opens quiz dialog.
@@ -145,18 +114,6 @@ export class DialogService {
    */
   openGreetingDialog(data: any) {
     this.dialogRef = this.dialog.open(GreetingDialogComponent, {
-      panelClass: 'custom-modalbox',
-      // width: '50vw',
-      data: data,
-    });
-  }
-
-  /**
-   * Opens confirmation dialog of user's email address to send the questionnaire result.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openConfirmDialog(data: any) {
-    this.dialogRef = this.dialog.open(ConfirmDialogComponent, {
       panelClass: 'custom-modalbox',
       // width: '50vw',
       data: data,
