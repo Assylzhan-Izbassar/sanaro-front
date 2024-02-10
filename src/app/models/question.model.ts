@@ -25,9 +25,9 @@ export class Question {
 
   constructor(data: QuestionData) {
     if (!data.id) {
-        this._id = Question.count++;
+      this._id = Question.count++;
     } else {
-        this._id = data.id;
+      this._id = data.id;
     }
     this._question_text = data.question_text;
   }

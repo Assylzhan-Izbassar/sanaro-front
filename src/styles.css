@@ -163,19 +163,22 @@ img {
   background-color: var(--btn-bg-color);
   border-width: 0px;
   border-radius: 68.485px;
-  padding: 17px 58px;
+  padding: 17px 48px;
   font-size: 18px;
   font-weight: 400;
   line-height: calc(27 / 18 * 100%);
-  letter-spacing: -0.32px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.5s;
+  transform: translateY(-4px);
+  box-shadow: -5px 6px #ff6868;
 }
 
 .btn_sb {
   font-size: 16px;
   line-height: calc(24 / 16 * 100%);
-  letter-spacing: -0.36px;
+  letter-spacing: 1px;
   cursor: pointer;
 }
 
@@ -183,8 +186,7 @@ img {
 .btn_sb:hover {
   background-color: var(--secondary-bg-color);
   color: var(--btn-bg-color);
-  padding: 15px 56px;
-  transition: background-color 0.3s;
+  padding: 15px 46px;
   border: 2px solid var(--btn-bg-color);
 }
 
@@ -207,7 +209,7 @@ img {
 }
 ._dialog-container {
   max-width: 561.6px;
-  padding: 53.5px 37.44px;
+  padding: 50px 50px;
   margin: 0 auto;
   box-sizing: content-box;
 }
@@ -241,10 +243,6 @@ img {
 }
 
 /* MODAL INPUT */
-.dialog__inputs {
-  margin-top: 32px;
-}
-
 .dialog__inputs > *:not(:last-child) {
   margin-bottom: 12px;
 }
@@ -266,6 +264,7 @@ img {
   border-radius: 16px;
   padding: 21px 24px;
   background-color: var(--secondary-bg-color);
+  box-sizing: border-box;
 }
 
 .dialog__input,
@@ -281,6 +280,7 @@ img {
 /* DIALOG ACTION */
 .dialog__btn {
   margin-top: 24px;
+  box-sizing: border-box;
 }
 
 .btn_full-width {
