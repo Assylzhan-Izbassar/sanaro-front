@@ -56,7 +56,7 @@ export class GreetingDialogComponent {
   }
 
   onNext() {
-    if (this.currDataIdx + 1 < this.greetings.length - 1) {
+    if (this.currDataIdx < this.greetings.length - 1) {
       this.slideState = 'out';
 
       setTimeout(() => {

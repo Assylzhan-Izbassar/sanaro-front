@@ -9,6 +9,7 @@
   flex: 1 1 100%;
   position: relative;
   align-items: center;
+  text-decoration: underline;
 }
 
 .dialog__label_checkbox::before {
