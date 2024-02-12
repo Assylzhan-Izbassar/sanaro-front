@@ -176,12 +176,11 @@
     flex-wrap: wrap;
     margin-top: 16px;
   }
-  .hero__button > *:first-child {
-    display: block;
-    width: 100%;
+  .hero__button button {
     margin: 10px 0;
-    font-size: 12px;
-    padding: 17px 20px;
+  }
+  .hero__button:not(:last-child) {
+    margin-right: 10px;
   }
   .hero__proof {
     margin: 0 auto;

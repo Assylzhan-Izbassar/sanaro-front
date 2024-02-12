@@ -8,9 +8,6 @@ import { phoneNumber } from 'src/app/models/base.model';
   styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent {
-  body: Element = document.body;
-  phoneNumber: string = phoneNumber;
-
   constructor(private dialogService: DialogService) {}
 
   /**
