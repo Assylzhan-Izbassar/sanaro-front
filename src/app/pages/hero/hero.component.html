@@ -5,25 +5,53 @@
         <h1 class="hero__title">
           Утренний заряд вкусного коктейля для сбалансированного питания
         </h1>
-        <div class="hero__text text">
-          <p class="text__item">
-            Пройдите квиз и получите
-            <span class="highlight">2 образца</span> продукции за
-            <span class="highlight">0 тенге</span>.
-          </p>
-          <p class="text__item text__item_need">
-            Мы выделили
-            <span class="invert-highlight">30 бесплатных</span> образцов. На
-            данный момент осталось всего
-            <span class="invert-highlight">16</span>
-          </p>
+        <div *ngIf="body.classList.contains('_pc'); else noCallPc">
+          <div class="hero__text text">
+            <p class="text__item">
+              Пройдите квиз и получите
+              <span class="highlight">2 образца</span> продукции за
+              <span class="highlight">0 тенге</span>.
+            </p>
+            <p class="text__item text__item_need">
+              Мы выделили
+              <span class="invert-highlight">30 бесплатных</span> образцов. На
+              данный момент осталось всего
+              <span class="invert-highlight">16</span>
+            </p>
+          </div>
         </div>
+
+        <ng-template #noCallPc>
+          <div class="hero__text text">
+            <p class="text__item">
+              Позвоните нам и получите
+              <span class="highlight">2 образца</span> продукции за
+              <span class="highlight">0 тенге</span>.
+            </p>
+            <p class="text__item text__item_need">
+              Мы выделили
+              <span class="invert-highlight">30 бесплатных</span> образцов. На
+              данный момент осталось всего
+              <span class="invert-highlight">16</span>
+            </p>
+          </div>
+        </ng-template>
       </div>
       <div class="hero__action">
         <div class="hero__button">
-          <button class="btn" (click)="openGreetingDialog()">
+          <div *ngIf="body.classList.contains('_pc'); else noBtnCallPc">
+            <button class="btn" (click)="openGreetingDialog()">
+              Получить образцы бесплатно
+            </button>
+          </div>
+          <ng-template #noBtnCallPc>
+            <a href="tel:{{ phoneNumber }}" class="btn">
+              Получить образцы бесплатно
+            </a>
+          </ng-template>
+          <!-- <button class="btn" (click)="openGreetingDialog()">
             Получить образцы бесплатно
-          </button>
+          </button> -->
         </div>
         <div class="hero__proof proof">
           <p class="proof__item">

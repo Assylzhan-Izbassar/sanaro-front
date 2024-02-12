@@ -173,6 +173,7 @@ img {
   transition: background-color 0.5s;
   transform: translateY(-4px);
   box-shadow: -5px 6px #ff6868;
+  box-sizing: border-box;
 }
 
 .btn_sb {
