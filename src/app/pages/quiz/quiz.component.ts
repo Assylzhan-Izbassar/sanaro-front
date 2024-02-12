@@ -29,16 +29,12 @@ export class QuizComponent implements OnInit, AfterViewInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    console.log('here 1');
     await this.fetchData();
-    console.log('here 2');
     this.currentImgUrl = this.quiz[this.currentQuestion].img_url;
     this.selectedOption = this.quiz[this.currentQuestion].selected;
-    console.log('here 3');
   }
 
   ngAfterViewInit(): void {
-    console.log('ng after 1');
     setTimeout(() => {
       this.prevBtn = document.getElementsByClassName(
         'quiz__btn_prev'
@@ -52,15 +48,12 @@ export class QuizComponent implements OnInit, AfterViewInit {
       this.barItems = document.getElementsByClassName('bar__item');
       const firstBarItem = this.barItems[this.currentQuestion];
       firstBarItem.classList.add('_active');
-    }, 500);
-    console.log('ng after 2');
+    }, 1000);
   }
 
   async fetchData() {
-    console.log('fetch 1');
     const p = this.questionsService.getQuestions();
     this.quiz = await this.waitingService.waitFor(p);
-    console.log('fetch 2');
   }
 
   /**
