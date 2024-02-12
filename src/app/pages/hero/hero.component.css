@@ -31,11 +31,11 @@
   color: #ff6868;
   font-weight: 700;
   font-size: 25px;
+  line-height: calc(23 / 16 * 100%);
 }
 
 .text__item_need {
   margin-top: 10px;
-  font-size: 24px;
 }
 
 .highlight,
@@ -99,7 +99,7 @@
     font-size: calc(16 / 16 * 100%);
     line-height: calc(18 / 16 * 100%);
   }
-  .hero__button button {
+  .hero__button > *:first-child {
     flex: 1 0 auto;
     font-size: calc(14 / 16 * 100%);
   }
@@ -126,7 +126,7 @@
   .hero__button {
     margin-top: 52px;
   }
-  .hero__button button {
+  .hero__button > *:first-child {
     flex: 1 0 auto;
     font-size: calc(14 / 16 * 100%);
   }
@@ -150,18 +150,41 @@
     padding: 70px 0;
   }
   .hero__title {
-    font-size: calc(38 / 16 * 100%);
+    font-size: calc(30 / 16 * 100%);
   }
+
+  .highlight,
+  .text__item_need {
+    color: #ff4f4f;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(18 / 16 * 100%);
+  }
+
+  .text__item_need {
+    margin-top: 10px;
+  }
+
+  .hero__action {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 460px;
+  }
+
   .hero__button {
     flex-wrap: wrap;
     margin-top: 16px;
   }
-  .hero__button button {
+
+  .hero__button > *:first-child {
+    display: block;
+    width: 100%;
     margin: 10px 0;
+    font-size: 12px;
+    padding: 17px 20px;
   }
-  .hero__button:not(:last-child) {
-    margin-right: 10px;
-  }
+
   .hero__proof {
     margin: 0 auto;
     font-size: calc(12 / 16 * 100%);

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DialogService } from '../../services/dialog/dialog.service';
+import { phoneNumber } from 'src/app/models/base.model';
 
 @Component({
   selector: 'app-hero',
@@ -7,6 +8,9 @@ import { DialogService } from '../../services/dialog/dialog.service';
   styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent {
+  phoneNumber: string = phoneNumber;
+  body: Element = document.body;
+
   constructor(private dialogService: DialogService) {}
 
   /**
