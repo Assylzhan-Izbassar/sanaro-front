@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { WaitingService } from 'src/app/services/core/waiting.service';
 import { DialogService } from 'src/app/services/dialog/dialog.service';
 import { QuestionsService } from 'src/app/services/questions/questions.service';
@@ -23,40 +28,39 @@ export class QuizComponent implements OnInit, AfterViewInit {
     private waitingService: WaitingService
   ) {}
 
-  ngOnInit(): void {
-    this.fetchData();
-
-    setTimeout(() => {
-      if (this.quiz) {
-        this.currentImgUrl = this.quiz[this.currentQuestion].img_url;
-      }
-    }, 100);
+  async ngOnInit(): Promise<void> {
+    console.log('here 1');
+    await this.fetchData();
+    console.log('here 2');
+    this.currentImgUrl = this.quiz[this.currentQuestion].img_url;
+    this.selectedOption = this.quiz[this.currentQuestion].selected;
+    console.log('here 3');
   }
 
   ngAfterViewInit(): void {
+    console.log('ng after 1');
     setTimeout(() => {
-      if (this.quiz) {
-        this.prevBtn = document.getElementsByClassName(
-          'quiz__btn_prev'
-        )[0] as Element;
-        this.prevBtn.classList.add('_hide');
+      this.prevBtn = document.getElementsByClassName(
+        'quiz__btn_prev'
+      )[0] as Element;
+      this.prevBtn.classList.add('_hide');
 
-        this.nextBtn = document.getElementsByClassName(
-          'quiz__btn_next'
-        )[0] as Element;
+      this.nextBtn = document.getElementsByClassName(
+        'quiz__btn_next'
+      )[0] as Element;
 
-        this.barItems = document.getElementsByClassName('bar__item');
-        const firstBarItem = this.barItems[this.currentQuestion];
-        firstBarItem.classList.add('_active');
-
-        this.selectedOption = this.quiz[this.currentQuestion].selected;
-      }
-    }, 100);
+      this.barItems = document.getElementsByClassName('bar__item');
+      const firstBarItem = this.barItems[this.currentQuestion];
+      firstBarItem.classList.add('_active');
+    }, 500);
+    console.log('ng after 2');
   }
 
   async fetchData() {
+    console.log('fetch 1');
     const p = this.questionsService.getQuestions();
     this.quiz = await this.waitingService.waitFor(p);
+    console.log('fetch 2');
   }
 
   /**
