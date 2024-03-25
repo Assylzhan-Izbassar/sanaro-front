@@ -33,6 +33,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { MainComponent } from './pages/main/main.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuizEndComponent } from './pages/quiz-end/quiz-end.component';
+import { ProblemComponent } from './pages/problem/problem.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { QuizEndComponent } from './pages/quiz-end/quiz-end.component';
     MainComponent,
     QuizComponent,
     QuizEndComponent,
+    ProblemComponent,
   ],
   imports: [
     BrowserModule,
