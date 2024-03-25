@@ -1,12 +1,12 @@
 :root {
-  --header-bg-color: #ffffec;
-  --certificates-bg-color: #ffffec;
-  --main-bg-color: #f1e4c3;
-  --secondary-bg-color: #f7db6a;
+  --header-bg-color: #ffff;
+  --certificates-bg-color: #fff;
+  --main-bg-color: #fecea8;
+  --secondary-bg-color: #ff847c;
   --stroke-bg-color: #d6d2d4;
-  --btn-bg-color: #7aa874;
-  --canvas-bg-color: rgba(247, 219, 106, 0.93);
-  --primary-txt-color: #000000;
+  --btn-bg-color: #2a363b;
+  --canvas-bg-color: rgba(255, 132, 124, 0.97);
+  --primary-txt-color: #2a363b;
   --secondary-txt-color: #090909;
   --subheading-txt-color: rgba(0, 0, 0, 0.62);
   --line-bg-color: rgba(0, 0, 0, 0.3);
@@ -170,7 +170,7 @@ img {
   cursor: pointer;
   transition: background-color 0.5s;
   transform: translateY(-4px);
-  box-shadow: -5px 6px #ff6868;
+  box-shadow: -5px 6px #fecea8;
   box-sizing: border-box;
 
   animation: beating 3.8s infinite linear;

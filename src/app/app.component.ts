@@ -1,4 +1,3 @@
-import { RouterOutlet } from '@angular/router';
 import { isMobile } from './models/base.model';
 import { Component, OnInit } from '@angular/core';
 

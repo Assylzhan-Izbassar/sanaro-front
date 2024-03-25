@@ -1,0 +1,51 @@
+.page__problems {
+  margin-top: 40px;
+}
+
+.problems {
+  padding-top: 30px;
+}
+
+.problems__header {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.problems__header {
+  font-weight: 700;
+  font-size: 35.48px;
+  line-height: calc(40 / 35.48 * 100%);
+}
+
+.problems__text {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(38 / 26 * 100%);
+  text-align: center;
+
+  margin-top: 20px;
+}
+
+@media (max-width: 479px) {
+  .problems__text {
+    font-size: 16px;
+  }
+
+  .page__problems {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .problems__text {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 992px) {
+  .problems__text {
+    font-size: 21px;
+  }
+}

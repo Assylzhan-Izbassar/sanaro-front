@@ -31,20 +31,20 @@
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: var(--stroke-bg-color);
+  background-color: #fff;
 }
 .objections__text {
   flex: 1 1;
   font-size: 18px;
   line-height: calc(28 / 18 * 100%);
+  margin-right: 10px;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+.fa-chevron-right {
   transform: rotate(0deg);
   transition: transform 1.5s ease 0s;
 }
-.material-symbols-outlined._active {
+.fa-chevron-right._active {
   transform: rotate(90deg);
 }
 

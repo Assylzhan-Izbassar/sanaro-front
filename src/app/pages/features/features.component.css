@@ -1,8 +1,5 @@
-.page__features {
-  margin: 80px 0px;
-}
 .features {
-  padding: 60px 0px;
+  padding-bottom: 30px;
 }
 .features__container > *:not(:last-child) {
   margin-bottom: 20px;
@@ -43,7 +40,7 @@
 }
 .features__text {
   font-family: "Inter", sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 400;
   line-height: calc(37 / 26 * 100%);
   text-align: center;
