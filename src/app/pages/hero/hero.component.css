@@ -29,7 +29,7 @@
 
 .highlight,
 .text__item_need {
-  color: #e84a5f;
+  color: var(--certificates-bg-color);
   font-weight: 700;
   font-size: 25px;
   line-height: calc(23 / 16 * 100%);

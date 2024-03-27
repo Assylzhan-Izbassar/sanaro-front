@@ -16,7 +16,7 @@ export class HeroComponent {
   /**
    * Opens a greeting dialog as an initial modal form in the landing.
    */
-  openGreetingDialog(): void {
-    this.dialogService.openGreetingDialog({});
+  openQuizEndDialog(): void {
+    this.dialogService.openQuizEndDialog({ data: null });
   }
 }

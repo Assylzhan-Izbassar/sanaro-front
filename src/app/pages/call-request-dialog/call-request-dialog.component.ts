@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CallsService } from '../../services/calls/calls.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DialogService } from '../../services/dialog/dialog.service';
 import { DIRECTORY } from '../../models/directory.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-call-request-dialog',
@@ -18,7 +19,8 @@ export class CallRequestDialogComponent {
     private service: CallsService,
     private dialog: DialogService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.callRequestForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
@@ -26,11 +28,11 @@ export class CallRequestDialogComponent {
         '',
         [
           Validators.required,
+          Validators.pattern(/^\+?7?\d{10,12}$/),
           Validators.minLength(10),
           Validators.maxLength(12),
         ],
       ],
-      city: ['', [Validators.required, Validators.minLength(3)]],
       reason: ['', []],
     });
   }
@@ -38,22 +40,26 @@ export class CallRequestDialogComponent {
   onSubmit() {
     if (this.callRequestForm.valid) {
       const formData = this.callRequestForm.value;
+      if (this.data['reason']) {
+        formData['reason'] += ' ' + this.data['reason'];
+      }
 
       this.service.postCallRequest(formData).subscribe({
         next: (response: any) => {
           this.dialog.closeDialog();
-          if (response.id) {
-            this.router.navigate(['/thank-you'], { relativeTo: this.route });
-          } else {
-            this.dialog.openNotifyDialog(
-              true,
-              DIRECTORY.error_sending_call_request
-            );
-          }
+          this.router.navigate(['/thank-you'], { relativeTo: this.route });
         },
-        error: (error) =>
-          console.log('Error when creating call request', error),
+        error: (error) => {
+          console.log('Error when creating call request', error);
+          this.dialog.closeDialog();
+          this.dialog.openNotifyDialog(
+            true,
+            DIRECTORY.error_sending_call_request
+          );
+        },
       });
+    } else {
+      console.log('Invalid form data!');
     }
   }
 }

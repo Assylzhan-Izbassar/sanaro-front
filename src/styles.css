@@ -187,8 +187,7 @@ img {
 .btn_sb:hover {
   background-color: var(--secondary-bg-color);
   color: var(--btn-bg-color);
-  padding: 15px 46px;
-  border: 2px solid var(--btn-bg-color);
+  outline: 2px solid var(--btn-bg-color);
 }
 
 .btn:focus {

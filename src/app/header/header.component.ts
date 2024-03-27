@@ -89,22 +89,6 @@ export class HeaderComponent {
   }
 
   /**
-   * Method when pressed login button.
-   */
-  onLogin(): void {
-    if (this.dialog) {
-      if (this.menuIcon?.classList.contains('_active')) {
-        document.body.classList.remove('_lock');
-        this.menuIcon.classList.remove('_active');
-        this.menuBody?.classList.remove('_active');
-      }
-      setTimeout(() => {
-        this.dialog?.openAuthDialog({});
-      }, 300);
-    }
-  }
-
-  /**
    * Method when pressed logout button.
    */
   onLogout(): void {

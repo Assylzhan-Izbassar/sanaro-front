@@ -3,7 +3,7 @@
     <div class="logo logo_size">sanaro</div>
   </div>
   <div class="header__phone">
-    <a href="tel:{{phoneNumber}}">
+    <a href="tel:{{ phoneNumber }}">
       <i class="fa fa-solid fa-phone"></i>
       <span>Позвонить</span>
     </a>
@@ -30,20 +30,20 @@
         </li>
         <li class="menu__item">
           <a
-            href="#products"
-            class="menu__link"
-            (click)="scrollToFragment('products')"
-          >
-            Ингредиенты
-          </a>
-        </li>
-        <li class="menu__item">
-          <a
             href="#testimonials"
             class="menu__link"
             (click)="scrollToFragment('testimonials')"
           >
             Отзывы
+          </a>
+        </li>
+        <li class="menu__item">
+          <a
+            href="#prices"
+            class="menu__link"
+            (click)="scrollToFragment('prices')"
+          >
+            Цены
           </a>
         </li>
         <li class="menu__item">

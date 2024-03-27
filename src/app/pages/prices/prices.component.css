@@ -1,0 +1,132 @@
+.prices__container {
+  margin-top: 80px;
+  box-sizing: border-box;
+}
+
+.prices__items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.prices__item {
+  max-width: 450px;
+}
+.price-item__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 18px;
+  max-width: 333px;
+  border: 1px solid var(--btn-bg-color);
+  border-radius: 45px;
+  height: 100%;
+  flex: 1;
+}
+
+.price-item:nth-child(2) > .price-item__inner {
+  background-color: var(--secondary-bg-color);
+}
+
+.price-item__header {
+  text-align: center;
+}
+.price-item__main {
+  margin-bottom: 25px;
+}
+.price-item__main > *:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+.price-item__title {
+  font-size: 20px;
+}
+.price-item__price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-item__price span:first-child {
+  font-size: 32px;
+}
+.price-item__price span:last-child {
+  font-size: 24px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+.price-item__text {
+  margin: 0 auto;
+  max-width: 300px;
+  line-height: calc(22 / 16 * 100%);
+  min-height: 66px;
+}
+
+.btn_price {
+  padding: 15px 30px;
+  border-radius: 45.86px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.btn_bg-red {
+  box-shadow: -5px 6px var(--secondary-bg-color);
+}
+
+.price-item__desc {
+  margin-top: 40px;
+}
+.price-item__desc > *:not(:last-child),
+.desc-list > *:not(:last-child) {
+  margin-bottom: 14px;
+}
+.desc-list__item {
+  font-weight: 400;
+  position: relative;
+  padding-left: 20px;
+  line-height: calc(22 / 16 * 100%);
+}
+.desc-list__item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  background-image: url("/assets/core/check_min.svg");
+  overflow: hidden;
+  background-position: center;
+}
+
+/* -------- media queries --------*/
+@media (min-width: 696px) {
+  .prices__items {
+    margin: 0px -15px;
+  }
+  .prices__item {
+    padding: 0px 15px;
+  }
+}
+
+@media (max-width: 1087px) {
+  .prices__items {
+    justify-content: center;
+  }
+  .prices__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .prices__items {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 479px) {
+  .prices__item {
+    min-height: 330px;
+    max-width: 310px;
+  }
+  .prices__item:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
