@@ -23,6 +23,7 @@
           <div class="dialog__item">
             <label for="username" class="dialog__label">Имя</label>
             <input
+              id="username"
               type="text"
               class="dialog__input"
               formControlName="username"
@@ -38,8 +39,11 @@
             </div> -->
           </div>
           <div class="dialog__item">
-            <label for="username" class="dialog__label">Номер телефона</label>
+            <label for="phone_number" class="dialog__label"
+              >Номер телефона</label
+            >
             <input
+              id="phone_number"
               type="text"
               class="dialog__input"
               formControlName="phone_number"
@@ -47,19 +51,11 @@
             />
           </div>
           <div class="dialog__item">
-            <label for="username" class="dialog__label">Город</label>
-            <input
-              type="text"
-              class="dialog__input"
-              formControlName="city"
-              placeholder="Ваш город"
-            />
-          </div>
-          <div class="dialog__item">
-            <label for="username" class="dialog__label"
+            <label for="reason" class="dialog__label"
               >Что хотели бы по подробнее узнать?</label
             >
             <input
+              id="reason"
               type="text"
               class="dialog__input"
               formControlName="reason"

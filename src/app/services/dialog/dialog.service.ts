@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AuthDialogComponent } from '../../pages/auth-dialog/auth-dialog.component';
 import { NotifyDialogComponent } from 'src/app/pages/notify-dialog/notify-dialog.component';
 import { CallRequestDialogComponent } from 'src/app/pages/call-request-dialog/call-request-dialog.component';
-import { RegisterDialogComponent } from 'src/app/pages/register-dialog/register-dialog.component';
-import { GreetingDialogComponent } from 'src/app/pages/greeting-dialog/greeting-dialog.component';
-import { QuizComponent } from 'src/app/pages/quiz/quiz.component';
 import { QuizEndComponent } from 'src/app/pages/quiz-end/quiz-end.component';
 
 @Injectable({
@@ -22,17 +18,6 @@ export class DialogService {
   }
 
   constructor(private dialog: MatDialog) {}
-
-  /**
-   * Opens quiz dialog.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openQuizDialog(data: any): void {
-    this.dialogRef = this.dialog.open(QuizComponent, {
-      panelClass: 'custom-modalbox',
-      data: data,
-    });
-  }
 
   /**
    * Opens quiz-end dialog.
@@ -80,42 +65,6 @@ export class DialogService {
     this.dialogRef = this.dialog.open(NotifyDialogComponent, {
       panelClass: 'custom-modalbox',
       // width: '40vw',
-      data: data,
-    });
-  }
-
-  /**
-   * Opens authentication dialog.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openAuthDialog(data: any): void {
-    this.dialogRef = this.dialog.open(AuthDialogComponent, {
-      panelClass: 'custom-modalbox',
-      // width: '50vw',
-      data: data,
-    });
-  }
-
-  /**
-   * Opens register dialog.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openRegisterDialog(data: any): void {
-    this.dialogRef = this.dialog.open(RegisterDialogComponent, {
-      panelClass: 'custom-modalbox',
-      // width: '50vw',
-      data: data,
-    });
-  }
-
-  /**
-   * Opens greeting dialog.
-   * @param data - Can be any data that should represent mat-dialog.
-   */
-  openGreetingDialog(data: any) {
-    this.dialogRef = this.dialog.open(GreetingDialogComponent, {
-      panelClass: 'custom-modalbox',
-      // width: '50vw',
       data: data,
     });
   }

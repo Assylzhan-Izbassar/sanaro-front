@@ -8,30 +8,26 @@
         <div *ngIf="body.classList.contains('_pc'); else noCallPc">
           <div class="hero__text text">
             <p class="text__item">
-              Пройдите квиз и получите
-              <span class="highlight">2 образца</span> продукции за
-              <span class="highlight">0 тенге</span>.
+              Вы уже через 5 минут после приема Activize почувствуете прилив
+              энергии и улучшение циркуляции крови!
             </p>
             <p class="text__item text__item_need">
-              Мы выделили
-              <span class="invert-highlight">30 бесплатных</span> образцов. На
-              данный момент осталось всего
-              <span class="invert-highlight">14</span>
+              Заполните форму, и получите
+              <span class="invert-highlight">бесплатную</span> дегустацию
+              <span class="invert-highlight">FitLine Activize</span>.
             </p>
           </div>
         </div>
         <ng-template #noCallPc>
           <div class="hero__text text">
             <p class="text__item">
-              Позвоните нам и получите
-              <span class="highlight">2 образца</span> продукции за
-              <span class="highlight">0 тенге</span>.
+              Вы уже через 5 минут после приема Activize почувствуете прилив
+              энергии и улучшение циркуляции крови!
             </p>
             <p class="text__item text__item_need">
-              Мы выделили
-              <span class="invert-highlight">30 бесплатных</span> образцов. На
-              данный момент осталось всего
-              <span class="invert-highlight">16</span>
+              Позвоните нам, чтобы забронировать место для
+              <span class="invert-highlight">бесплатной</span> дегустации
+              <span class="invert-highlight">FitLine Activize</span>.
             </p>
           </div>
         </ng-template>
@@ -39,14 +35,12 @@
       <div class="hero__action">
         <div class="hero__button">
           <div *ngIf="body.classList.contains('_pc'); else noBtnCallPc">
-            <button class="btn" (click)="openGreetingDialog()">
-              Получить образцы бесплатно
+            <button class="btn" (click)="openQuizEndDialog()">
+              Продегустировать!
             </button>
           </div>
           <ng-template #noBtnCallPc>
-            <a href="tel:{{ phoneNumber }}" class="btn">
-              Получить образцы бесплатно
-            </a>
+            <a href="tel:{{ phoneNumber }}" class="btn"> Продегустировать! </a>
           </ng-template>
         </div>
         <div class="hero__proof proof">
