@@ -41,18 +41,32 @@
 }
 .price-item__price {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-.price-item__price span:first-child {
+.price-item__actual span:first-child {
   font-size: 32px;
 }
-.price-item__price span:last-child {
+.price-item__actual span:last-child {
   font-size: 24px;
   font-weight: 400;
   margin-left: 10px;
 }
+
+.price-item__last {
+  color: var(--subheading-txt-color);
+}
+.price-item__last span:first-child {
+  font-size: 18px;
+  text-decoration: line-through;
+}
+.price-item__last span:last-child {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
 .price-item__text {
   margin: 0 auto;
   max-width: 300px;
